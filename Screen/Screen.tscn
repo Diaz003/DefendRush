@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://cal3b06v714u"]
+
+[ext_resource type="Texture2D" uid="uid://demcfgapj7rgp" path="res://Background/Bliss.png" id="1_pr73c"]
+[ext_resource type="Texture2D" uid="uid://dl1rf6ejgoo8g" path="res://Icons/WindowsLogo-small.png" id="2_6imbw"]
+[ext_resource type="Texture2D" uid="uid://3tqjwhpikjhl" path="res://Icons/Volume.png" id="3_7fone"]
+[ext_resource type="Texture2D" uid="uid://difym1mwa6ha8" path="res://Icons/Gmail.png" id="4_occrq"]
+[ext_resource type="Texture2D" uid="uid://cbiylq84es4b6" path="res://Icons/Google.png" id="5_d2kei"]
+[ext_resource type="Texture2D" uid="uid://witomdqutrbe" path="res://Icons/Safari.png" id="6_gg5xf"]
+[ext_resource type="Texture2D" uid="uid://b0f1c27uifxvh" path="res://Icons/PayPal.png" id="7_2sydl"]
+[ext_resource type="Texture2D" uid="uid://dbjoxu7abut3o" path="res://Icons/Steam.png" id="8_hqyi5"]
+[ext_resource type="Texture2D" uid="uid://cfxcmqwqtuvmr" path="res://Icons/Logs.png" id="9_klp1k"]
+[ext_resource type="Texture2D" uid="uid://de7npuq8xxxmn" path="res://Icons/file.png" id="10_ar8j4"]
+[ext_resource type="Texture2D" uid="uid://8dw20qisg6xs" path="res://Icons/Config.png" id="11_7fone"]
+[ext_resource type="Texture2D" uid="uid://cumdydxkjq0nc" path="res://Icons/bin.png" id="12_occrq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
+bg_color = Color(6.906763e-06, 0.57159615, 0.11259986, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+bg_color = Color(0, 0.6, 0.8901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbped"]
+font_size = 25
+outline_size = 2
+shadow_size = 0
+
+[node name="Screen" type="Control" unique_id=1214763542]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Background" type="TextureRect" parent="." unique_id=405231404]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pr73c")
+expand_mode = 1
+
+[node name="Toolbar" type="ColorRect" parent="." unique_id=271852177]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0.3009147, 0.6936739, 1)
+
+[node name="Border" type="Panel" parent="." unique_id=298292768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
+
+[node name="WindowsButtom" type="Panel" parent="." unique_id=1541068250]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -49.0
+offset_right = 154.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qtu10")
+
+[node name="HourBar" type="Panel" parent="." unique_id=2062281677]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -182.0
+offset_top = -48.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ee4bf")
+
+[node name="WindowsIcon" type="TextureRect" parent="." unique_id=823997376]
+custom_minimum_size = Vector2(25.39, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -44.0
+offset_right = 54.0
+offset_bottom = -15.0
+grow_vertical = 0
+texture = ExtResource("2_6imbw")
+expand_mode = 1
+
+[node name="WindowsButtomText" type="HBoxContainer" parent="." unique_id=1942506545]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -48.0
+offset_right = 139.0
+offset_bottom = -13.0
+grow_vertical = 0
+alignment = 1
+
+[node name="Text" type="Label" parent="WindowsButtomText" unique_id=1291251341]
+layout_mode = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_kbped")
+
+[node name="HourText" type="HBoxContainer" parent="." unique_id=926431614]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -41.0
+offset_right = -27.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Text" type="Label" parent="HourText" unique_id=2129611993]
+layout_mode = 2
+text = "12:00"
+
+[node name="Sound" type="Button" parent="." unique_id=1451737078]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -47.0
+offset_right = -83.25488
+offset_bottom = -12.0
+icon = ExtResource("3_7fone")
+flat = true
+expand_icon = true
+
+[node name="Gmail" type="Button" parent="." unique_id=1850465073]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 89.0
+offset_bottom = 88.0
+icon = ExtResource("4_occrq")
+flat = true
+expand_icon = true
+
+[node name="Google" type="Button" parent="." unique_id=753349570]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = 97.0
+offset_right = 88.0
+offset_bottom = 175.0
+icon = ExtResource("5_d2kei")
+flat = true
+expand_icon = true
+
+[node name="Safary" type="Button" parent="." unique_id=1095920289]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 94.0
+offset_top = 11.0
+offset_right = 172.0
+offset_bottom = 89.0
+icon = ExtResource("6_gg5xf")
+flat = true
+expand_icon = true
+
+[node name="Paypal" type="Button" parent="." unique_id=69637026]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 11.0
+offset_right = -11.0
+offset_bottom = 89.0
+icon = ExtResource("7_2sydl")
+flat = true
+expand_icon = true
+
+[node name="Steam" type="Button" parent="." unique_id=1594738851]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 12.0
+offset_right = -94.0
+offset_bottom = 90.0
+icon = ExtResource("8_hqyi5")
+flat = true
+expand_icon = true
+
+[node name="Logs" type="Button" parent="." unique_id=847481302]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -47.0
+offset_right = -129.0
+offset_bottom = -11.0
+icon = ExtResource("9_klp1k")
+flat = true
+expand_icon = true
+
+[node name="File" type="Button" parent="." unique_id=1456613987]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -120.0
+offset_right = 86.0
+offset_bottom = -42.0
+icon = ExtResource("10_ar8j4")
+flat = true
+expand_icon = true
+
+[node name="Config" type="Button" parent="." unique_id=1716332029]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -188.0
+offset_right = 88.0
+offset_bottom = -110.0
+icon = ExtResource("11_7fone")
+flat = true
+expand_icon = true
+
+[node name="Bin" type="Button" parent="." unique_id=151991736]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 10.0
+offset_right = 246.0
+offset_bottom = 88.0
+icon = ExtResource("12_occrq")
+flat = true
+expand_icon = true
