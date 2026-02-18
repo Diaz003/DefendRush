@@ -4,14 +4,25 @@ extends Control
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var title = $Title
 @onready var buttons = $Buttons
+@onready var desktop: Control = $Desktop
 
 func _ready():
 	cam.make_current()
+	desktop.visible = false
 
 func _on_play_button_pressed() -> void:
-	title.visible = false
-	buttons.visible = false
-	anim.play("start_sequence") 
+	$Buttons/PlayButton.disabled = true
+	anim.play("fade_out_ui")  # PRIMERO fade, no start_sequence
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+# Llamado al final de fade_out_ui
+func start_zoom() -> void:
+	title.visible = false
+	buttons.visible = false
+	anim.play("start_sequence")  # AHORA sí el zoom
+
+# Llamado al final de start_sequence
+func start_game() -> void:
+	desktop.visible = true
