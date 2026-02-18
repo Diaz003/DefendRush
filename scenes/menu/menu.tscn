@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://1bgj86mc3ml4"]
+
+[ext_resource type="Script" uid="uid://dpk8eonly7n5l" path="res://scenes/menu/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://g0c5rv03kl0k" path="res://Background/background.png" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://du32nqcljsr2" path="res://Letter/ARCADECLASSIC.TTF" id="3_y1o0p"]
+[ext_resource type="Texture2D" uid="uid://1sv1awgkfif1" path="res://scenes/menu/title.png" id="4_037ec"]
+[ext_resource type="Texture2D" uid="uid://bce2hhs8xc3ts" path="res://UI/Buttons/btn_idle.png" id="4_r8yej"]
+[ext_resource type="Texture2D" uid="uid://bfvxiernd26df" path="res://UI/Buttons/btn_pressed.png" id="5_r8yej"]
+[ext_resource type="Texture2D" uid="uid://cutjcc6arkm5w" path="res://UI/Buttons/btn_hover.png" id="6_3y2rt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3y2rt"]
+texture = ExtResource("4_r8yej")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0a87"]
+texture = ExtResource("5_r8yej")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qo0fc"]
+texture = ExtResource("6_3y2rt")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="Animation_vjb58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_con2f"]
+resource_name = "start_sequence"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-0.5, -65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(7.3, 7.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnvy"]
+_data = {
+&"RESET": SubResource("Animation_vjb58"),
+&"start_sequence": SubResource("Animation_con2f")
+}
+
+[node name="Menu" type="Control" unique_id=1784085653]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="RoomBackground" type="TextureRect" parent="." unique_id=773540218]
+texture_filter = 1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 1835.9446
+offset_bottom = 1026.3179
+scale = Vector2(0.6332258, 0.63311934)
+texture = ExtResource("1_yqeox")
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1855794977]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 330.0
+offset_right = 782.0
+offset_bottom = 590.0
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=2013772538]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "PLAY"
+
+[node name="SettingsButton" type="Button" parent="Buttons" unique_id=1242297505]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="Buttons" unique_id=578243068]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "EXIT"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1243202901]
+position = Vector2(578, 322)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=879940982]
+libraries/ = SubResource("AnimationLibrary_mhnvy")
+
+[node name="ScreenHolder" type="Control" parent="." unique_id=1125121630]
+layout_mode = 1
+anchor_left = 0.432
+anchor_top = 0.32700002
+anchor_right = 0.569
+anchor_bottom = 0.47500002
+offset_left = 0.33599854
+offset_top = 0.10398865
+offset_right = 0.5119629
+offset_bottom = 0.19998169
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1142781767]
+position = Vector2(589, 114.99999)
+scale = Vector2(0.723393, 0.7893617)
+texture = ExtResource("4_037ec")
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_play_button_pressed"]
