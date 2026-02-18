@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://b7twlwjajnm50"]
+
+[ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://Themes/Classic95/Styles/Bars/VGrabber.tres" id="1_u8y55"]
+[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://Themes/Classic95/Styles/General/Box.tres" id="2_e665o"]
+[ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://Letter/W95FA.otf" id="3_e665o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e665o"]
+bg_color = Color(0, 0, 1, 1)
+
+[node name="Guide" type="Control" unique_id=1874069951]
+layout_mode = 3
+anchor_right = 0.26200002
+anchor_bottom = 0.74700004
+offset_right = 0.17596436
+offset_bottom = -0.056030273
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=441518348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_u8y55")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="." unique_id=269120946]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.039
+anchor_right = 0.96800005
+anchor_bottom = 0.98300004
+offset_left = -0.06000042
+offset_top = 11.124001
+offset_right = 0.046325684
+offset_bottom = 0.22796631
+theme_override_styles/panel = ExtResource("2_e665o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="Panel" parent="." unique_id=1575898301]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.010000001
+anchor_right = 0.96700007
+anchor_bottom = 0.056
+offset_left = 0.034000397
+offset_top = 0.15999985
+offset_right = -0.0340271
+offset_bottom = -0.10400009
+theme_override_styles/panel = SubResource("StyleBoxFlat_e665o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel3" unique_id=322967184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_e665o")
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1859026987]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.040000003
+anchor_top = 0.064
+anchor_right = 0.97400004
+anchor_bottom = 0.96900004
+offset_left = -9.080001
+offset_top = 0.02399826
+offset_right = -0.14801025
+offset_bottom = 0.003967285
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=176860446]
+layout_mode = 2
+theme_override_constants/separation = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1759574732]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+text = "WELCOME TO DEFENDRUSH"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=235078397]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 10
+text = "In this document we will teach you everything you need to know to
+manage in this virtual defense game."
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=260444308]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 13
+text = "1. The device password"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=474047846]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 10
+text = "Your computer password is one of the details you'll need to keep in 
+mind if you don't want your computer to be attacked by various 
+enemies trying to disrupt your system.
+
+Current password: ThisIsMyPassword"
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer" unique_id=51765845]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 13
+text = "2. Your defense tools"
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1056442407]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 10
+text = "This system is equipped with various defense tools
+against all types of threats, from a functional antivirus to the ability to 
+modify permissions and files in order to prevent
+major damage to your desktop."
+
+[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer" unique_id=327240014]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 13
+text = "3. System Statistics"
+
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer" unique_id=337915590]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 10
+text = "Some of your enemies will try to destroy your computer from the inside.
+To prevent this, you have the ability to view the workload on both your 
+RAM and CPU.
+
+We recommend that you regularly check these sections to identify 
+potential threats."
+
+[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1863860863]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 13
+text = "4. Recognize your enemies"
+
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1885991848]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e665o")
+theme_override_font_sizes/font_size = 10
+text = "Not all your problems will be solved by simply clicking on your antivirus 
+and praying that suspicious malware disappears. Sometimes, you'll 
+have to identify the type of threat attacking you, how to avoid it, 
+and what you need to do to neutralize it.
+
+For now, that's all you need to know to play DefendRush. We wish you 
+luck, and remember that your computer's security is also 
+your own security."
