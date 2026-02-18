@@ -12,17 +12,15 @@ func _ready():
 
 func _on_play_button_pressed() -> void:
 	$Buttons/PlayButton.disabled = true
-	anim.play("fade_out_ui")  # PRIMERO fade, no start_sequence
+	anim.play("fade_out_ui") 
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
-# Llamado al final de fade_out_ui
 func start_zoom() -> void:
 	title.visible = false
 	buttons.visible = false
-	anim.play("start_sequence")  # AHORA sí el zoom
+	anim.play("start_sequence") 
 
-# Llamado al final de start_sequence
 func start_game() -> void:
 	desktop.visible = true
