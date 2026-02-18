@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cal3b06v714u"]
 
 [ext_resource type="Texture2D" uid="uid://demcfgapj7rgp" path="res://Background/Bliss.png" id="1_pr73c"]
-[ext_resource type="Texture2D" uid="uid://dl1rf6ejgoo8g" path="res://Icons/WindowsLogo-small.png" id="2_6imbw"]
+[ext_resource type="Texture2D" uid="uid://dt73fgom8j4jk" path="res://Icons/5b2f7ac436c7478d084634bfd8b278e0-removebg-preview.png" id="2_6wupe"]
+[ext_resource type="Script" uid="uid://btongorw84atx" path="res://Screen/text.gd" id="3_6wupe"]
 [ext_resource type="Texture2D" uid="uid://3tqjwhpikjhl" path="res://Icons/Volume.png" id="3_7fone"]
 [ext_resource type="Texture2D" uid="uid://difym1mwa6ha8" path="res://Icons/Gmail.png" id="4_occrq"]
 [ext_resource type="Texture2D" uid="uid://cbiylq84es4b6" path="res://Icons/Google.png" id="5_d2kei"]
@@ -45,7 +46,16 @@ font_size = 25
 outline_size = 2
 shadow_size = 0
 
-[node name="Screen" type="Control" unique_id=1214763542]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tgm8"]
+texture = ExtResource("5_d2kei")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wupe"]
+texture = ExtResource("5_d2kei")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbrsn"]
+texture = ExtResource("5_d2kei")
+
+[node name="Desktop" type="Control" unique_id=1214763542]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,6 +75,7 @@ texture = ExtResource("1_pr73c")
 expand_mode = 1
 
 [node name="Toolbar" type="ColorRect" parent="." unique_id=271852177]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -97,6 +108,7 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtu10")
 
 [node name="HourBar" type="Panel" parent="." unique_id=2062281677]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -112,6 +124,7 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ee4bf")
 
 [node name="WindowsIcon" type="TextureRect" parent="." unique_id=823997376]
+texture_filter = 1
 custom_minimum_size = Vector2(25.39, 0)
 layout_mode = 1
 anchors_preset = 2
@@ -119,10 +132,10 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 15.0
 offset_top = -44.0
-offset_right = 54.0
-offset_bottom = -15.0
+offset_right = 50.0
+offset_bottom = -12.0
 grow_vertical = 0
-texture = ExtResource("2_6imbw")
+texture = ExtResource("2_6wupe")
 expand_mode = 1
 
 [node name="WindowsButtomText" type="HBoxContainer" parent="." unique_id=1942506545]
@@ -159,6 +172,7 @@ grow_vertical = 0
 [node name="Text" type="Label" parent="HourText" unique_id=2129611993]
 layout_mode = 2
 text = "12:00"
+script = ExtResource("3_6wupe")
 
 [node name="Sound" type="Button" parent="." unique_id=1451737078]
 layout_mode = 1
@@ -171,6 +185,8 @@ offset_left = -121.0
 offset_top = -47.0
 offset_right = -83.25488
 offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
 icon = ExtResource("3_7fone")
 flat = true
 expand_icon = true
@@ -178,10 +194,10 @@ expand_icon = true
 [node name="Gmail" type="Button" parent="." unique_id=1850465073]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 11.0
-offset_top = 10.0
-offset_right = 89.0
-offset_bottom = 88.0
+offset_left = 130.0
+offset_top = 21.0
+offset_right = 208.0
+offset_bottom = 99.0
 icon = ExtResource("4_occrq")
 flat = true
 expand_icon = true
@@ -189,21 +205,22 @@ expand_icon = true
 [node name="Google" type="Button" parent="." unique_id=753349570]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 10.0
-offset_top = 97.0
-offset_right = 88.0
-offset_bottom = 175.0
-icon = ExtResource("5_d2kei")
-flat = true
+offset_left = 32.0
+offset_top = 19.0
+offset_right = 110.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4tgm8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6wupe")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vbrsn")
 expand_icon = true
 
 [node name="Safary" type="Button" parent="." unique_id=1095920289]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 94.0
-offset_top = 11.0
-offset_right = 172.0
-offset_bottom = 89.0
+offset_left = 32.0
+offset_top = 125.0
+offset_right = 110.0
+offset_bottom = 203.0
 icon = ExtResource("6_gg5xf")
 flat = true
 expand_icon = true
@@ -213,9 +230,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -89.0
+offset_left = -96.0
 offset_top = 11.0
-offset_right = -11.0
+offset_right = -18.0
 offset_bottom = 89.0
 icon = ExtResource("7_2sydl")
 flat = true
@@ -226,9 +243,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -172.0
+offset_left = -198.0
 offset_top = 12.0
-offset_right = -94.0
+offset_right = -120.0
 offset_bottom = 90.0
 icon = ExtResource("8_hqyi5")
 flat = true
@@ -256,10 +273,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -120.0
-offset_right = 86.0
-offset_bottom = -42.0
+offset_left = 341.0
+offset_top = -627.0
+offset_right = 419.0
+offset_bottom = -549.0
 grow_vertical = 0
 icon = ExtResource("10_ar8j4")
 flat = true
@@ -270,32 +287,28 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -188.0
-offset_right = 88.0
-offset_bottom = -110.0
+offset_left = 1056.0
+offset_top = -131.0
+offset_right = 1116.8369
+offset_bottom = -64.0
 grow_vertical = 0
+scale = Vector2(1.2656792, 1.1659368)
 icon = ExtResource("11_7fone")
 flat = true
 expand_icon = true
 
 [node name="Bin" type="Button" parent="." unique_id=151991736]
+texture_filter = 1
 layout_mode = 0
-offset_left = 168.0
-offset_top = 10.0
-offset_right = 246.0
-offset_bottom = 88.0
+offset_left = 232.0
+offset_top = 21.0
+offset_right = 310.0
+offset_bottom = 99.0
 icon = ExtResource("12_occrq")
 flat = true
 expand_icon = true
 
-[node name="Guide" parent="." unique_id=1874069951 instance=ExtResource("13_4tgm8")]
-layout_mode = 1
-anchor_left = 0.3460278
-anchor_top = 0.08377779
-anchor_right = 0.60802776
-anchor_bottom = 0.82977784
-offset_left = 0.37597656
-offset_top = -0.28800964
-offset_right = 0.55200195
-offset_bottom = 0.30395508
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1655453304]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
