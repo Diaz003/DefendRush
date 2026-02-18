@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://de7npuq8xxxmn" path="res://Icons/file.png" id="10_ar8j4"]
 [ext_resource type="Texture2D" uid="uid://8dw20qisg6xs" path="res://Icons/Config.png" id="11_7fone"]
 [ext_resource type="Texture2D" uid="uid://cumdydxkjq0nc" path="res://Icons/bin.png" id="12_occrq"]
+[ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://Screen/Guide.tscn" id="13_4tgm8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -244,6 +245,8 @@ offset_left = -163.0
 offset_top = -47.0
 offset_right = -129.0
 offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
 icon = ExtResource("9_klp1k")
 flat = true
 expand_icon = true
@@ -257,6 +260,7 @@ offset_left = 8.0
 offset_top = -120.0
 offset_right = 86.0
 offset_bottom = -42.0
+grow_vertical = 0
 icon = ExtResource("10_ar8j4")
 flat = true
 expand_icon = true
@@ -270,6 +274,7 @@ offset_left = 10.0
 offset_top = -188.0
 offset_right = 88.0
 offset_bottom = -110.0
+grow_vertical = 0
 icon = ExtResource("11_7fone")
 flat = true
 expand_icon = true
@@ -283,3 +288,14 @@ offset_bottom = 88.0
 icon = ExtResource("12_occrq")
 flat = true
 expand_icon = true
+
+[node name="Guide" parent="." unique_id=1874069951 instance=ExtResource("13_4tgm8")]
+layout_mode = 1
+anchor_left = 0.3460278
+anchor_top = 0.08377779
+anchor_right = 0.60802776
+anchor_bottom = 0.82977784
+offset_left = 0.37597656
+offset_top = -0.28800964
+offset_right = 0.55200195
+offset_bottom = 0.30395508
