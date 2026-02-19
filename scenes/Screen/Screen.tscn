@@ -402,6 +402,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_133ql")
 metadata/_edit_use_anchors_ = true
 
 [node name="DocButton" type="Button" parent="." unique_id=887601994]
+visible = false
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 70)
