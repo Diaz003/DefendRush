@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b7twlwjajnm50"]
 
-[ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://Themes/Classic95/Styles/Bars/VGrabber.tres" id="1_u8y55"]
-[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://Themes/Classic95/Styles/General/Box.tres" id="2_e665o"]
-[ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://Letter/W95FA.otf" id="3_e665o"]
+[ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="1_u8y55"]
+[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="2_e665o"]
+[ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_e665o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e665o"]
 bg_color = Color(0, 0, 1, 1)
@@ -61,6 +61,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_e665o")
 text = "TUTORIAL"
 horizontal_alignment = 1

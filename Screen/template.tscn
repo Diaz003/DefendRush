@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cy5ln0ho646qa"]
 
-[ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://Themes/Classic95/Styles/Panel/Panel.tres" id="1_hkvam"]
-[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://Themes/Classic95/Styles/General/Box.tres" id="2_n0us7"]
+[ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="1_hkvam"]
+[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="2_n0us7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
@@ -55,6 +55,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "INSERT ANYTHING HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
