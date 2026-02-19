@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://de7npuq8xxxmn" path="res://Icons/file.png" id="10_ar8j4"]
 [ext_resource type="Texture2D" uid="uid://8dw20qisg6xs" path="res://Icons/Config.png" id="11_7fone"]
 [ext_resource type="Texture2D" uid="uid://cumdydxkjq0nc" path="res://Icons/bin.png" id="12_occrq"]
+[ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://Screen/Guide.tscn" id="13_4tgm8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
