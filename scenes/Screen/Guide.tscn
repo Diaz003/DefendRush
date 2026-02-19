@@ -2,10 +2,22 @@
 
 [ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="1_vst1w"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_tvamm"]
+[ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="3_f0utt"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="3_n5v1u"]
+[ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="4_htccr"]
+[ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="5_ajga7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e665o"]
 bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yukqq"]
+texture = ExtResource("3_f0utt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu2o0"]
+texture = ExtResource("4_htccr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aitd4"]
+texture = ExtResource("5_ajga7")
 
 [node name="Guide" type="Control" unique_id=1874069951]
 layout_mode = 3
@@ -30,29 +42,41 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel3" type="Panel" parent="Panel" unique_id=1575898301]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.033
-anchor_top = 0.010000001
-anchor_right = 0.96700007
-anchor_bottom = 0.056
-offset_left = 0.034000397
-offset_top = 0.15999985
-offset_right = -0.0340271
-offset_bottom = -0.10400009
+anchor_left = 0.03311258
+anchor_top = 0.010330578
+anchor_right = 0.9668874
+anchor_bottom = 0.055785123
 theme_override_styles/panel = SubResource("StyleBoxFlat_e665o")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Panel/Panel3" unique_id=322967184]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 1.0
+anchor_bottom = 1.0454545
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_tvamm")
 text = "TUTORIAL"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseButton" type="Button" parent="Panel/Panel3" unique_id=1889058148]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92200005
+anchor_top = 0.091000006
+anchor_right = 0.99200004
+anchor_bottom = 0.90900004
+offset_left = -0.0040283203
+offset_top = -0.0020000935
+offset_right = 0.07595825
+offset_bottom = 0.0019989014
+theme_override_styles/normal = SubResource("StyleBoxTexture_yukqq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qu2o0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aitd4")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Panel" unique_id=269120946]
@@ -69,35 +93,23 @@ offset_bottom = 0.22796631
 theme_override_styles/panel = ExtResource("3_n5v1u")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1859026987]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.040000003
-anchor_top = 0.064
-anchor_right = 0.97400004
-anchor_bottom = 0.96900004
-offset_left = -9.080001
-offset_top = 0.02399826
-offset_right = -0.14801025
-offset_bottom = 0.003967285
-theme_override_constants/margin_left = 9
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=176860446]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel2" unique_id=176860446]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 285.0
+offset_bottom = 439.0
 theme_override_constants/separation = 6
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1759574732]
+[node name="Label" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=1759574732]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
 text = "WELCOME TO DEFENDRUSH"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=235078397]
+[node name="Label2" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=235078397]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
@@ -105,14 +117,14 @@ theme_override_font_sizes/font_size = 10
 text = "In this document we will teach you everything you need to know to
 manage in this virtual defense game."
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=260444308]
+[node name="Label3" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=260444308]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
 theme_override_font_sizes/font_size = 13
 text = "1. The device password"
 
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=474047846]
+[node name="Label4" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=474047846]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
@@ -123,14 +135,14 @@ enemies trying to disrupt your system.
 
 Current password: ThisIsMyPassword"
 
-[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer" unique_id=51765845]
+[node name="Label5" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=51765845]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
 theme_override_font_sizes/font_size = 13
 text = "2. Your defense tools"
 
-[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1056442407]
+[node name="Label6" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=1056442407]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
@@ -140,14 +152,14 @@ against all types of threats, from a functional antivirus to the ability to
 modify permissions and files in order to prevent
 major damage to your desktop."
 
-[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer" unique_id=327240014]
+[node name="Label7" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=327240014]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
 theme_override_font_sizes/font_size = 13
 text = "3. System Statistics"
 
-[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer" unique_id=337915590]
+[node name="Label8" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=337915590]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
@@ -159,14 +171,14 @@ RAM and CPU.
 We recommend that you regularly check these sections to identify 
 potential threats."
 
-[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1863860863]
+[node name="Label9" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=1863860863]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
 theme_override_font_sizes/font_size = 13
 text = "4. Recognize your enemies"
 
-[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1885991848]
+[node name="Label10" type="Label" parent="Panel/Panel2/VBoxContainer" unique_id=1885991848]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tvamm")
