@@ -47,6 +47,17 @@ anchor_bottom = 0.074074075
 theme_override_styles/panel = SubResource("StyleBoxFlat_2dggw")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="Panel/TitleBar" unique_id=1875069160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "INSERT ANYTHING HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CloseButton" type="Button" parent="Panel/TitleBar" unique_id=2056720311]
 texture_filter = 1
 layout_mode = 1
@@ -62,17 +73,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ixu16")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mby86")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Panel/TitleBar" unique_id=1875069160]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "INSERT ANYTHING HERE"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
 layout_mode = 1
