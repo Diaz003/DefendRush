@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://demcfgapj7rgp" path="res://assets/Background/Bliss.png" id="1_pr73c"]
 [ext_resource type="Texture2D" uid="uid://dt73fgom8j4jk" path="res://assets/Icons/5b2f7ac436c7478d084634bfd8b278e0-removebg-preview.png" id="2_6wupe"]
-[ext_resource type="Script" uid="uid://btongorw84atx" path="res://Screen/text.gd" id="3_6wupe"]
+[ext_resource type="Script" uid="uid://btongorw84atx" path="res://scenes/Screen/text.gd" id="3_6wupe"]
 [ext_resource type="Texture2D" uid="uid://3tqjwhpikjhl" path="res://assets/Icons/Volume.png" id="3_7fone"]
 [ext_resource type="Texture2D" uid="uid://difym1mwa6ha8" path="res://assets/Icons/Gmail.png" id="4_occrq"]
 [ext_resource type="Texture2D" uid="uid://cbiylq84es4b6" path="res://assets/Icons/Google.png" id="5_d2kei"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://de7npuq8xxxmn" path="res://assets/Icons/file.png" id="10_ar8j4"]
 [ext_resource type="Texture2D" uid="uid://8dw20qisg6xs" path="res://assets/Icons/Config.png" id="11_7fone"]
 [ext_resource type="Texture2D" uid="uid://cumdydxkjq0nc" path="res://assets/Icons/bin.png" id="12_occrq"]
+[ext_resource type="PackedScene" uid="uid://cy5ln0ho646qa" path="res://scenes/Screen/template.tscn" id="14_11tcc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -311,3 +312,10 @@ expand_icon = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Template" parent="." unique_id=636015501 instance=ExtResource("14_11tcc")]
+layout_mode = 1
+offset_left = 297.0
+offset_top = 169.0
+offset_right = -190.0
+offset_bottom = -63.0
