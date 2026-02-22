@@ -3,7 +3,7 @@ extends Control
 var dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 
-const EDGE_MARGIN: float = 40.0 # píxeles que siempre quedan dentro
+const EDGE_MARGIN: float = 40.0 
 
 func _ready() -> void:
 	var title_bar: Control = $Panel/TitleBar
