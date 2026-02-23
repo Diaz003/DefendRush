@@ -1,7 +1,12 @@
-👥 Development Team  
-[Dracolardex](https://github.com/Dracolardex)  
-[Diaz003](https://github.com/Diaz003)  
-[Racara07](https://github.com/Racara07) 
+## 👥 Development Team
+
+- [Dracolardex](https://github.com/Dracolardex)  
+- [Diaz003](https://github.com/Diaz003)  
+- [Racara07](https://github.com/Racara07)
+
+
+
+
 
 # DefendRush
 
