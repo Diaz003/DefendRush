@@ -34,6 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://bt01lp8araqmw" path="res://scenes/Screen/systems/FileManager.tscn" id="32_i0lon"]
 [ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://scenes/Screen/systems/Guide.tscn" id="33_ncf5q"]
 [ext_resource type="PackedScene" uid="uid://2sxcxhl48fkv" path="res://scenes/Screen/apps/steam_window.tscn" id="34_517o4"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/apps/mail_window.tscn" id="35_mail"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/apps/options_window.tscn" id="36_opts"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -474,6 +478,17 @@ visible = false
 
 [node name="FileManager" parent="CanvasLayer" unique_id=1864241664 instance=ExtResource("32_i0lon")]
 visible = false
+
+[node name="MailWindow" parent="CanvasLayer" unique_id=1893089450 instance=ExtResource("35_mail")]
+visible = false
+
+[node name="OptionsWindow" parent="CanvasLayer" instance=ExtResource("36_opts")]
+visible = false
+
+[node name="LogsWindow" parent="CanvasLayer" instance=ExtResource("37_logs")]
+visible = false
+
+[node name="NotificationToast" parent="CanvasLayer" instance=ExtResource("38_toast")]
 
 [node name="Guide" parent="CanvasLayer" unique_id=1874069951 instance=ExtResource("33_ncf5q")]
 visible = false
