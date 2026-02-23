@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://des6n7ivdu8pe" path="res://assets/Themes/Classic95/Styles/CheckBox/RadioFalse.png" id="1_dik0p"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_t60b5"]
+[ext_resource type="Script" path="res://scenes/Screen/apps/mail_item.gd" id="3_mail_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ikco"]
 bg_color = Color(0.18431373, 0.89411765, 0.12156863, 1)
@@ -26,6 +27,7 @@ border_color = Color(0, 0, 0, 1)
 bg_color = Color(0.65170854, 0.0028775812, 0.002125454, 1)
 
 [node name="Mails" type="HBoxContainer" unique_id=676829406]
+script = ExtResource("3_mail_script")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1166247463]
 custom_minimum_size = Vector2(23.41, 0)

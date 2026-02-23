@@ -559,7 +559,7 @@ flat = true
 virtual_keyboard_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Navegating" type="VBoxContainer" parent="Panel/WindowContent" unique_id=1940525665]
+[node name="Navigating" type="VBoxContainer" parent="Panel/WindowContent" unique_id=1940525665]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.41500002
@@ -573,19 +573,20 @@ offset_bottom = -0.15853882
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/WindowContent/Navegating" unique_id=589699461]
+[node name="TextureRect" type="TextureRect" parent="Panel/WindowContent/Navigating" unique_id=589699461]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("10_bnaq5")
 expand_mode = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/WindowContent/Navegating" unique_id=1318888328]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/WindowContent/Navigating" unique_id=1318888328]
 texture_filter = 1
 position = Vector2(107, 301)
 scale = Vector2(3.9921875, 3.9921875)
 sprite_frames = SubResource("SpriteFrames_dagji")
 animation = &"loading"
+autoplay = "loading"
 frame_progress = 0.09694054
 
 [connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]

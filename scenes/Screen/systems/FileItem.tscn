@@ -2,14 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cv425xxje1vft" path="res://assets/Icons/doc/doc_normal.png" id="1_7b0hw"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_dqlg2"]
+[ext_resource type="Script" path="res://scenes/Screen/systems/file_item.gd" id="3_file_script"]
 
-[node name="HBoxContainer" type="HBoxContainer" unique_id=960914904]
+[node name="FileItem" type="HBoxContainer" unique_id=960914904]
 anchors_preset = -1
 anchor_right = 0.192
 anchor_bottom = 0.076000005
 offset_right = -221.184
 offset_bottom = -49.248005
 size_flags_vertical = 3
+script = ExtResource("3_file_script")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1306545108]
@@ -36,3 +38,15 @@ theme_override_fonts/font = ExtResource("2_dqlg2")
 theme_override_font_sizes/font_size = 31
 text = "Documents.txt"
 vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=54321987]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+
+[node name="DeleteButton" type="Button" parent="MarginContainer3" unique_id=87654321]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dqlg2")
+theme_override_font_sizes/font_size = 20
+text = "X"
