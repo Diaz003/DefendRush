@@ -1,3 +1,8 @@
+👥 Development Team  
+[Dracolardex](https://github.com/Dracolardex)  
+[Diaz003](https://github.com/Diaz003)  
+[Racara07](https://github.com/Racara07) 
+
 # DefendRush
 
 DefendRush is a 2D pixel‑art **serious game** about basic cybersecurity for everyday users.  
