@@ -8,7 +8,6 @@ const EDGE_MARGIN: float = 40.0
 func _ready() -> void:
 	var title_bar: Control = $Panel/TitleBar
 	var panel_litt: Control = $Panel
-	var close_btn: BaseButton = $Panel/TitleBar/CloseButton
 
 	title_bar.gui_input.connect(_on_drag_area_gui_input)
 	panel_litt.gui_input.connect(_on_drag_area_gui_input)

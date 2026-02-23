@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_jx8xt"]
 [ext_resource type="StyleBox" uid="uid://cdry8rppufl83" path="res://assets/Themes/Classic95/Styles/Bars/HGrabber.tres" id="7_blmwp"]
 [ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="8_n5vpv"]
+[ext_resource type="Script" uid="uid://dmxh8xr2hbiev" path="res://scenes/Screen/antivirus.gd" id="8_nhifd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
@@ -308,6 +309,7 @@ anchor_bottom = 0.98759687
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("7_blmwp")
+script = ExtResource("8_nhifd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Panel/WindowContent" unique_id=904217866]

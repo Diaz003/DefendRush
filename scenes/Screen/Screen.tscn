@@ -456,9 +456,11 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_62osu")
 metadata/_edit_use_anchors_ = true
 
 [node name="Antivirus" parent="." unique_id=636015501 instance=ExtResource("29_62osu")]
+visible = false
 layout_mode = 1
 
 [node name="BankWindow" parent="." unique_id=935068196 instance=ExtResource("30_1fptc")]
+visible = false
 layout_mode = 1
 anchor_left = 0.09521876
 anchor_top = 0.2265309
@@ -470,12 +472,15 @@ offset_right = 0.14001465
 offset_bottom = 0.20794678
 
 [node name="BrowserWindows" parent="." unique_id=453826732 instance=ExtResource("31_sjx0d")]
+visible = false
 layout_mode = 1
 
 [node name="FileManager" parent="." unique_id=1864241664 instance=ExtResource("32_i0lon")]
+visible = false
 layout_mode = 1
 
 [node name="Guide" parent="." unique_id=1874069951 instance=ExtResource("33_ncf5q")]
+visible = false
 layout_mode = 1
 anchor_left = 0.55130553
 anchor_top = 0.17094447
@@ -487,6 +492,7 @@ offset_right = 0.07196045
 offset_bottom = 0.17199707
 
 [node name="SteamWindow" parent="." unique_id=305319453 instance=ExtResource("34_517o4")]
+visible = false
 layout_mode = 1
 anchor_left = 0.27062154
 anchor_top = 0.29449382

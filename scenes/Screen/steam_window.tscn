@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="5_jd4wp"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_cipwt"]
 [ext_resource type="StyleBox" uid="uid://cdry8rppufl83" path="res://assets/Themes/Classic95/Styles/Bars/HGrabber.tres" id="7_avr3r"]
+[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="8_knqn0"]
+[ext_resource type="Script" uid="uid://chdvt1hdo4p82" path="res://scenes/Screen/Steam.gd" id="8_uyibq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
@@ -20,7 +22,7 @@ texture = ExtResource("5_jd4wp")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5trl"]
 texture = ExtResource("6_cipwt")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moick"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyibq"]
 bg_color = Color(0, 0.74509805, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -32,7 +34,7 @@ corner_radius_top_right = 17
 corner_radius_bottom_right = 17
 corner_radius_bottom_left = 17
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j4va"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g75c4"]
 bg_color = Color(0, 0.20392157, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -44,7 +46,7 @@ corner_radius_top_right = 17
 corner_radius_bottom_right = 17
 corner_radius_bottom_left = 17
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ss5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd4wp"]
 bg_color = Color(0, 0.5372549, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -129,20 +131,28 @@ anchor_bottom = 0.95747894
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("7_avr3r")
+script = ExtResource("8_uyibq")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Panel/WindowContent" unique_id=2038897078]
+[node name="PasswordAsk" type="VBoxContainer" parent="Panel/WindowContent" unique_id=1328283285]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.20889549
-anchor_top = 0.08342129
-anchor_right = 0.79417837
-anchor_bottom = 0.23942128
-offset_left = 0.21817017
-offset_top = -0.0816555
-offset_right = 0.36157227
-offset_bottom = 0.052955627
+anchor_left = 0.1582003
+anchor_top = 0.18200001
+anchor_right = 0.86200005
+anchor_bottom = 0.66700006
+offset_left = 0.27106476
+offset_top = 0.01663971
+offset_right = -0.15228271
+offset_bottom = 0.052459717
 grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 39
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/WindowContent/PasswordAsk" unique_id=108500859]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_uyibq")
 theme_override_font_sizes/font_size = 27
@@ -151,30 +161,70 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Panel/WindowContent" unique_id=2030899926]
+[node name="Button" type="Button" parent="Panel/WindowContent/PasswordAsk" unique_id=1195470663]
 clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.21389244
-anchor_top = 0.37388697
-anchor_right = 0.7988925
-anchor_bottom = 0.5824544
-offset_left = -0.3408203
-offset_top = 0.104278564
-offset_right = -0.18591309
-offset_bottom = -0.10430908
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/outline_size = 4
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("3_uyibq")
 theme_override_font_sizes/font_size = 59
-theme_override_styles/normal = SubResource("StyleBoxFlat_moick")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6j4va")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o7ss5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyibq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g75c4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jd4wp")
 button_mask = 7
 text = "Yes"
 autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PasswordAdd" type="VBoxContainer" parent="Panel/WindowContent" unique_id=1618674946]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19900002
+anchor_top = 0.19100001
+anchor_right = 0.83300006
+anchor_bottom = 0.6393493
+offset_left = 43.07276
+offset_top = 5.6049232
+offset_right = -42.952393
+offset_bottom = -16.53804
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 31
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/WindowContent/PasswordAdd" unique_id=1019964127]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 38
+text = "Insert your new password"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Panel/WindowContent/PasswordAdd" unique_id=254198865]
+custom_minimum_size = Vector2(16.835, 41.6)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("8_knqn0")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/WindowContent/PasswordAdd/Panel" unique_id=700694843]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0497894
+offset_top = 5.0
+offset_right = -6.9501953
+offset_bottom = -1.7969894
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 25
+alignment = 1
+max_length = 16
+flat = true
+virtual_keyboard_enabled = false
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]
