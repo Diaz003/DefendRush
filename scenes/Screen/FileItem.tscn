@@ -4,7 +4,13 @@
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_dqlg2"]
 
 [node name="HBoxContainer" type="HBoxContainer" unique_id=960914904]
+anchors_preset = -1
+anchor_right = 0.192
+anchor_bottom = 0.076000005
+offset_right = -221.184
+offset_bottom = -49.248005
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1306545108]
 layout_mode = 2
