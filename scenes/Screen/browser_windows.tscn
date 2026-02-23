@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://cyxsh1ynls4ih"]
+
+[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/template.gd" id="1_sedph"]
+[ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_b2lcl"]
+[ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_qu7x2"]
+[ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="4_bnaq5"]
+[ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="5_gltwl"]
+[ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_viv3p"]
+[ext_resource type="StyleBox" uid="uid://cdry8rppufl83" path="res://assets/Themes/Classic95/Styles/Bars/HGrabber.tres" id="7_nhse6"]
+[ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="8_my8fu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixu16"]
+texture = ExtResource("4_bnaq5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mby86"]
+texture = ExtResource("5_gltwl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5trl"]
+texture = ExtResource("6_viv3p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moick"]
+bg_color = Color(0, 0.74509805, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j4va"]
+bg_color = Color(0, 0.20392157, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ss5"]
+bg_color = Color(0, 0.5372549, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[node name="BrowserWindows" type="Control" unique_id=636015501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sedph")
+
+[node name="Panel" type="Panel" parent="." unique_id=1646297441]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_b2lcl")
+
+[node name="TitleBar" type="Panel" parent="Panel" unique_id=411007645]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009548611
+anchor_top = 0.006172839
+anchor_right = 0.9878472
+anchor_bottom = 0.11357341
+theme_override_styles/panel = SubResource("StyleBoxFlat_2dggw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/TitleBar" unique_id=1875069160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.2438269
+offset_bottom = 3.0886421
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qu7x2")
+theme_override_font_sizes/font_size = 46
+text = "BROWSER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Panel/TitleBar" unique_id=2056720311]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95600003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.4119873
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -2.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ixu16")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mby86")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01615074
+anchor_top = 0.13296399
+anchor_right = 0.97473884
+anchor_bottom = 0.95747894
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_nhse6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/WindowContent" unique_id=2038897078]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.040300798
+anchor_top = 0.27416107
+anchor_right = 0.4455357
+anchor_bottom = 0.36928928
+offset_right = 0.2786255
+offset_bottom = -0.1977005
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qu7x2")
+theme_override_font_sizes/font_size = 29
+text = "Do you want to change your password?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Panel/WindowContent" unique_id=2030899926]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06510252
+anchor_top = 0.45523727
+anchor_right = 0.4232584
+anchor_bottom = 0.62294096
+offset_left = -0.3408203
+offset_top = 0.104278564
+offset_right = -0.18591309
+offset_bottom = -0.10430908
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("3_qu7x2")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/normal = SubResource("StyleBoxFlat_moick")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6j4va")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ss5")
+button_mask = 7
+text = "Yes"
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="Panel/WindowContent" unique_id=1035855843]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48900002
+anchor_top = 0.00026706254
+anchor_right = 0.52500004
+anchor_bottom = 1.0003626
+offset_left = 1.3859863
+offset_top = -0.09929252
+offset_right = -0.033996582
+offset_bottom = -0.20922852
+theme_override_styles/panel = ExtResource("8_my8fu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Panel/WindowContent" unique_id=1756676929]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56462264
+anchor_top = 0.28350493
+anchor_right = 0.9698575
+anchor_bottom = 0.37863314
+offset_left = 0.00036621094
+offset_top = -5.0003815
+offset_right = 0.27893066
+offset_bottom = -5.1980743
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qu7x2")
+theme_override_font_sizes/font_size = 29
+text = "Do you want to browse the internet?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="Panel/WindowContent" unique_id=6588029]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5894244
+anchor_top = 0.46458116
+anchor_right = 0.94758016
+anchor_bottom = 0.6322848
+offset_left = -0.3404541
+offset_top = -4.896103
+offset_right = -0.18554688
+offset_bottom = -5.1046753
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("3_qu7x2")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/normal = SubResource("StyleBoxFlat_moick")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6j4va")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7ss5")
+button_mask = 7
+text = "Yes"
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]

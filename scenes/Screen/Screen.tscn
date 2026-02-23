@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cal3b06v714u"]
 
+[ext_resource type="Script" uid="uid://eupu5uvic85e" path="res://scenes/Screen/screen.gd" id="1_1fptc"]
 [ext_resource type="Texture2D" uid="uid://demcfgapj7rgp" path="res://assets/Background/Bliss.png" id="1_pr73c"]
 [ext_resource type="Texture2D" uid="uid://dt73fgom8j4jk" path="res://assets/Icons/WindowsLogo/WindowsLogo.png" id="2_6wupe"]
 [ext_resource type="Script" uid="uid://btongorw84atx" path="res://scenes/Screen/text.gd" id="3_6wupe"]
@@ -28,6 +29,12 @@
 [ext_resource type="Texture2D" uid="uid://cxpk43d07h5o4" path="res://assets/Icons/system/file_hover.png" id="26_m8kcv"]
 [ext_resource type="Texture2D" uid="uid://ocerpet4p24s" path="res://assets/Icons/system/antivirus.png" id="27_ejk0n"]
 [ext_resource type="Texture2D" uid="uid://ffyv4ny4mr7o" path="res://assets/Icons/system/antivirus_hover.png" id="28_133ql"]
+[ext_resource type="PackedScene" uid="uid://bond54aoxyt1f" path="res://scenes/Screen/antivirus.tscn" id="29_62osu"]
+[ext_resource type="PackedScene" uid="uid://bbyuuoevssc0" path="res://scenes/Screen/bank_window.tscn" id="30_1fptc"]
+[ext_resource type="PackedScene" uid="uid://cyxsh1ynls4ih" path="res://scenes/Screen/browser_windows.tscn" id="31_sjx0d"]
+[ext_resource type="PackedScene" uid="uid://bt01lp8araqmw" path="res://scenes/Screen/FileManager.tscn" id="32_i0lon"]
+[ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://scenes/Screen/Guide.tscn" id="33_ncf5q"]
+[ext_resource type="PackedScene" uid="uid://2sxcxhl48fkv" path="res://scenes/Screen/steam_window.tscn" id="34_517o4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -156,6 +163,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_1fptc")
 
 [node name="Background" type="TextureRect" parent="." unique_id=405231404]
 layout_mode = 1
@@ -446,3 +454,45 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_62osu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1fptc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_62osu")
 metadata/_edit_use_anchors_ = true
+
+[node name="Antivirus" parent="." unique_id=636015501 instance=ExtResource("29_62osu")]
+layout_mode = 1
+
+[node name="BankWindow" parent="." unique_id=935068196 instance=ExtResource("30_1fptc")]
+layout_mode = 1
+anchor_left = 0.09521876
+anchor_top = 0.2265309
+anchor_right = 0.62921876
+anchor_bottom = 0.72653097
+offset_left = 0.3079834
+offset_top = 0.2079773
+offset_right = 0.14001465
+offset_bottom = 0.20794678
+
+[node name="BrowserWindows" parent="." unique_id=453826732 instance=ExtResource("31_sjx0d")]
+layout_mode = 1
+
+[node name="FileManager" parent="." unique_id=1864241664 instance=ExtResource("32_i0lon")]
+layout_mode = 1
+
+[node name="Guide" parent="." unique_id=1874069951 instance=ExtResource("33_ncf5q")]
+layout_mode = 1
+anchor_left = 0.55130553
+anchor_top = 0.17094447
+anchor_right = 0.8133056
+anchor_bottom = 0.91794443
+offset_left = -0.104003906
+offset_top = 0.22798157
+offset_right = 0.07196045
+offset_bottom = 0.17199707
+
+[node name="SteamWindow" parent="." unique_id=305319453 instance=ExtResource("34_517o4")]
+layout_mode = 1
+anchor_left = 0.27062154
+anchor_top = 0.29449382
+anchor_right = 0.80462146
+anchor_bottom = 0.79449385
+offset_left = 0.24398804
+offset_top = 0.16799927
+offset_right = 0.076049805
+offset_bottom = 0.16796875
