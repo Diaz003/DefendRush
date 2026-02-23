@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://b4cyqcuhk8cpi"]
 
-[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/template.gd" id="1_kwxy7"]
+[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_kwxy7"]
 [ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_jywyj"]
 [ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="3_mbs6g"]
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="4_fa741"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="5_ybvgx"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="6_dgvi3"]
 [ext_resource type="Texture2D" uid="uid://dgwqsjlddhh6i" path="res://Photos_Used/google_gmail_new_01.webp" id="7_jywyj"]
-[ext_resource type="PackedScene" uid="uid://b20ydo7d4ihc6" path="res://scenes/Screen/mails.tscn" id="8_mbs6g"]
+[ext_resource type="PackedScene" uid="uid://b20ydo7d4ihc6" path="res://scenes/Screen/apps/mails.tscn" id="8_mbs6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)

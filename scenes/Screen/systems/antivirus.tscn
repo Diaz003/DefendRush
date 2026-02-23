@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bond54aoxyt1f"]
 
-[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/template.gd" id="1_gg1dg"]
+[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_gg1dg"]
 [ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_nhifd"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_6rmyb"]
 [ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="4_1dcdh"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_jx8xt"]
 [ext_resource type="StyleBox" uid="uid://cdry8rppufl83" path="res://assets/Themes/Classic95/Styles/Bars/HGrabber.tres" id="7_blmwp"]
 [ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="8_n5vpv"]
-[ext_resource type="Script" uid="uid://dmxh8xr2hbiev" path="res://scenes/Screen/antivirus.gd" id="8_nhifd"]
+[ext_resource type="Script" uid="uid://dmxh8xr2hbiev" path="res://scenes/Screen/systems/antivirus.gd" id="8_nhifd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)

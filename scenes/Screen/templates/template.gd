@@ -27,7 +27,7 @@ func _on_drag_area_gui_input(event: InputEvent) -> void:
 
 
 func _on_close_button_pressed() -> void:
-	queue_free()
+	hide()
 
 
 func _clamp_to_screen() -> void:
