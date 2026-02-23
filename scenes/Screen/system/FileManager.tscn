@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="5_5jnyf"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_kr1e6"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="7_numml"]
-[ext_resource type="PackedScene" uid="uid://crlfcr8wm20pq" path="res://scenes/Screen/FileItem.tscn" id="8_yv1jg"]
+[ext_resource type="PackedScene" uid="uid://crlfcr8wm20pq" path="res://scenes/Screen/system/FileItem.tscn" id="8_yv1jg"]
 [ext_resource type="Texture2D" uid="uid://45m1nxs4672v" path="res://assets/Icons/system/Disk.png" id="9_5resk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
@@ -106,6 +106,51 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="FileItem" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=960914904 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem2" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=303093530 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem3" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=219135571 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem4" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=884210659 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem5" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=1862958726 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem6" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=1498156313 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem7" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=1739051293 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem8" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=1188758078 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem9" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=593673025 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem10" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=1015351125 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem11" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=168298653 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem12" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=574833457 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem13" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=1710967165 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem14" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=341459613 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem15" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=963756961 instance=ExtResource("8_yv1jg")]
+layout_mode = 2
+
+[node name="FileItem16" parent="Panel/WindowContent/ScrollContainer/VBoxContainer" unique_id=762280353 instance=ExtResource("8_yv1jg")]
 layout_mode = 2
 
 [node name="DiskUbication" type="Panel" parent="Panel" unique_id=1731738424]
