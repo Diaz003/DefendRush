@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://rwjek30031ie" path="res://scenes/Screen/apps/browser.gd" id="8_gltwl"]
 [ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="8_my8fu"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="9_b2lcl"]
-[ext_resource type="Texture2D" uid="uid://dxif3fkgg1wcj" path="res://assets/Icons/explorer/explorer_normal.png" id="10_bnaq5"]
 [ext_resource type="Texture2D" uid="uid://dcdiwqkcrjkjy" path="res://assets/UI/loading/loading.png" id="11_gltwl"]
+[ext_resource type="Texture2D" uid="uid://b3ks7iqrs1sob" path="res://assets/Icons/explorer/VPN_Logo.png" id="11_nuxit"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
@@ -575,14 +575,14 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Panel/WindowContent/Navigating" unique_id=589699461]
 texture_filter = 1
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-texture = ExtResource("10_bnaq5")
+texture = ExtResource("11_nuxit")
 expand_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/WindowContent/Navigating" unique_id=1318888328]
 texture_filter = 1
-position = Vector2(107, 301)
+position = Vector2(154, 345)
 scale = Vector2(3.9921875, 3.9921875)
 sprite_frames = SubResource("SpriteFrames_dagji")
 animation = &"loading"
