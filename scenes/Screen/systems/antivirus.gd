@@ -103,7 +103,7 @@ func _on_analyze_file_pressed() -> void:
 	if file_container:
 		var removed_count = 0
 		for child in file_container.get_children():
-			if "is_executable" in child and child.is_executable:
+			if "is_exe" in child and child.is_exe:
 				child.queue_free()
 				removed_count += 1
 		
