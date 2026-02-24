@@ -4,8 +4,8 @@ var time_left_seconds: float = 10 * 60.0
 var last_update_second: int = 0
 
 var score: int = 0
-var file_spawn_timer: float = 3.0 * 60.0
-var mail_spawn_timer: float = 2.0 * 60.0
+var file_spawn_timer: float = 30.0
+var mail_spawn_timer: float = 60.0
 var game_over_timer: float = 0.0
 var active_malware: int = 0
 var apps_needing_password_reset: Array[String] = []
@@ -16,6 +16,8 @@ var system_permissions_revoked: bool = false
 var is_scanner_active: bool = false
 var is_anti_ransomware_active: bool = false
 var has_active_ransomware: bool = false
+
+var can_delete_files: bool = false
 
 @onready var file_item_scene = preload("res://scenes/Screen/systems/FileItem.tscn")
 @onready var notification_toast_scene = preload("res://scenes/Screen/systems/NotificationToast.tscn")
@@ -68,31 +70,30 @@ func _process(delta: float) -> void:
 		if nav_node and nav_node.visible:
 			is_browsing = true
 
-	if is_browsing:				
-		if time_left_seconds > 0.0:
-			time_left_seconds -= delta
+	if time_left_seconds > 0.0:
+		time_left_seconds -= delta
 
-			var current_second: int = int(time_left_seconds)
-			if current_second != last_update_second:
-				last_update_second = current_second
-				_update_time_label()
+		var current_second: int = int(time_left_seconds)
+		if current_second != last_update_second:
+			last_update_second = current_second
+			_update_time_label()
 
-			if time_left_seconds <= 0.0:
-				time_left_seconds = 0.0
-				_update_time_label()
-				_on_game_end()
-				
-		if file_spawn_timer > 0.0:
-			file_spawn_timer -= delta
-			if file_spawn_timer <= 0.0:
-				file_spawn_timer = 3.0 * 60.0
-				_spawn_file()
-				
-		if mail_spawn_timer > 0.0:
-			mail_spawn_timer -= delta
-			if mail_spawn_timer <= 0.0:
-				mail_spawn_timer = 2.0 * 60.0
-				_spawn_mail()
+		if time_left_seconds <= 0.0:
+			time_left_seconds = 0.0
+			_update_time_label()
+			_on_game_end()
+			
+	if file_spawn_timer > 0.0:
+		file_spawn_timer -= delta
+		if file_spawn_timer <= 0.0:
+			file_spawn_timer = 30.0
+			_spawn_file()
+			
+	if mail_spawn_timer > 0.0:
+		mail_spawn_timer -= delta
+		if mail_spawn_timer <= 0.0:
+			mail_spawn_timer = randf_range(60.0, 120.0)
+			_spawn_mail()
 				
 	if game_over_timer > 0.0:
 		game_over_timer -= delta

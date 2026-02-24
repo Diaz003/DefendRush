@@ -35,14 +35,13 @@ func _execute_payload() -> void:
 
 func _on_delete_pressed() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
-	if screen_node and "has_active_ransomware" in screen_node and screen_node.has_active_ransomware:
-		screen_node.show_toast("Permiso Denegado: Ransomware bloqueando acceso a archivos administrtivos.")
-		return
-		
-	if is_exe:
-		if screen_node:
-			screen_node.show_toast("Permiso Denegado: No puedes borrar ejecutables manualmente. Usa el Antivirus.")
-		return
-		
+	if screen_node:
+		if screen_node.has("has_active_ransomware") and screen_node.has_active_ransomware:
+			screen_node.show_toast("Permiso Denegado: Ransomware bloqueando acceso a archivos administrativos.")
+			return
+		if screen_node.has("can_delete_files") and not screen_node.can_delete_files:
+			screen_node.show_toast("Permiso Denegado: Usa el Antivirus ('Analyze an file?') para habilitar el borrado manual.")
+			return
+			
 	file_deleted.emit()
 	queue_free()
