@@ -64,12 +64,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var is_browsing: bool = false
-	if $CanvasLayer/BrowserWindows.visible:
-		var nav_node = $CanvasLayer/BrowserWindows/Panel/WindowContent.get_node_or_null("Navigating")
-		if nav_node and nav_node.visible:
-			is_browsing = true
-
 	if time_left_seconds > 0.0:
 		time_left_seconds -= delta
 
