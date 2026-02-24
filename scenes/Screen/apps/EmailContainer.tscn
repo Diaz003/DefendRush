@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="6_dgvi3"]
 [ext_resource type="Texture2D" uid="uid://dgwqsjlddhh6i" path="res://Photos_Used/google_gmail_new_01.webp" id="7_jywyj"]
 [ext_resource type="PackedScene" uid="uid://b20ydo7d4ihc6" path="res://scenes/Screen/apps/mails.tscn" id="8_mbs6g"]
+[ext_resource type="Script" uid="uid://d2bqw8txs721k" path="res://scenes/Screen/apps/mail_window.gd" id="9_mailg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
@@ -91,7 +92,73 @@ anchor_bottom = 0.97839504
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("6_dgvi3")
+script = ExtResource("9_mailg")
 metadata/_edit_use_anchors_ = true
+
+[node name="PasswordAsk" type="VBoxContainer" parent="Panel/WindowContent" unique_id=4532131]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.158
+anchor_top = 0.182
+anchor_right = 0.862
+anchor_bottom = 0.667
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 39
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/WindowContent/PasswordAsk" unique_id=5324545]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "Do you want to change your password?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/WindowContent/PasswordAsk" unique_id=23423]
+layout_mode = 2
+theme_override_font_sizes/font_size = 59
+text = "Yes"
+
+[node name="PasswordAdd" type="VBoxContainer" parent="Panel/WindowContent" unique_id=545465]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.199
+anchor_top = 0.191
+anchor_right = 0.833
+anchor_bottom = 0.639
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 31
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/WindowContent/PasswordAdd" unique_id=53453]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Insert your new password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Panel/WindowContent/PasswordAdd" unique_id=2343]
+custom_minimum_size = Vector2(16.835, 41.6)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_dgvi3")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/WindowContent/PasswordAdd/Panel" unique_id=44463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+alignment = 1
+max_length = 16
+flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747001041]
 position = Vector2(573.25, 346.5)
@@ -107,9 +174,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mbs6g")
 
 [node name="Panel2" type="Panel" parent="Sprite2D" unique_id=614041436]
 offset_left = -534.026
-offset_top = 79.78336
+offset_top = 84.51126
 offset_right = 288.93823
-offset_bottom = 339.81802
+offset_bottom = 342.18198
 theme_override_styles/panel = SubResource("StyleBoxFlat_mbs6g")
 
 [node name="Panel2" type="Panel" parent="." unique_id=1218158519]

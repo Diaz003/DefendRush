@@ -1,8 +1,10 @@
 extends Panel
 
-@onready var scanner_btn = $VBoxContainer/Button
+@onready var scanner_btn = $VBoxContainer/Button4
 @onready var clean_malware_btn = $VBoxContainer2/Button3
 @onready var anti_ransomware_btn = $VBoxContainer2/Button4
+@onready var analyze_file_btn = $VBoxContainer/Button3
+@onready var analyze_pc_btn = $VBoxContainer/Button
 
 func _ready() -> void:
 	if scanner_btn:
@@ -11,6 +13,19 @@ func _ready() -> void:
 		clean_malware_btn.pressed.connect(_on_clean_malware_pressed)
 	if anti_ransomware_btn:
 		anti_ransomware_btn.pressed.connect(_on_anti_ransomware_pressed)
+	if analyze_file_btn:
+		analyze_file_btn.pressed.connect(_on_analyze_file_pressed)
+	if analyze_pc_btn:
+		analyze_pc_btn.pressed.connect(func():
+			var temp_screen = get_tree().root.get_node_or_null("Desktop")
+			if temp_screen: temp_screen.show_toast("Análisis de Computadora completado. Todo en orden.")
+		)
+		
+	# Hide the unused "No" buttons
+	var no_btn_1 = $VBoxContainer/Button2
+	var no_btn_2 = $VBoxContainer2/Button2
+	if no_btn_1: no_btn_1.hide()
+	if no_btn_2: no_btn_2.hide()
 
 func _process(_delta: float) -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
@@ -75,3 +90,25 @@ func _on_anti_ransomware_pressed() -> void:
 			screen_node.show_toast("Protección Anti-Ransomware activada. Carga de CPU/RAM al máximo.")
 		else:
 			screen_node.show_toast("Protección Anti-Ransomware desactivada.")
+
+func _on_analyze_file_pressed() -> void:
+	var screen_node = get_tree().root.get_node_or_null("Desktop")
+	if not screen_node: return
+	
+	if not screen_node.is_scanner_active:
+		screen_node.show_toast("Error: El Escáner debe estar activo para analizar y eliminar archivos maliciosos.")
+		return
+		
+	var file_container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")
+	if file_container:
+		var removed_count = 0
+		for child in file_container.get_children():
+			if "is_exe" in child and child.is_exe:
+				child.queue_free()
+				removed_count += 1
+		
+		if removed_count > 0:
+			screen_node.show_toast("Se han eliminado " + str(removed_count) + " archivo(s) ejecutable(s).")
+			screen_node.add_log("ESCANER: " + str(removed_count) + " ejecutable(s) eliminado(s) del sistema.", false)
+		else:
+			screen_node.show_toast("No se encontraron archivos ejecutables para eliminar.")

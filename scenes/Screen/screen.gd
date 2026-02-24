@@ -135,7 +135,9 @@ func _spawn_file() -> void:
 			add_log("ESCANER: Archivo sospechoso descargado: " + selected_name, true)
 	else:
 		if is_scanner_active:
-			add_log("Archivo seguro descargado: " + selected_name, false)
+			add_log("ESCANER: Archivo descargado analizado (Seguro): " + selected_name, false)
+		else:
+			add_log("Sistema: Archivo descargado: " + selected_name, false)
 
 func _on_file_executed(consequence: int) -> void:
 	if consequence == 1:
@@ -170,7 +172,7 @@ func _spawn_mail() -> void:
 	var bod = bodies[type - 1]
 		
 	var new_mail = mail_item_scene.instantiate()
-	var container = $CanvasLayer/MailWindow/Panel/WindowContent/ScrollContainer/VBoxContainer
+	var container = $CanvasLayer/MailWindow/Panel2/ScrollContainer/VBoxContainer
 	container.add_child(new_mail)
 	new_mail.setup(sub, bod, is_malicious, type)
 	new_mail.mail_handled.connect(_on_mail_handled)
@@ -181,7 +183,9 @@ func _spawn_mail() -> void:
 			add_log("ESCANER: Correo malicioso detectado y analizado: " + sub, true)
 	else:
 		if is_scanner_active:
-			add_log("Nuevo correo legítimo: " + sub, false)
+			add_log("ESCANER: Correo analizado (Seguro): " + sub, false)
+		else:
+			add_log("Sistema: Nuevo correo recibido: " + sub, false)
 
 func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 	if is_malicious:
@@ -212,8 +216,8 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 				
 			$CanvasLayer/MailWindow.show()
 			if $CanvasLayer/MailWindow/Panel/WindowContent.has_node("PasswordAdd"):
-				if $CanvasLayer/MailWindow/Panel/WindowContent.has_node("ScrollContainer"):
-					$CanvasLayer/MailWindow/Panel/WindowContent/ScrollContainer.hide()
+				if $CanvasLayer/MailWindow.has_node("Panel2"):
+					$CanvasLayer/MailWindow/Panel2.hide()
 				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAdd.hide()
 				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAsk.show()
 		else:

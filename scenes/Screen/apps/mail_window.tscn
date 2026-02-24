@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://3e37s5j8xrva"]
+[gd_scene format=3 uid="uid://bdhysdomfo37f"]
 
+[ext_resource type="Script" uid="uid://d2bqw8txs721k" path="res://scenes/Screen/apps/mail_window.gd" id="1_mailg"]
 [ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_yv1jg"]
 [ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_3cgco"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_prxae"]
@@ -7,9 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="5_5jnyf"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_kr1e6"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="7_numml"]
-[ext_resource type="PackedScene" uid="uid://b20ydo7d4ihc6" path="res://scenes/Screen/apps/mails.tscn" id="8_mails"]
-[ext_resource type="Script" path="res://scenes/Screen/apps/mail_window.gd" id="1_mailg"]
-[ext_resource type="Texture2D" uid="uid://45m1nxs4672v" path="res://assets/Icons/system/Disk.png" id="9_5resk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
