@@ -39,5 +39,10 @@ func _on_delete_pressed() -> void:
 		screen_node.show_toast("Permiso Denegado: Ransomware bloqueando acceso a archivos administrtivos.")
 		return
 		
+	if is_executable:
+		if screen_node:
+			screen_node.show_toast("Permiso Denegado: No puedes borrar ejecutables manualmente. Usa el Antivirus.")
+		return
+		
 	file_deleted.emit()
 	queue_free()

@@ -43,7 +43,12 @@ func _on_window_visibility_changed() -> void:
 			$PasswordAdd.show()
 		else:
 			$PasswordAdd.hide()
-			$PasswordAsk.show()
-			$BrowserAsk.show()
-			$Separator.show()
+			if not $Navigating.visible:
+				$PasswordAsk.show()
+				$BrowserAsk.show()
+				$Separator.show()
+			else:
+				$PasswordAsk.hide()
+				$BrowserAsk.hide()
+				$Separator.hide()
 	

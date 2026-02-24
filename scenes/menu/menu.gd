@@ -6,9 +6,17 @@ extends Control
 @onready var buttons = $Buttons
 @onready var xp_video: VideoStreamPlayer = $XPVideo
 
+@onready var settings_control = $SettingsControl
+@onready var fullscreen_check = $SettingsControl/VBoxContainer/FullscreenCheck
+@onready var volume_slider = $SettingsControl/VBoxContainer/VolumeSlider
+
 func _ready():
 	cam.make_current()
 	xp_video.visible = false
+	settings_control.visible = false
+	
+	fullscreen_check.button_pressed = (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
+	volume_slider.value = AudioServer.get_bus_volume_db(0)
 
 func _on_play_button_pressed() -> void:
 	$Buttons/PlayButton.disabled = true
@@ -38,3 +46,26 @@ func _on_start_sequence_finished(anim_name: String) -> void:
 
 func _on_xp_video_finished() -> void:
 	get_tree().change_scene_to_file("res://scenes/Screen/Screen.tscn")
+
+func _on_settings_button_pressed() -> void:
+	buttons.visible = false
+	title.visible = false
+	settings_control.visible = true
+
+func _on_back_button_pressed() -> void:
+	settings_control.visible = false
+	buttons.visible = true
+	title.visible = true
+
+func _on_fullscreen_check_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, value)
+	if value == volume_slider.min_value:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)

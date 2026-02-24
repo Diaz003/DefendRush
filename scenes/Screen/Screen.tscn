@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bt01lp8araqmw" path="res://scenes/Screen/systems/FileManager.tscn" id="32_i0lon"]
 [ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://scenes/Screen/systems/Guide.tscn" id="33_ncf5q"]
 [ext_resource type="PackedScene" uid="uid://2sxcxhl48fkv" path="res://scenes/Screen/apps/steam_window.tscn" id="34_517o4"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/apps/mail_window.tscn" id="35_mail"]
+[ext_resource type="PackedScene" uid="uid://b4cyqcuhk8cpi" path="res://scenes/Screen/apps/EmailContainer.tscn" id="35_mail"]
 [ext_resource type="PackedScene" path="res://scenes/Screen/apps/options_window.tscn" id="36_opts"]
 [ext_resource type="PackedScene" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
 [ext_resource type="PackedScene" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
