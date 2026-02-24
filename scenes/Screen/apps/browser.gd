@@ -1,5 +1,4 @@
 extends Panel
-
 func _ready():
 	$PasswordAdd.hide()
 	$Navigating.hide()
@@ -42,13 +41,9 @@ func _on_window_visibility_changed() -> void:
 			$PasswordAsk.hide()
 			$PasswordAdd.show()
 		else:
+			$PasswordAdd/Panel/LineEdit.text = ""
 			$PasswordAdd.hide()
-			if not $Navigating.visible:
-				$PasswordAsk.show()
-				$BrowserAsk.show()
-				$Separator.show()
-			else:
-				$PasswordAsk.hide()
-				$BrowserAsk.hide()
-				$Separator.hide()
-	
+			$Navigating.hide()
+			$PasswordAsk.show()
+			$BrowserAsk.show()
+			$Separator.show()
