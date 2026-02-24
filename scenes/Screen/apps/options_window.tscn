@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://geks66mqepnc"]
 
-[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_yv1jg"]
+[ext_resource type="Script" path="res://scenes/Screen/apps/options_window.gd" id="1_yv1jg"]
 [ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_3cgco"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_prxae"]
 [ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="4_oklu6"]
@@ -94,34 +94,37 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 25
 
 [node name="StatusLabel" type="Label" parent="Panel/WindowContent/VBoxContainer" unique_id=1599247065]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0.5, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 30
-text = "System Status"
+theme_override_font_sizes/font_size = 38
+text = "- System Status -"
 horizontal_alignment = 1
 
 [node name="CPUContainer" type="HBoxContainer" parent="Panel/WindowContent/VBoxContainer" unique_id=1505909381]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="Panel/WindowContent/VBoxContainer/CPUContainer" unique_id=685325512]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "CPU:"
+horizontal_alignment = 2
 
 [node name="CPUBar" type="ProgressBar" parent="Panel/WindowContent/VBoxContainer/CPUContainer" unique_id=309697875]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -129,16 +132,19 @@ value = 25.0
 
 [node name="RAMContainer" type="HBoxContainer" parent="Panel/WindowContent/VBoxContainer" unique_id=1268622534]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="Panel/WindowContent/VBoxContainer/RAMContainer" unique_id=1536446361]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "RAM:"
+horizontal_alignment = 2
 
 [node name="RAMBar" type="ProgressBar" parent="Panel/WindowContent/VBoxContainer/RAMContainer" unique_id=82302132]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -146,25 +152,16 @@ value = 40.0
 
 [node name="HSeparator" type="HSeparator" parent="Panel/WindowContent/VBoxContainer" unique_id=779807351]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 
 [node name="PermissionsButton" type="Button" parent="Panel/WindowContent/VBoxContainer" unique_id=921000512]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 28
-text = "Manage Permissions"
+theme_override_font_sizes/font_size = 32
+text = "  Manage Permissions  "
 
-[node name="HSeparator2" type="HSeparator" parent="Panel/WindowContent/VBoxContainer" unique_id=46775254]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="QuitButton" type="Button" parent="Panel/WindowContent/VBoxContainer" unique_id=2088729575]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 28
-text = "Quit to Menu"
 
 [node name="PermissionsContainer" type="VBoxContainer" parent="Panel/WindowContent" unique_id=3453456]
 visible = false
@@ -172,22 +169,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 25
 
 [node name="TitleBox" type="HBoxContainer" parent="Panel/WindowContent/PermissionsContainer" unique_id=676575]
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="Panel/WindowContent/PermissionsContainer/TitleBox" unique_id=45645]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(90, 40)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 text = "< Back"
 
 [node name="TitleLabel" type="Label" parent="Panel/WindowContent/PermissionsContainer/TitleBox" unique_id=34524]
@@ -195,7 +193,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "System Permissions"
 horizontal_alignment = 1
 
@@ -205,16 +203,19 @@ theme_override_constants/separation = 20
 
 [node name="AntivirusPerms" type="HBoxContainer" parent="Panel/WindowContent/PermissionsContainer" unique_id=453454]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="Panel/WindowContent/PermissionsContainer/AntivirusPerms" unique_id=45445]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 22
 text = "Revocar permisos avanzados del sistema"
+autowrap_mode = 2
 
 [node name="AntivirusCheck" type="CheckButton" parent="Panel/WindowContent/PermissionsContainer/AntivirusPerms" unique_id=435345]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
