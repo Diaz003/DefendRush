@@ -212,7 +212,7 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
 theme_override_font_sizes/font_size = 24
-text = "Grant Antivirus Admin Rights"
+text = "Revocar permisos avanzados del sistema"
 
 [node name="AntivirusCheck" type="CheckButton" parent="Panel/WindowContent/PermissionsContainer/AntivirusPerms" unique_id=435345]
 layout_mode = 2

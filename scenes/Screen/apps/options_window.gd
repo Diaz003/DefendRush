@@ -33,12 +33,17 @@ func _process(delta: float) -> void:
 func _update_status_bars() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	var has_malware = false
+	var is_high_load = false
 	
-	if screen_node and "active_malware" in screen_node:
-		has_malware = screen_node.active_malware > 0
-		antivirus_check.button_pressed = screen_node.antivirus_permissions_granted
+	if screen_node:
+		if "active_malware" in screen_node:
+			has_malware = screen_node.active_malware > 0
+		if "is_scanner_active" in screen_node:
+			is_high_load = screen_node.is_scanner_active or screen_node.is_anti_ransomware_active
+		if "system_permissions_revoked" in screen_node:
+			antivirus_check.button_pressed = screen_node.system_permissions_revoked
 		
-	if has_malware:
+	if has_malware or is_high_load:
 		# High usage erratic values
 		cpu_bar.value = randf_range(85.0, 100.0)
 		ram_bar.value = randf_range(80.0, 98.0)
@@ -52,8 +57,8 @@ func _update_status_bars() -> void:
 
 func _on_antivirus_toggled(toggled_on: bool) -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
-	if screen_node and "antivirus_permissions_granted" in screen_node:
-		screen_node.antivirus_permissions_granted = toggled_on
+	if screen_node and "system_permissions_revoked" in screen_node:
+		screen_node.system_permissions_revoked = toggled_on
 
 func _on_close_button_pressed() -> void:
 	hide()

@@ -9,7 +9,13 @@ var mail_spawn_timer: float = 2.0 * 60.0
 var game_over_timer: float = 0.0
 var active_malware: int = 0
 var apps_needing_password_reset: Array[String] = []
+
+# Permissions and System State Variables
 var antivirus_permissions_granted: bool = false
+var system_permissions_revoked: bool = false
+var is_scanner_active: bool = false
+var is_anti_ransomware_active: bool = false
+var has_active_ransomware: bool = false
 
 @onready var file_item_scene = preload("res://scenes/Screen/systems/FileItem.tscn")
 @onready var notification_toast_scene = preload("res://scenes/Screen/systems/NotificationToast.tscn")
@@ -62,20 +68,20 @@ func _process(delta: float) -> void:
 		if nav_node and nav_node.visible:
 			is_browsing = true
 
-	if time_left_seconds > 0.0:
-		time_left_seconds -= delta
-
-		var current_second: int = int(time_left_seconds)
-		if current_second != last_update_second:
-			last_update_second = current_second
-			_update_time_label()
-
-		if time_left_seconds <= 0.0:
-			time_left_seconds = 0.0
-			_update_time_label()
-			_on_game_end()
-
 	if is_browsing:				
+		if time_left_seconds > 0.0:
+			time_left_seconds -= delta
+
+			var current_second: int = int(time_left_seconds)
+			if current_second != last_update_second:
+				last_update_second = current_second
+				_update_time_label()
+
+			if time_left_seconds <= 0.0:
+				time_left_seconds = 0.0
+				_update_time_label()
+				_on_game_end()
+				
 		if file_spawn_timer > 0.0:
 			file_spawn_timer -= delta
 			if file_spawn_timer <= 0.0:
@@ -124,10 +130,12 @@ func _spawn_file() -> void:
 	
 	if is_exe:
 		new_file.file_executed.connect(_on_file_executed)
-		show_toast("Se han detectado amenazas en el sistema (archivo malicioso)")
-		add_log("Archivo malicioso descargado: " + selected_name, true)
+		if is_scanner_active:
+			show_toast("El Escáner detectó amenazas potenciales en el sistema.")
+			add_log("ESCANER: Archivo sospechoso descargado: " + selected_name, true)
 	else:
-		add_log("Archivo descargado: " + selected_name, false)
+		if is_scanner_active:
+			add_log("Archivo seguro descargado: " + selected_name, false)
 
 func _on_file_executed(consequence: int) -> void:
 	if consequence == 1:
@@ -141,10 +149,15 @@ func _on_file_executed(consequence: int) -> void:
 			show_toast("¡PELIGRO! Troyano detectado. Destrucción del sistema inminente.")
 			add_log("ALERTA CRÍTICA: Troyano ejecutado. 5 minutos para el fallo total.", true)
 	elif consequence == 3:
-		if game_over_timer <= 0.0 or game_over_timer > 5.0 * 60.0:
-			game_over_timer = 5.0 * 60.0
-			show_toast("¡PELIGRO! Ransomware detectado. Archivos encriptándose...")
-			add_log("ALERTA CRÍTICA: Ransomware ejecutado. Usa el Antivirus para detenerlo.", true)
+		if is_anti_ransomware_active:
+			show_toast("Herramienta Anti-Ransomware bloqueó una infección crítica.")
+			add_log("PROTECCIÓN ACTIVA: Ataque de Ransomware evitado.", false)
+		else:
+			has_active_ransomware = true
+			if game_over_timer <= 0.0 or game_over_timer > 5.0 * 60.0:
+				game_over_timer = 5.0 * 60.0
+			show_toast("¡PELIGRO! Ransomware detectado. Permisos de administrador secuestrados.")
+			add_log("ALERTA CRÍTICA: Ransomware ejecutado. Limita accesos y archivos.", true)
 
 func _spawn_mail() -> void:
 	var type = randi() % 6 + 1
@@ -163,10 +176,12 @@ func _spawn_mail() -> void:
 	new_mail.mail_handled.connect(_on_mail_handled)
 	
 	if is_malicious:
-		show_toast("Se han detectado amenazas en el sistema (correos)")
-		add_log("Correo sospechoso recibido: " + sub, true)
+		if is_scanner_active:
+			show_toast("El Escáner bloqueó un intento de phishing. Revisa tu correo.")
+			add_log("ESCANER: Correo malicioso detectado y analizado: " + sub, true)
 	else:
-		add_log("Nuevo correo: " + sub, false)
+		if is_scanner_active:
+			add_log("Nuevo correo legítimo: " + sub, false)
 
 func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 	if is_malicious:
