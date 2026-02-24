@@ -240,10 +240,6 @@ scale = Vector2(0.11022903, 0.08944183)
 stream = ExtResource("8_t0a87")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="finished" from="XPVideo" to="." method="_on_xp_video_finished"]
-
 [node name="SettingsControl" type="Control" parent="." unique_id=744158296]
 visible = false
 layout_mode = 1
@@ -300,7 +296,6 @@ horizontal_alignment = 1
 layout_mode = 2
 min_value = -40.0
 max_value = 0.0
-step = 1.0
 
 [node name="BackButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=452425]
 texture_filter = 1
@@ -313,7 +308,10 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
 text = "Back"
 
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="finished" from="XPVideo" to="." method="_on_xp_video_finished"]
 [connection signal="toggled" from="SettingsControl/VBoxContainer/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="value_changed" from="SettingsControl/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="SettingsControl/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
