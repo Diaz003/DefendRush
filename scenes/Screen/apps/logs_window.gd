@@ -17,9 +17,9 @@ func add_log(message: String, is_warning: bool = false) -> void:
 	label.add_theme_font_size_override("font_size", 20)
 	
 	if is_warning:
-		label.add_theme_color_override("font_color", Color(1, 0, 0)) # Red
+		label.add_theme_color_override("font_color", Color(1, 0, 0))
 	else:
-		label.add_theme_color_override("font_color", Color(0, 0, 0)) # Black
+		label.add_theme_color_override("font_color", Color(0, 0, 0))
 		
 	container.add_child(label)
 	

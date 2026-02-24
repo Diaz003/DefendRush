@@ -16,6 +16,7 @@ var system_permissions_revoked: bool = false
 var is_scanner_active: bool = false
 var is_anti_ransomware_active: bool = false
 var has_active_ransomware: bool = false
+var has_active_trojan: bool = false
 
 var can_delete_files: bool = false
 
@@ -56,7 +57,12 @@ func _ready() -> void:
 	$MailButton.pressed.connect(func(): $CanvasLayer/MailWindow.show())
 	$PayPalButton.pressed.connect(func(): $CanvasLayer/BankWindow.show())
 	$SteamButton.pressed.connect(func(): $CanvasLayer/SteamWindow.show())
-	$FileButton.pressed.connect(func(): $CanvasLayer/FileManager.show())
+	$FileButton.pressed.connect(func(): 
+		if has_active_ransomware:
+			show_toast("Error: Ransomware blocks access to system files.")
+		else:
+			$CanvasLayer/FileManager.show()
+	)
 	$SecureButton.pressed.connect(func(): $CanvasLayer/Antivirus.show())
 	$ConfigButton.pressed.connect(func(): $CanvasLayer/OptionsWindow.show())
 	$Toolbar/utils/Logs.pressed.connect(func(): 
@@ -75,6 +81,8 @@ func _process(delta: float) -> void:
 		if current_second != last_update_second:
 			last_update_second = current_second
 			_update_time_label()
+			if active_malware > 0:
+				score -= 10 * active_malware
 
 		if time_left_seconds <= 0.0:
 			time_left_seconds = 0.0
@@ -109,10 +117,10 @@ func add_log(message: String, is_warning: bool = false) -> void:
 func on_app_password_reset(app_name: String) -> void:
 	if apps_needing_password_reset.has(app_name):
 		apps_needing_password_reset.erase(app_name)
-		add_log("Contraseña de " + app_name + " restablecida.", false)
+		add_log("Password for " + app_name + " reset.", false)
 		if apps_needing_password_reset.is_empty():
-			show_toast("¡Todas las contraseñas restablecidas! Estás a salvo.")
-			add_log("Sistema asegurado: Todas las contraseñas cambiadas.", false)
+			show_toast("All passwords reset! You are safe.")
+			add_log("System secured: All passwords changed.", false)
 
 func _spawn_file(force_exe: bool = false) -> void:
 	var names = ["Document.txt", "Audio.wav", "Video.mp4", "Image.jpg"]
@@ -130,42 +138,43 @@ func _spawn_file(force_exe: bool = false) -> void:
 	if is_exe:
 		new_file.file_executed.connect(_on_file_executed)
 		if is_scanner_active:
-			show_toast("El Escáner detectó amenazas potenciales en el sistema.")
-			add_log("ESCANER: Archivo sospechoso descargado: " + selected_name, true)
+			show_toast("Scanner detected potential threats in the system.")
+			add_log("SCANNER: Suspicious file downloaded: " + selected_name, true)
 	else:
 		if is_scanner_active:
-			add_log("ESCANER: Archivo descargado analizado (Seguro): " + selected_name, false)
+			add_log("SCANNER: Downloaded file analyzed (Safe): " + selected_name, false)
 		else:
-			add_log("Sistema: Archivo descargado: " + selected_name, false)
+			add_log("System: File downloaded: " + selected_name, false)
 
 func _on_file_executed(consequence: int) -> void:
 	if consequence == 1:
 		score -= exe_score_penalty
 		active_malware += 1
-		show_toast("El sistema se ha ralentizado (Malware).")
-		add_log("INFECCIÓN: Malware activo. Rendimiento del sistema degradado.", true)
+		show_toast("The system has slowed down (Malware).")
+		add_log("INFECTION: Active malware. Degraded system performance.", true)
 	elif consequence == 2:
-		if game_over_timer <= 0.0 or game_over_timer > 5.0 * 60.0:
-			game_over_timer = 5.0 * 60.0
-			show_toast("¡PELIGRO! Troyano detectado. Destrucción del sistema inminente.")
-			add_log("ALERTA CRÍTICA: Troyano ejecutado. 5 minutos para el fallo total.", true)
+		has_active_trojan = true
+		if game_over_timer <= 0.0 or game_over_timer > 90.0:
+			game_over_timer = 90.0
+		show_toast("DANGER! Trojan detected. System destruction in 1 Minute and 30 Seconds.")
+		add_log("CRITICAL ALERT: Trojan executed. 1:30 to total failure.", true)
 	elif consequence == 3:
 		if is_anti_ransomware_active:
-			show_toast("Herramienta Anti-Ransomware bloqueó una infección crítica.")
-			add_log("PROTECCIÓN ACTIVA: Ataque de Ransomware evitado.", false)
+			show_toast("Anti-Ransomware tool blocked a critical infection.")
+			add_log("ACTIVE PROTECTION: Ransomware attack prevented.", false)
 		else:
 			has_active_ransomware = true
 			if game_over_timer <= 0.0 or game_over_timer > 5.0 * 60.0:
 				game_over_timer = 5.0 * 60.0
-			show_toast("¡PELIGRO! Ransomware detectado. Permisos de administrador secuestrados.")
-			add_log("ALERTA CRÍTICA: Ransomware ejecutado. Limita accesos y archivos.", true)
+			show_toast("DANGER! Ransomware detected. Administrator permissions hijacked.")
+			add_log("CRITICAL ALERT: Ransomware executed. Limits access and files.", true)
 
 func _spawn_mail() -> void:
 	var container = $CanvasLayer/MailWindow/Panel2/ScrollContainer/VBoxContainer
 	if container.get_child_count() >= 3:
 		score -= 2000
-		show_toast("¡Has ignorado demasiados correos! Infección masiva detectada.")
-		add_log("PENALIZACIÓN: Demasiados correos sin leer. Ataque de virus múltiple.", true)
+		show_toast("You have ignored too many emails! Massive infection detected.")
+		add_log("PENALTY: Too many unread emails. Multiple virus attack.", true)
 		for i in range(3):
 			_spawn_file(true)
 			
@@ -185,13 +194,13 @@ func _spawn_mail() -> void:
 	
 	if is_malicious:
 		if is_scanner_active:
-			show_toast("El Escáner bloqueó un intento de phishing. Revisa tu correo.")
-			add_log("ESCANER: Correo malicioso detectado y analizado: " + sub, true)
+			show_toast("Scanner blocked a phishing attempt. Check your email.")
+			add_log("SCANNER: Malicious email detected and analyzed: " + sub, true)
 	else:
 		if is_scanner_active:
-			add_log("ESCANER: Correo analizado (Seguro): " + sub, false)
+			add_log("SCANNER: Email analyzed (Safe): " + sub, false)
 		else:
-			add_log("Sistema: Nuevo correo recibido: " + sub, false)
+			add_log("System: New email received: " + sub, false)
 
 func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 	if is_malicious:
@@ -201,8 +210,8 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 			exe_spawn_chance_divisor = 2
 			exe_score_penalty = 2000
 			apps_needing_password_reset = ["Browser", "Bank", "Steam", "Mail"]
-			show_toast("¡Han robado tus contraseñas! Cambia tus contraseñas en todas las apps para estar seguro.")
-			add_log("ALERTA CRÍTICA: Contraseñas comprometidas por phishing. Los virus atacarán más rápido y fuerte.", true)
+			show_toast("Your passwords have been stolen! Change your passwords in all apps to be safe.")
+			add_log("CRITICAL ALERT: Passwords compromised by phishing. Viruses will attack faster and stronger.", true)
 			
 			$CanvasLayer/BrowserWindows.show()
 			$CanvasLayer/BrowserWindows/Panel/WindowContent/Navigating.hide()
@@ -212,7 +221,7 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 			$CanvasLayer/BrowserWindows/Panel/WindowContent/PasswordAsk.hide()
 			$CanvasLayer/BrowserWindows/Panel/WindowContent/PasswordAdd.show()
 			
-			# Mostrar ventanas para las demas apps que necesitan cambio y prepararlas
+			# Show windows for other apps that need changing and prepare them
 			$CanvasLayer/BankWindow.show()
 			if $CanvasLayer/BankWindow/Panel/WindowContent.has_node("PasswordAdd"):
 				$CanvasLayer/BankWindow/Panel/WindowContent/PasswordAdd.hide()
@@ -234,8 +243,8 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 			current_file_spawn_interval = 45.0
 			exe_spawn_chance_divisor = 8
 			exe_score_penalty = 1000
-			show_toast("Phishing evadido. El sistema está más tranquilo.")
-			add_log("Phishing evadido exitosamente. Los ataques disminuirán temporalmente.", false)
+			show_toast("Phishing evaded. The system is calmer.")
+			add_log("Phishing successfully evaded. Attacks will decrease temporarily.", false)
 	else:
 		if accept:
 			score += 100

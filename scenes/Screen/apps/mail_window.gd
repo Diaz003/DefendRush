@@ -7,7 +7,7 @@ func _ready():
 	if has_node("PasswordAsk/Button"):
 		$PasswordAsk/Button.pressed.connect(func():
 			$PasswordAsk.hide()
-			$ScrollContainer.hide() # Hide the emails while resetting
+			$ScrollContainer.hide()
 			$PasswordAdd.show()
 		)
 	
@@ -16,7 +16,7 @@ func _ready():
 			if new_text.strip_edges().length() > 0:
 				$PasswordAdd/Panel/LineEdit.text = ""
 				$PasswordAdd.hide()
-				$ScrollContainer.show() # Show emails again
+				$ScrollContainer.show()
 				var desktop = get_tree().root.get_node_or_null("Desktop")
 				if desktop and desktop.has_method("on_app_password_reset"):
 					desktop.on_app_password_reset("Mail")

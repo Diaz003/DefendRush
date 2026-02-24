@@ -27,7 +27,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_timer -= delta
 	if update_timer <= 0.0:
-		update_timer = 1.0 # Update every 1 second
+		update_timer = 1.0
 		_update_status_bars()
 
 func _update_status_bars() -> void:
@@ -44,16 +44,14 @@ func _update_status_bars() -> void:
 			antivirus_check.button_pressed = screen_node.system_permissions_revoked
 		
 	if has_malware or is_high_load:
-		# High usage erratic values
 		cpu_bar.value = randf_range(85.0, 100.0)
 		ram_bar.value = randf_range(80.0, 98.0)
-		cpu_bar.modulate = Color(1, 0, 0) # Red color for warning
+		cpu_bar.modulate = Color(1, 0, 0)
 		ram_bar.modulate = Color(1, 0, 0)
 	else:
-		# Normal usage erratic values
 		cpu_bar.value = randf_range(5.0, 25.0)
 		ram_bar.value = randf_range(30.0, 45.0)
-		cpu_bar.modulate = Color(1, 1, 1) # Normal color
+		cpu_bar.modulate = Color(1, 1, 1) 
 
 func _on_antivirus_toggled(toggled_on: bool) -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
