@@ -4,7 +4,8 @@ signal file_executed(consequence_type)
 signal file_deleted
 
 var is_exe: bool = false
-var exe_timer: float = 3.0 * 60.0
+var exe_timer: float = 30.0
+var consequence_type: int = 0
 
 func _ready() -> void:
 	if has_node("MarginContainer3/DeleteButton"):
@@ -14,6 +15,7 @@ func setup(file_name: String, exe: bool) -> void:
 	$MarginContainer2/Label.text = file_name
 	is_exe = exe
 	if is_exe:
+		consequence_type = randi() % 3 + 1
 		set_process(true)
 	else:
 		set_process(false)
@@ -26,8 +28,7 @@ func _process(delta: float) -> void:
 			_execute_payload()
 
 func _execute_payload() -> void:
-	var consequence = randi() % 3 + 1
-	file_executed.emit(consequence)
+	file_executed.emit(consequence_type)
 	modulate = Color(1, 0, 0)
 	if has_node("MarginContainer3/DeleteButton"):
 		$MarginContainer3/DeleteButton.hide()

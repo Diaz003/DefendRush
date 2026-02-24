@@ -4,8 +4,8 @@ var time_left_seconds: float = 10 * 60.0
 var last_update_second: int = 0
 
 var score: int = 0
-var file_spawn_timer: float = 30.0
-var mail_spawn_timer: float = 60.0
+var file_spawn_timer: float = 10.0
+var mail_spawn_timer: float = 20.0
 var game_over_timer: float = 0.0
 var active_malware: int = 0
 var apps_needing_password_reset: Array[String] = []
@@ -20,9 +20,11 @@ var has_active_trojan: bool = false
 
 var can_delete_files: bool = false
 
-var current_file_spawn_interval: float = 30.0
+var current_file_spawn_interval: float = 10.0
 var exe_spawn_chance_divisor: int = 5
 var exe_score_penalty: int = 1000
+
+var clip_npc: Node = null
 
 @onready var file_item_scene = preload("res://scenes/Screen/systems/FileItem.tscn")
 @onready var notification_toast_scene = preload("res://scenes/Screen/systems/NotificationToast.tscn")
@@ -71,6 +73,12 @@ func _ready() -> void:
 	guide_button.pressed.connect(func(): guide_window.show())
 
 	_update_time_label()
+	_init_clip_npc()
+
+func _init_clip_npc() -> void:
+	# Placeholder structure for Clip NPC initialization later
+	# clip_npc = $CanvasLayer/ClipNPC
+	pass
 
 
 func _process(delta: float) -> void:
@@ -89,6 +97,10 @@ func _process(delta: float) -> void:
 			_update_time_label()
 			_on_game_end()
 			
+		if score <= 0 and active_malware > 0:
+			score = 0
+			_on_game_end()
+			
 	if file_spawn_timer > 0.0:
 		file_spawn_timer -= delta
 		if file_spawn_timer <= 0.0:
@@ -98,7 +110,7 @@ func _process(delta: float) -> void:
 	if mail_spawn_timer > 0.0:
 		mail_spawn_timer -= delta
 		if mail_spawn_timer <= 0.0:
-			mail_spawn_timer = randf_range(60.0, 120.0)
+			mail_spawn_timer = 20.0
 			_spawn_mail()
 				
 	if game_over_timer > 0.0:
@@ -132,8 +144,16 @@ func _spawn_file(force_exe: bool = false) -> void:
 		
 	var new_file = file_item_scene.instantiate()
 	var container = $CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer
-	container.add_child(new_file)
 	new_file.setup(selected_name, is_exe)
+	
+	if is_exe:
+		if new_file.consequence_type == 3 and is_anti_ransomware_active:
+			new_file.queue_free()
+			show_toast("Anti-Ransomware auto-deleted a Ransomware file before execution.")
+			add_log("ACTIVE PROTECTION: Ransomware downloaded and instantly deleted.", false)
+			return
+			
+	container.add_child(new_file)
 	
 	if is_exe:
 		new_file.file_executed.connect(_on_file_executed)
