@@ -18,7 +18,7 @@ func _ready() -> void:
 	if analyze_pc_btn:
 		analyze_pc_btn.pressed.connect(func():
 			var temp_screen = get_tree().root.get_node_or_null("Desktop")
-			if temp_screen: temp_screen.show_toast("Análisis de Computadora completado. Todo en orden.")
+			if temp_screen: temp_screen.show_toast("Computer Analysis completed. Everything in order.")
 		)
 		
 
@@ -40,64 +40,80 @@ func _on_scanner_toggled() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	if screen_node:
 		if screen_node.is_anti_ransomware_active:
-			screen_node.show_toast("No puedes tener el Escáner y el Anti-Ransomware activos al mismo tiempo.")
+			screen_node.show_toast("You cannot have the Scanner and Anti-Ransomware active at the same time.")
 			return
 		
 		screen_node.is_scanner_active = !screen_node.is_scanner_active
 		if screen_node.is_scanner_active:
-			screen_node.show_toast("Escáner del sistema activado. Carga de CPU/RAM al máximo.")
+			screen_node.show_toast("System scanner activated. CPU/RAM load at maximum.")
 		else:
-			screen_node.show_toast("Escáner del sistema desactivado.")
+			screen_node.show_toast("System scanner deactivated.")
 
 func _on_clean_malware_pressed() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	if screen_node:
+		if not screen_node.system_permissions_revoked:
+			screen_node.show_toast("Error: You must limit system permissions in Settings to clean viruses.")
+			screen_node.add_log("FAILURE: Cleaning blocked. System permissions too high.", true)
+			return
+			
+		var cleaned_something = false
 		if screen_node.active_malware > 0:
-			screen_node.active_malware -= 1
-			screen_node.show_toast("Unidades de Malware limpiadas del sistema.")
-			screen_node.add_log("AMENAZA NEUTRALIZADA: Malware estándar eliminado por el Antivirus.", false)
-		else:
-			screen_node.show_toast("El sistema está limpio de Malware estándar.")
+			screen_node.active_malware = 0
+			screen_node.show_toast("Malware units cleaned from the system.")
+			screen_node.add_log("THREAT NEUTRALIZED: Malware deleted by the Antivirus.", false)
+			cleaned_something = true
+			
+		if "has_active_trojan" in screen_node and screen_node.has_active_trojan:
+			screen_node.has_active_trojan = false
+			if not screen_node.has_active_ransomware:
+				screen_node.game_over_timer = 0.0
+			screen_node.show_toast("Trojan successfully removed from the system!")
+			screen_node.add_log("THREAT NEUTRALIZED: Trojan deleted or blocked.", false)
+			cleaned_something = true
+			
+		if not cleaned_something:
+			screen_node.show_toast("The system is already clean of Malware and Trojans.")
 
 func _on_anti_ransomware_pressed() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	if screen_node:
-		# Finalidad 1: Eliminar Ransomware si ya estamos infectados
+		# Purpose 1: Remove Ransomware if already infected
 		if screen_node.has_active_ransomware:
 			if screen_node.system_permissions_revoked:
 				screen_node.has_active_ransomware = false
 				screen_node.system_permissions_revoked = false
 				if screen_node.game_over_timer > 0.0:
 					screen_node.game_over_timer = 0.0
-				screen_node.show_toast("¡Ransomware eliminado con éxito del sistema!")
-				screen_node.add_log("AMENAZA NEUTRALIZADA: Ransomware eliminado. Permisos restaurados.", false)
+				screen_node.show_toast("Ransomware successfully removed from the system!")
+				screen_node.add_log("THREAT NEUTRALIZED: Ransomware deleted. Permissions restored.", false)
 			else:
-				screen_node.show_toast("Error: El Ransomware bloquea el acceso. Revoca primero los permisos avanzados en Opciones.")
-				screen_node.add_log("FALLO: Ransomware bloquea la desinfección. Faltan permisos.", true)
+				screen_node.show_toast("Error: Ransomware blocks access. Revoke advanced permissions in Options first.")
+				screen_node.add_log("FAILURE: Ransomware blocks disinfection. Missing permissions.", true)
 			return
 
-		# Finalidad 2: Activar/Desactivar protección preventiva
+		# Purpose 2: Activate/Deactivate preventive protection
 		if screen_node.is_scanner_active:
-			screen_node.show_toast("No puedes tener el Anti-Ransomware y el Escáner activos al mismo tiempo.")
+			screen_node.show_toast("You cannot have Anti-Ransomware and Scanner active at the same time.")
 			return
 			
 		screen_node.is_anti_ransomware_active = !screen_node.is_anti_ransomware_active
 		if screen_node.is_anti_ransomware_active:
-			screen_node.show_toast("Protección Anti-Ransomware activada. Carga de CPU/RAM al máximo.")
+			screen_node.show_toast("Anti-Ransomware protection activated. CPU/RAM load at maximum.")
 		else:
-			screen_node.show_toast("Protección Anti-Ransomware desactivada.")
+			screen_node.show_toast("Anti-Ransomware protection deactivated.")
 
 func _on_analyze_file_pressed() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	if not screen_node: return
 	
 	if not screen_node.is_scanner_active:
-		screen_node.show_toast("Error: El Escáner debe estar activo para analizar y eliminar archivos.")
+		screen_node.show_toast("Error: Scanner must be active to analyze and delete files.")
 		return
 		
 	var file_manager = screen_node.get_node_or_null("CanvasLayer/FileManager")
 	if file_manager:
 		screen_node.can_delete_files = true
 		file_manager.show()
-		screen_node.show_toast("Modo Análisis Activo: Ahora puedes eliminar archivos manualmente desde el Gestor.")
-		screen_node.add_log("ESCANER: Modo Análisis habilitado temporalmente.", false)
+		screen_node.show_toast("Active Analysis Mode: You can now manually delete files from the Manager.")
+		screen_node.add_log("SCANNER: Analysis Mode temporarily enabled.", false)
