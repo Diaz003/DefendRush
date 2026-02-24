@@ -34,5 +34,10 @@ func _execute_payload() -> void:
 	set_process(false)
 
 func _on_delete_pressed() -> void:
+	var screen_node = get_tree().root.get_node_or_null("Desktop")
+	if screen_node and "has_active_ransomware" in screen_node and screen_node.has_active_ransomware:
+		screen_node.show_toast("Permiso Denegado: Ransomware bloqueando acceso a archivos administrtivos.")
+		return
+		
 	file_deleted.emit()
 	queue_free()
