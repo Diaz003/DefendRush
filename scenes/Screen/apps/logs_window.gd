@@ -4,7 +4,6 @@ extends Control
 var max_logs: int = 10
 
 func _ready() -> void:
-	# Clear placeholder UI items
 	for child in container.get_children():
 		child.queue_free()
 
@@ -13,7 +12,6 @@ func add_log(message: String, is_warning: bool = false) -> void:
 	label.text = message
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	
-	# Load classic font
 	var font = preload("res://assets/Letter/W95FA.otf")
 	label.add_theme_font_override("font", font)
 	label.add_theme_font_size_override("font_size", 20)
@@ -25,7 +23,6 @@ func add_log(message: String, is_warning: bool = false) -> void:
 		
 	container.add_child(label)
 	
-	# Cap at max_logs
 	var children = container.get_children()
 	if children.size() > max_logs:
 		children[0].queue_free()

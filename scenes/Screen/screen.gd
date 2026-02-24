@@ -19,6 +19,10 @@ var has_active_ransomware: bool = false
 
 var can_delete_files: bool = false
 
+var current_file_spawn_interval: float = 30.0
+var exe_spawn_chance_divisor: int = 5
+var exe_score_penalty: int = 1000
+
 @onready var file_item_scene = preload("res://scenes/Screen/systems/FileItem.tscn")
 @onready var notification_toast_scene = preload("res://scenes/Screen/systems/NotificationToast.tscn")
 @onready var mail_item_scene = preload("res://scenes/Screen/apps/mails.tscn")
@@ -39,7 +43,7 @@ func _ready() -> void:
 	$CanvasLayer/SteamWindow.hide()
 	$CanvasLayer/MailWindow.hide()
 	$CanvasLayer/OptionsWindow.hide()
-	$CanvasLayer/Guide.hide()
+	$CanvasLayer/Guide.show()
 	
 	set_process(false)
 	var power_on = power_on_scene.instantiate()
@@ -80,7 +84,7 @@ func _process(delta: float) -> void:
 	if file_spawn_timer > 0.0:
 		file_spawn_timer -= delta
 		if file_spawn_timer <= 0.0:
-			file_spawn_timer = 30.0
+			file_spawn_timer = current_file_spawn_interval
 			_spawn_file()
 			
 	if mail_spawn_timer > 0.0:
@@ -110,11 +114,11 @@ func on_app_password_reset(app_name: String) -> void:
 			show_toast("¡Todas las contraseñas restablecidas! Estás a salvo.")
 			add_log("Sistema asegurado: Todas las contraseñas cambiadas.", false)
 
-func _spawn_file() -> void:
+func _spawn_file(force_exe: bool = false) -> void:
 	var names = ["Document.txt", "Audio.wav", "Video.mp4", "Image.jpg"]
 	var selected_name = names[randi() % names.size()]
 	
-	var is_exe = (randi() % 5) == 4 # 1 in 5 chance (0-4)
+	var is_exe = force_exe or (randi() % exe_spawn_chance_divisor) == (exe_spawn_chance_divisor - 1)
 	if is_exe:
 		selected_name += ".exe"
 		
@@ -136,7 +140,7 @@ func _spawn_file() -> void:
 
 func _on_file_executed(consequence: int) -> void:
 	if consequence == 1:
-		score -= 1000
+		score -= exe_score_penalty
 		active_malware += 1
 		show_toast("El sistema se ha ralentizado (Malware).")
 		add_log("INFECCIÓN: Malware activo. Rendimiento del sistema degradado.", true)
@@ -157,6 +161,14 @@ func _on_file_executed(consequence: int) -> void:
 			add_log("ALERTA CRÍTICA: Ransomware ejecutado. Limita accesos y archivos.", true)
 
 func _spawn_mail() -> void:
+	var container = $CanvasLayer/MailWindow/Panel2/ScrollContainer/VBoxContainer
+	if container.get_child_count() >= 3:
+		score -= 2000
+		show_toast("¡Has ignorado demasiados correos! Infección masiva detectada.")
+		add_log("PENALIZACIÓN: Demasiados correos sin leer. Ataque de virus múltiple.", true)
+		for i in range(3):
+			_spawn_file(true)
+			
 	var type = randi() % 6 + 1
 	var is_malicious = type >= 5
 	
@@ -167,7 +179,6 @@ func _spawn_mail() -> void:
 	var bod = bodies[type - 1]
 		
 	var new_mail = mail_item_scene.instantiate()
-	var container = $CanvasLayer/MailWindow/Panel2/ScrollContainer/VBoxContainer
 	container.add_child(new_mail)
 	new_mail.setup(sub, bod, is_malicious, type)
 	new_mail.mail_handled.connect(_on_mail_handled)
@@ -185,10 +196,13 @@ func _spawn_mail() -> void:
 func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 	if is_malicious:
 		if accept:
-			score -= 1500
+			score -= 3000
+			current_file_spawn_interval = 10.0
+			exe_spawn_chance_divisor = 2
+			exe_score_penalty = 2000
 			apps_needing_password_reset = ["Browser", "Bank", "Steam", "Mail"]
 			show_toast("¡Han robado tus contraseñas! Cambia tus contraseñas en todas las apps para estar seguro.")
-			add_log("ALERTA CRÍTICA: Contraseñas comprometidas por phishing.", true)
+			add_log("ALERTA CRÍTICA: Contraseñas comprometidas por phishing. Los virus atacarán más rápido y fuerte.", true)
 			
 			$CanvasLayer/BrowserWindows.show()
 			$CanvasLayer/BrowserWindows/Panel/WindowContent/Navigating.hide()
@@ -217,7 +231,11 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAsk.show()
 		else:
 			score += 500
-			add_log("Phishing evadido exitosamente.", false)
+			current_file_spawn_interval = 45.0
+			exe_spawn_chance_divisor = 8
+			exe_score_penalty = 1000
+			show_toast("Phishing evadido. El sistema está más tranquilo.")
+			add_log("Phishing evadido exitosamente. Los ataques disminuirán temporalmente.", false)
 	else:
 		if accept:
 			score += 100

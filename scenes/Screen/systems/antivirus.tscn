@@ -417,10 +417,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_levu8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vww8l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jx8xt")
 button_mask = 7
-text = "Yes"
+text = "Activate Scanner"
 autowrap_mode = 1
 
 [node name="Button2" type="Button" parent="Panel/WindowContent/VBoxContainer" unique_id=1388654948]
+visible = false
 clip_contents = true
 layout_mode = 2
 theme_override_constants/outline_size = 4
@@ -536,10 +537,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_levu8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j372g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pls6s")
 button_mask = 7
-text = "Yes"
+text = "Activate Anti-Ransomware"
 autowrap_mode = 1
 
 [node name="Button2" type="Button" parent="Panel/WindowContent/VBoxContainer2" unique_id=1193187306]
+visible = false
 clip_contents = true
 layout_mode = 2
 theme_override_constants/outline_size = 4

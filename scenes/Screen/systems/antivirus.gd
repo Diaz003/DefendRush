@@ -21,11 +21,7 @@ func _ready() -> void:
 			if temp_screen: temp_screen.show_toast("Análisis de Computadora completado. Todo en orden.")
 		)
 		
-	# Hide the unused "No" buttons
-	var no_btn_1 = $VBoxContainer/Button2
-	var no_btn_2 = $VBoxContainer2/Button2
-	if no_btn_1: no_btn_1.hide()
-	if no_btn_2: no_btn_2.hide()
+
 
 func _process(_delta: float) -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
