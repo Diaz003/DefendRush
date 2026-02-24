@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="5_5jnyf"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_kr1e6"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="7_numml"]
+[ext_resource type="Script" uid="uid://bwp2ypelqibka" path="res://scenes/Screen/apps/options.gd" id="8_1bh37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
@@ -87,6 +88,7 @@ anchor_bottom = 0.97839504
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("7_numml")
+script = ExtResource("8_1bh37")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/WindowContent" unique_id=1264750510]
@@ -167,7 +169,6 @@ theme_override_font_sizes/font_size = 28
 text = "Quit to Menu"
 
 [node name="PermissionsContainer" type="VBoxContainer" parent="Panel/WindowContent" unique_id=3453456]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,8 +218,61 @@ text = "Revocar permisos avanzados del sistema"
 [node name="AntivirusCheck" type="CheckButton" parent="Panel/WindowContent/PermissionsContainer/AntivirusPerms" unique_id=435345]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")
 theme_override_font_sizes/font_size = 24
 text = "Off / On"
+
+[node name="PasswordAdd" type="VBoxContainer" parent="Panel/WindowContent" unique_id=826973869]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19900002
+anchor_top = 0.19100001
+anchor_right = 0.83300006
+anchor_bottom = 0.6393493
+offset_left = 43.07276
+offset_top = 5.6049232
+offset_right = -42.952393
+offset_bottom = -16.53804
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 31
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/WindowContent/PasswordAdd" unique_id=1108568595]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_prxae")
+theme_override_font_sizes/font_size = 38
+text = "Insert your new password"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Panel/WindowContent/PasswordAdd" unique_id=539932968]
+custom_minimum_size = Vector2(16.835, 41.6)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7_numml")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/WindowContent/PasswordAdd/Panel" unique_id=1580786988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0497894
+offset_top = 5.0
+offset_right = -6.9501953
+offset_bottom = -1.7969894
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_prxae")
+theme_override_font_sizes/font_size = 25
+alignment = 1
+max_length = 16
+flat = true
+virtual_keyboard_enabled = false
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]
