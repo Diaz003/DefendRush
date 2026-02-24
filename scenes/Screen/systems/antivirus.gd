@@ -21,11 +21,7 @@ func _ready() -> void:
 			if temp_screen: temp_screen.show_toast("Análisis de Computadora completado. Todo en orden.")
 		)
 		
-	# Hide the unused "No" buttons
-	var no_btn_1 = $VBoxContainer/Button2
-	var no_btn_2 = $VBoxContainer2/Button2
-	if no_btn_1: no_btn_1.hide()
-	if no_btn_2: no_btn_2.hide()
+
 
 func _process(_delta: float) -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
@@ -96,19 +92,12 @@ func _on_analyze_file_pressed() -> void:
 	if not screen_node: return
 	
 	if not screen_node.is_scanner_active:
-		screen_node.show_toast("Error: El Escáner debe estar activo para analizar y eliminar archivos maliciosos.")
+		screen_node.show_toast("Error: El Escáner debe estar activo para analizar y eliminar archivos.")
 		return
 		
-	var file_container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")
-	if file_container:
-		var removed_count = 0
-		for child in file_container.get_children():
-			if "is_exe" in child and child.is_exe:
-				child.queue_free()
-				removed_count += 1
-		
-		if removed_count > 0:
-			screen_node.show_toast("Se han eliminado " + str(removed_count) + " archivo(s) ejecutable(s).")
-			screen_node.add_log("ESCANER: " + str(removed_count) + " ejecutable(s) eliminado(s) del sistema.", false)
-		else:
-			screen_node.show_toast("No se encontraron archivos ejecutables para eliminar.")
+	var file_manager = screen_node.get_node_or_null("CanvasLayer/FileManager")
+	if file_manager:
+		screen_node.can_delete_files = true
+		file_manager.show()
+		screen_node.show_toast("Modo Análisis Activo: Ahora puedes eliminar archivos manualmente desde el Gestor.")
+		screen_node.add_log("ESCANER: Modo Análisis habilitado temporalmente.", false)
