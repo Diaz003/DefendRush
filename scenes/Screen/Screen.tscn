@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://cmpn8jdsnekdd" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
 [ext_resource type="PackedScene" uid="uid://dfp8vng2fkt0c" path="res://scenes/Screen/systems/win_screen.tscn" id="41_winscreen"]
 [ext_resource type="Texture2D" uid="uid://drcbxvpxm38ip" path="res://assets/Clip/sheets/clip (idle)_sheet.png" id="42_fqy5a"]
-[ext_resource type="Script" uid="uid://bubke1ou66ohm" path="res://scenes/Screen/clip.gd" id="42_ihrvr"]
+[ext_resource type="Script" path="res://scenes/Screen/clip.gd" id="42_ihrvr"]
 [ext_resource type="Texture2D" uid="uid://s8a5cykjwofc" path="res://assets/UI/TextBubble.png" id="43_ihrvr"]
 [ext_resource type="Texture2D" uid="uid://ciu6gbpkd7xhm" path="res://assets/Clip/sheets/clip (watch front)_sheet.png" id="44_w1v2d"]
 
@@ -1250,12 +1250,14 @@ script = ExtResource("42_ihrvr")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Clip" unique_id=280823025]
+texture_filter = 1
 position = Vector2(922.00006, 403)
 scale = Vector2(0.71666664, 0.71666664)
 sprite_frames = SubResource("SpriteFrames_xhehb")
 animation = &"idle"
 
 [node name="TextureRect" type="TextureRect" parent="Clip" unique_id=975076173]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5144236
