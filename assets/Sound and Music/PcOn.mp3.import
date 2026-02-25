@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dns1oqo68vi2y"
+path="res://.godot/imported/PcOn.mp3-aa41a9e1347c8a5ff4287f3b8192cc77.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound and Music/PcOn.mp3"
+dest_files=["res://.godot/imported/PcOn.mp3-aa41a9e1347c8a5ff4287f3b8192cc77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

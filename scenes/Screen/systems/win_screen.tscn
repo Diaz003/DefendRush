@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dfp8vng2fkt0c"]
 
-[ext_resource type="Script" path="res://scenes/Screen/systems/win_screen.gd" id="1_win"]
+[ext_resource type="Script" uid="uid://bnen37w4k3abw" path="res://scenes/Screen/systems/win_screen.gd" id="1_win"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_fnt"]
+[ext_resource type="AudioStream" uid="uid://botsbr7fnvl5o" path="res://assets/Sound and Music/Win.mp3" id="3_qcfge"]
 
-[node name="WinScreen" type="Control"]
+[node name="WinScreen" type="Control" unique_id=411743282]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,16 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_win")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=723986235]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0, 0.4, 0.2, 0.9)
+color = Color(0, 0.4, 0.2, 0.9)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1111733489]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,7 +38,7 @@ grow_vertical = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=233038659]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.4, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -46,7 +47,7 @@ theme_override_font_sizes/font_size = 64
 text = "SHIFT SURVIVED"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="VBoxContainer"]
+[node name="Subtitle" type="Label" parent="VBoxContainer" unique_id=1079145025]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_fonts/font = ExtResource("2_fnt")
@@ -54,7 +55,7 @@ theme_override_font_sizes/font_size = 32
 text = "The system has been successfully defended."
 horizontal_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=951748914]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
 theme_override_fonts/font = ExtResource("2_fnt")
@@ -62,28 +63,39 @@ theme_override_font_sizes/font_size = 28
 text = "Final Score: 0"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="VBoxContainer"]
+[node name="RatingLabel" type="Label" parent="VBoxContainer" unique_id=1635629661]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.7, 1, 1)
+theme_override_fonts/font = ExtResource("2_fnt")
+theme_override_font_sizes/font_size = 26
+text = "Rating: BRONZE"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=496332592]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=134975243]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="RestartButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="RestartButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=806261723]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fnt")
 theme_override_font_sizes/font_size = 26
 text = "New Shift"
 
-[node name="MenuButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="MenuButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=211574153]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fnt")
 theme_override_font_sizes/font_size = 26
 text = "Main Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=903849264]
+stream = ExtResource("3_qcfge")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_pressed"]

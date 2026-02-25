@@ -1,11 +1,17 @@
 extends "res://scenes/Screen/templates/template.gd"
 
+const SYSTEM_PASSWORD := "ThisIsMyPassword"
+
 @onready var cpu_bar = $Panel/WindowContent/VBoxContainer/CPUContainer/CPUBar
 @onready var ram_bar = $Panel/WindowContent/VBoxContainer/RAMContainer/RAMBar
 
 @onready var v_box_container = $Panel/WindowContent/VBoxContainer
 @onready var permissions_container = $Panel/WindowContent/PermissionsContainer
 @onready var antivirus_check = $Panel/WindowContent/PermissionsContainer/AntivirusPerms/AntivirusCheck
+
+@onready var password_prompt = $Panel/WindowContent/PasswordPrompt
+@onready var password_edit = $Panel/WindowContent/PasswordPrompt/PasswordBox/PasswordEdit
+@onready var error_label = $Panel/WindowContent/PasswordPrompt/ErrorLabel
 
 var update_timer: float = 0.0
 var bar_style: StyleBoxFlat
@@ -28,19 +34,60 @@ func _ready() -> void:
 	cpu_bar.add_theme_stylebox_override("background", bg_style)
 	ram_bar.add_theme_stylebox_override("background", bg_style)
 
-	
+	# Permissions button → show password prompt
 	$Panel/WindowContent/VBoxContainer/PermissionsButton.pressed.connect(func():
-		v_box_container.hide()
-		permissions_container.show()
+		_open_password_prompt()
+	)
+
+	# Password prompt: Confirm
+	$Panel/WindowContent/PasswordPrompt/ButtonRow/ConfirmButton.pressed.connect(func():
+		_check_password()
 	)
 	
+	# Password prompt: Enter key in LineEdit
+	password_edit.text_submitted.connect(func(_t):
+		_check_password()
+	)
+
+	# Password prompt: Cancel
+	$Panel/WindowContent/PasswordPrompt/ButtonRow/CancelButton.pressed.connect(func():
+		_close_password_prompt()
+	)
+
+	# Permissions back button
 	$Panel/WindowContent/PermissionsContainer/TitleBox/BackButton.pressed.connect(func():
 		permissions_container.hide()
 		v_box_container.show()
 	)
-	
+
 	antivirus_check.toggled.connect(_on_antivirus_toggled)
 	_update_checkbox_text()
+
+func _open_password_prompt() -> void:
+	v_box_container.hide()
+	password_edit.text = ""
+	error_label.hide()
+	password_prompt.show()
+	password_edit.grab_focus()
+
+func _close_password_prompt() -> void:
+	password_prompt.hide()
+	password_edit.text = ""
+	error_label.hide()
+	v_box_container.show()
+
+func _check_password() -> void:
+	if password_edit.text == SYSTEM_PASSWORD:
+		password_prompt.hide()
+		password_edit.text = ""
+		error_label.hide()
+		permissions_container.show()
+	else:
+		password_edit.text = ""
+		error_label.show()
+		var desktop = get_tree().root.get_node_or_null("Desktop")
+		if desktop and desktop.has_method("add_log"):
+			desktop.add_log("SECURITY: Failed attempt to access System Permissions Manager.", true)
 
 func _process(delta: float) -> void:
 	update_timer -= delta

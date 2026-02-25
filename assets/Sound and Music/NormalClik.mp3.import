@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhjjylgqj2lr3"
+path="res://.godot/imported/NormalClik.mp3-1569d771473326e58805bc95635aef06.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound and Music/NormalClik.mp3"
+dest_files=["res://.godot/imported/NormalClik.mp3-1569d771473326e58805bc95635aef06.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

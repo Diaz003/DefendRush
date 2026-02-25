@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b8tq2o7v3kw1p"]
 
-[ext_resource type="Script" path="res://scenes/Screen/systems/notification_toast.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://20vm44qxkgky" path="res://scenes/Screen/systems/notification_toast.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_font"]
+[ext_resource type="AudioStream" uid="uid://cukrc3xbcl4d8" path="res://assets/Sound and Music/Notification.mp3" id="3_ilf2e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toast"]
 bg_color = Color(0.95, 0.95, 0.85, 1)
@@ -22,7 +23,7 @@ tracks/0/path = NodePath("Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 3.5, 4.0),
+"times": PackedFloat32Array(0, 0.3, 3.5, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -30,14 +31,14 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_toast"]
 _data = {
-"show": SubResource("Animation_show")
+&"show": SubResource("Animation_show")
 }
 
-[node name="NotificationToast" type="CanvasLayer"]
+[node name="NotificationToast" type="CanvasLayer" unique_id=78763605]
 layer = 90
 script = ExtResource("1_script")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1978900246]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 3
 anchor_left = 1.0
@@ -52,7 +53,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_toast")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=1716821599]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,7 +69,10 @@ text = "Notification message here"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_toast")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2021832798]
+libraries/ = SubResource("AnimationLibrary_toast")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=712191062]
+stream = ExtResource("3_ilf2e")
+max_distance = 1000000.0
+attenuation = 0.0

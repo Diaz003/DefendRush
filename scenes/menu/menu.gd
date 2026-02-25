@@ -5,8 +5,7 @@ extends Control
 @onready var title = $Title
 @onready var buttons = $Buttons
 @onready var xp_video: VideoStreamPlayer = $XPVideo
-@onready var music: AudioStreamPlayer = $Music
-@onready var click: AudioStreamPlayer2D = $Click
+@onready var click_sound = $ClikOptions
 
 @onready var settings_control = $SettingsControl
 @onready var fullscreen_btn = $SettingsControl/VBoxContainer/FullscreenButton
@@ -18,15 +17,13 @@ func _ready():
 	xp_video.visible = false
 	settings_control.visible = false
 	
-	$AudioStreamPlayer2D.play()
-	
 	_update_fullscreen_btn_text()
 	volume_slider.value = AudioServer.get_bus_volume_db(0)
+	$AudioStreamPlayer2D.play()
 
 
 func play_click():
-	if click:
-		click.play()
+	click_sound.play()
 
 
 func _on_play_button_pressed() -> void:

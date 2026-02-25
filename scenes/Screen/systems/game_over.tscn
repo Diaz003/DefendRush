@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cmpn8jdsnekdd"]
 
-[ext_resource type="Script" path="res://scenes/Screen/systems/game_over.gd" id="1_govrs"]
+[ext_resource type="Script" uid="uid://dspjvr8l8yn2p" path="res://scenes/Screen/systems/game_over.gd" id="1_govrs"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_fnt"]
+[ext_resource type="AudioStream" uid="uid://d1uwruvlry1mi" path="res://assets/Sound and Music/LOSEEE.mp3" id="3_5vm12"]
 
 [node name="GameOver" type="Control" unique_id=741385014]
 layout_mode = 3
@@ -64,6 +65,14 @@ for any Windows updates you might need.
 Technical Information:
 *** STOP: 0x000000FE (0x00000008, 0x00000006, 0x00000009, 0x847075CC)"
 
+[node name="CauseLabel" type="Label" parent="VBoxContainer" unique_id=554433221]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_fnt")
+theme_override_font_sizes/font_size = 32
+text = "System failure."
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1309160577]
 layout_mode = 2
 theme_override_constants/separation = 50
@@ -82,6 +91,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fnt")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1806906080]
+stream = ExtResource("3_5vm12")
+max_distance = 10000.0
+attenuation = 0.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_pressed"]
