@@ -279,23 +279,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="FullscreenCheck" type="CheckButton" parent="SettingsControl/VBoxContainer" unique_id=462341]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_y1o0p")
-theme_override_font_sizes/font_size = 40
-text = "Fullscreen"
-
 [node name="VolumeLabel" type="Label" parent="SettingsControl/VBoxContainer" unique_id=735163]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_y1o0p")
 theme_override_font_sizes/font_size = 40
-text = "Master Volume"
+text = "Master  Volume"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="SettingsControl/VBoxContainer" unique_id=835614]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 min_value = -40.0
 max_value = 0.0
+
+[node name="FullscreenButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=462341]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Fullscreen: OFF"
 
 [node name="BackButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=452425]
 texture_filter = 1
@@ -312,6 +318,6 @@ text = "Back"
 [connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="finished" from="XPVideo" to="." method="_on_xp_video_finished"]
-[connection signal="toggled" from="SettingsControl/VBoxContainer/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="value_changed" from="SettingsControl/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsControl/VBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="SettingsControl/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

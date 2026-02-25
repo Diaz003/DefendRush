@@ -52,20 +52,22 @@ func _on_scanner_toggled() -> void:
 func _on_clean_malware_pressed() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	if screen_node:
-		if not screen_node.system_permissions_revoked:
-			screen_node.show_toast("Error: You must limit system permissions in Settings to clean viruses.")
-			screen_node.add_log("FAILURE: Cleaning blocked. System permissions too high.", true)
+		if screen_node.has_active_ransomware and not screen_node.system_permissions_revoked:
+			screen_node.show_toast("Error: You must limit system permissions in Settings to bypass Ransomware block.")
+			screen_node.add_log("FAILURE: Cleaning blocked by Ransomware. System permissions too high.", true)
 			return
 			
 		var cleaned_something = false
 		if screen_node.active_malware > 0:
 			screen_node.active_malware = 0
+			_visually_clean_viruses(screen_node)
 			screen_node.show_toast("Malware units cleaned from the system.")
 			screen_node.add_log("THREAT NEUTRALIZED: Malware deleted by the Antivirus.", false)
 			cleaned_something = true
 			
 		if "has_active_trojan" in screen_node and screen_node.has_active_trojan:
 			screen_node.has_active_trojan = false
+			_visually_clean_viruses(screen_node)
 			if not screen_node.has_active_ransomware:
 				screen_node.game_over_timer = 0.0
 			screen_node.show_toast("Trojan successfully removed from the system!")
@@ -78,18 +80,19 @@ func _on_clean_malware_pressed() -> void:
 func _on_anti_ransomware_pressed() -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")
 	if screen_node:
+		if not screen_node.system_permissions_revoked:
+			screen_node.show_toast("Error: Anti-Ransomware is blocked because Administrator Permissions are active.")
+			return
+			
 		# Purpose 1: Remove Ransomware if already infected
 		if screen_node.has_active_ransomware:
-			if screen_node.system_permissions_revoked:
-				screen_node.has_active_ransomware = false
-				screen_node.system_permissions_revoked = false
-				if screen_node.game_over_timer > 0.0:
-					screen_node.game_over_timer = 0.0
-				screen_node.show_toast("Ransomware successfully removed from the system!")
-				screen_node.add_log("THREAT NEUTRALIZED: Ransomware deleted. Permissions restored.", false)
-			else:
-				screen_node.show_toast("Error: Ransomware blocks access. Revoke advanced permissions in Options first.")
-				screen_node.add_log("FAILURE: Ransomware blocks disinfection. Missing permissions.", true)
+			screen_node.has_active_ransomware = false
+			screen_node.system_permissions_revoked = false
+			_visually_clean_viruses(screen_node)
+			if screen_node.game_over_timer > 0.0:
+				screen_node.game_over_timer = 0.0
+			screen_node.show_toast("Ransomware successfully removed from the system!")
+			screen_node.add_log("THREAT NEUTRALIZED: Ransomware deleted. Permissions restored.", false)
 			return
 
 		# Purpose 2: Activate/Deactivate preventive protection
@@ -117,3 +120,10 @@ func _on_analyze_file_pressed() -> void:
 		file_manager.show()
 		screen_node.show_toast("Active Analysis Mode: You can now manually delete files from the Manager.")
 		screen_node.add_log("SCANNER: Analysis Mode temporarily enabled.", false)
+
+func _visually_clean_viruses(screen_node: Node) -> void:
+	var container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")
+	if container:
+		for child in container.get_children():
+			if "is_exe" in child and child.is_exe and "exe_timer" in child and child.exe_timer <= 0.0:
+				child.queue_free()

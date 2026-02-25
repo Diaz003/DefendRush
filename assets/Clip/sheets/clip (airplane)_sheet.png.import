@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqpnuu1o4sov"
-path="res://.godot/imported/actualizacion-paypal-ios-7.jpg-2cfefb8206a60a6558cb97d90d94f8f1.ctex"
+uid="uid://ckcx5ct23ytx2"
+path="res://.godot/imported/clip (airplane)_sheet.png-4471743dff4505816e36e017be37dc98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Photos_Used/actualizacion-paypal-ios-7.jpg"
-dest_files=["res://.godot/imported/actualizacion-paypal-ios-7.jpg-2cfefb8206a60a6558cb97d90d94f8f1.ctex"]
+source_file="res://assets/Clip/sheets/clip (airplane)_sheet.png"
+dest_files=["res://.godot/imported/clip (airplane)_sheet.png-4471743dff4505816e36e017be37dc98.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgwqsjlddhh6i"
-path="res://.godot/imported/google_gmail_new_01.webp-a11f432236e0ee6e076b34a22560e9c0.ctex"
+uid="uid://ciu6gbpkd7xhm"
+path="res://.godot/imported/clip (watch front)_sheet.png-7577860d43c4e3502d41b51f3ef1c467.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Photos_Used/google_gmail_new_01.webp"
-dest_files=["res://.godot/imported/google_gmail_new_01.webp-a11f432236e0ee6e076b34a22560e9c0.ctex"]
+source_file="res://assets/Clip/sheets/clip (watch front)_sheet.png"
+dest_files=["res://.godot/imported/clip (watch front)_sheet.png-7577860d43c4e3502d41b51f3ef1c467.ctex"]
 
 [params]
 

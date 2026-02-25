@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://75jjj0ru7i24"
-path="res://.godot/imported/maxresdefault.jpg-cbe9d88c2f256d9e9086f88337d68454.ctex"
+uid="uid://d266jomfbiu51"
+path="res://.godot/imported/clip (sleep)_sheet.png-86d1de9ef3d498fe3065364cb10de306.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Photos_Used/maxresdefault.jpg"
-dest_files=["res://.godot/imported/maxresdefault.jpg-cbe9d88c2f256d9e9086f88337d68454.ctex"]
+source_file="res://assets/Clip/sheets/clip (sleep)_sheet.png"
+dest_files=["res://.godot/imported/clip (sleep)_sheet.png-86d1de9ef3d498fe3065364cb10de306.ctex"]
 
 [params]
 

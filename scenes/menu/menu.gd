@@ -7,7 +7,7 @@ extends Control
 @onready var xp_video: VideoStreamPlayer = $XPVideo
 
 @onready var settings_control = $SettingsControl
-@onready var fullscreen_check = $SettingsControl/VBoxContainer/FullscreenCheck
+@onready var fullscreen_btn = $SettingsControl/VBoxContainer/FullscreenButton
 @onready var volume_slider = $SettingsControl/VBoxContainer/VolumeSlider
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 	xp_video.visible = false
 	settings_control.visible = false
 	
-	fullscreen_check.button_pressed = (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
+	_update_fullscreen_btn_text()
 	volume_slider.value = AudioServer.get_bus_volume_db(0)
 
 func _on_play_button_pressed() -> void:
@@ -57,11 +57,19 @@ func _on_back_button_pressed() -> void:
 	buttons.visible = true
 	title.visible = true
 
-func _on_fullscreen_check_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+func _update_fullscreen_btn_text() -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		fullscreen_btn.text = "Fullscreen: ON"
 	else:
+		fullscreen_btn.text = "Fullscreen: OFF"
+
+func _on_fullscreen_button_pressed() -> void:
+	var is_full = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	if is_full:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	_update_fullscreen_btn_text()
 
 func _on_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, value)

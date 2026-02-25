@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="4_dt2y6"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="5_0o7r2"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="6_jjq5u"]
-[ext_resource type="Texture2D" uid="uid://75jjj0ru7i24" path="res://Photos_Used/maxresdefault.jpg" id="7_rdyyd"]
+[ext_resource type="Texture2D" uid="uid://75jjj0ru7i24" path="res://assets/Photos_Used/maxresdefault.jpg" id="7_rdyyd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
