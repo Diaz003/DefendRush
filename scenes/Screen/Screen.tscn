@@ -34,10 +34,13 @@
 [ext_resource type="PackedScene" uid="uid://bt01lp8araqmw" path="res://scenes/Screen/systems/FileManager.tscn" id="32_i0lon"]
 [ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://scenes/Screen/systems/Guide.tscn" id="33_ncf5q"]
 [ext_resource type="PackedScene" uid="uid://2sxcxhl48fkv" path="res://scenes/Screen/apps/steam_window.tscn" id="34_517o4"]
-[ext_resource type="PackedScene" uid="uid://b4cyqcuhk8cpi" path="res://scenes/Screen/apps/EmailContainer.tscn" id="35_mail"]
+[ext_resource type="PackedScene" uid="uid://bdhysdomfo37f" path="res://scenes/Screen/apps/mail_window.tscn" id="35_mail"]
 [ext_resource type="PackedScene" uid="uid://geks66mqepnc" path="res://scenes/Screen/apps/options_window.tscn" id="36_opts"]
 [ext_resource type="PackedScene" uid="uid://cs4qjegctx6jg" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
 [ext_resource type="PackedScene" uid="uid://b8tq2o7v3kw1p" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/apps/bin_window.tscn" id="39_bin"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/systems/win_screen.tscn" id="41_winscreen"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -676,6 +679,13 @@ visible = false
 [node name="OptionsWindow" parent="CanvasLayer" unique_id=1822496301 instance=ExtResource("36_opts")]
 visible = false
 
+[node name="BinWindow" parent="CanvasLayer" instance=ExtResource("39_bin")]
+visible = false
+anchor_left = 0.24521876
+anchor_top = 0.1765309
+anchor_right = 0.77921876
+anchor_bottom = 0.67653097
+
 [node name="LogsWindow" parent="CanvasLayer" unique_id=1191441204 instance=ExtResource("37_logs")]
 visible = false
 
@@ -702,3 +712,9 @@ offset_left = 0.24398804
 offset_top = 0.16799927
 offset_right = 0.076049805
 offset_bottom = 0.16796875
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("40_gameover")]
+visible = false
+
+[node name="WinScreen" parent="CanvasLayer" instance=ExtResource("41_winscreen")]
+visible = false

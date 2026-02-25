@@ -59,6 +59,12 @@ func _ready() -> void:
 	$MailButton.pressed.connect(func(): $CanvasLayer/MailWindow.show())
 	$PayPalButton.pressed.connect(func(): $CanvasLayer/BankWindow.show())
 	$SteamButton.pressed.connect(func(): $CanvasLayer/SteamWindow.show())
+	$BinButton.pressed.connect(func():
+		var bin = $CanvasLayer.get_node_or_null("BinWindow")
+		if bin: 
+			bin.show()
+			bin.move_to_front()
+	)
 	$FileButton.pressed.connect(func(): 
 		if has_active_ransomware:
 			show_toast("Error: Ransomware blocks access to system files.")
@@ -115,7 +121,7 @@ func _process(delta: float) -> void:
 		if time_left_seconds <= 0.0:
 			time_left_seconds = 0.0
 			_update_time_label()
-			_on_game_end()
+			_on_game_end(true)
 			
 		if score <= 0 and active_malware > 0:
 			score = 0
@@ -137,6 +143,17 @@ func _process(delta: float) -> void:
 		game_over_timer -= delta
 		if game_over_timer <= 0.0:
 			_on_game_end()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var vol_popup = get_node_or_null("VolumePopup")
+		if vol_popup and vol_popup.visible:
+			var popup_rect = vol_popup.get_global_rect()
+			var sound_btn = $Toolbar/utils/Sound
+			var btn_rect = sound_btn.get_global_rect()
+			
+			if not popup_rect.has_point(event.global_position) and not btn_rect.has_point(event.global_position):
+				vol_popup.hide()
 
 func show_toast(message: String) -> void:
 	if $CanvasLayer.has_node("NotificationToast"):
@@ -210,7 +227,9 @@ func _on_file_executed(consequence: int) -> void:
 			add_log("CRITICAL ALERT: Ransomware executed. Limits access and files.", true)
 
 func _spawn_mail() -> void:
-	var container = $CanvasLayer/MailWindow/Panel2/ScrollContainer/VBoxContainer
+	var container = $CanvasLayer/MailWindow/InboxPanel/ScrollContainer/VBoxContainer
+	if not container:
+		return
 	if container.get_child_count() >= 3:
 		score -= 2000
 		show_toast("You have ignored too many emails! Massive infection detected.")
@@ -273,11 +292,13 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 				$CanvasLayer/SteamWindow/Panel/WindowContent/PasswordAsk.show()
 				
 			$CanvasLayer/MailWindow.show()
-			if $CanvasLayer/MailWindow/Panel/WindowContent.has_node("PasswordAdd"):
-				if $CanvasLayer/MailWindow.has_node("Panel2"):
-					$CanvasLayer/MailWindow/Panel2.hide()
-				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAdd.hide()
-				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAsk.show()
+			if $CanvasLayer/MailWindow.has_node("InboxPanel/PasswordAdd"):
+				var inbox = $CanvasLayer/MailWindow.get_node("InboxPanel")
+				if inbox.has_node("ScrollContainer"):
+					inbox.get_node("ScrollContainer").hide()
+				inbox.get_node("PasswordAdd").hide()
+				inbox.get_node("PasswordAsk").show()
+				inbox.show()
 		else:
 			score += 500
 			current_file_spawn_interval = 45.0
@@ -297,5 +318,18 @@ func _update_time_label() -> void:
 	var seconds: int = int(total % 60)
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
-func _on_game_end() -> void:
+func _on_game_end(win: bool = false) -> void:
 	set_process(false)
+	
+	if win:
+		var win_screen = $CanvasLayer.get_node_or_null("WinScreen")
+		if win_screen:
+			if win_screen.has_method("set_score"):
+				win_screen.set_score(score)
+			win_screen.show()
+			win_screen.move_to_front()
+	else:
+		var game_over = $CanvasLayer.get_node_or_null("GameOver")
+		if game_over:
+			game_over.show()
+			game_over.move_to_front()
