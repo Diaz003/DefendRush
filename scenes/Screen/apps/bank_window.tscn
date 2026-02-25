@@ -233,19 +233,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
+offset_left = 52.099598
+offset_top = 5.786703
+offset_right = 22.09961
+offset_bottom = 28.819336
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+scale = Vector2(0.87, 0.87)
+theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="Panel/WindowContent/AppContent" unique_id=998811002]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0.6, 1)
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 24
 text = "- YOUR ACCOUNT -"
 horizontal_alignment = 1
 
@@ -253,7 +254,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.5, 0, 1)
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Balance: $0"
 horizontal_alignment = 1
 
@@ -261,41 +262,40 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5, 0.3, 0, 1)
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "Invested: $0"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Panel/WindowContent/AppContent" unique_id=998811004]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="DepositButton" type="Button" parent="Panel/WindowContent/AppContent" unique_id=998811005]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "Deposit 500 pts -> $500"
 
 [node name="InvestButton" type="Button" parent="Panel/WindowContent/AppContent" unique_id=998811006]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "Invest $500 (returns $800 in 60s)"
 
 [node name="CollectButton" type="Button" parent="Panel/WindowContent/AppContent" unique_id=998811007]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "Collect Investment Returns"
 
 [node name="WithdrawButton" type="Button" parent="Panel/WindowContent/AppContent" unique_id=998811008]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_841v2")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "Withdraw All -> Score"
 
 [connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]
-
