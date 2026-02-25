@@ -71,6 +71,18 @@ func _ready() -> void:
 		if logs_window: logs_window.show()
 	)
 	guide_button.pressed.connect(func(): guide_window.show())
+	
+	$Toolbar/utils/Sound.pressed.connect(func():
+		var vol_popup = get_node_or_null("VolumePopup")
+		if vol_popup:
+			vol_popup.visible = !vol_popup.visible
+	)
+	var vol_slider = get_node_or_null("VolumePopup/VSlider")
+	if vol_slider:
+		vol_slider.value_changed.connect(func(value: float):
+			AudioServer.set_bus_volume_db(0, value)
+			AudioServer.set_bus_mute(0, value == vol_slider.min_value)
+		)
 
 	_update_time_label()
 	_init_clip_npc()
@@ -88,6 +100,14 @@ func _process(delta: float) -> void:
 		var current_second: int = int(time_left_seconds)
 		if current_second != last_update_second:
 			last_update_second = current_second
+			
+			# Urgent Password Robbery Mechanic (Point Drain)
+			if apps_needing_password_reset.size() > 0:
+				score -= 3 * apps_needing_password_reset.size()
+				time_label.add_theme_color_override("font_color", Color(1, 0, 0)) # Red text warning
+			else:
+				time_label.remove_theme_color_override("font_color")
+				
 			_update_time_label()
 			if active_malware > 0:
 				score -= 10 * active_malware
