@@ -64,6 +64,14 @@ for any Windows updates you might need.
 Technical Information:
 *** STOP: 0x000000FE (0x00000008, 0x00000006, 0x00000009, 0x847075CC)"
 
+[node name="CauseLabel" type="Label" parent="VBoxContainer" unique_id=554433221]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_fnt")
+theme_override_font_sizes/font_size = 32
+text = "System failure."
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1309160577]
 layout_mode = 2
 theme_override_constants/separation = 50
