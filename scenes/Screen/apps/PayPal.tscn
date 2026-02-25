@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://bbua5lrqojiin"]
+
+[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_rdyyd"]
+[ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_m5477"]
+[ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="3_muuql"]
+[ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="4_dt2y6"]
+[ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="5_0o7r2"]
+[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="6_jjq5u"]
+[ext_resource type="Texture2D" uid="uid://75jjj0ru7i24" path="res://assets/Photos_Used/maxresdefault.jpg" id="7_rdyyd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixu16"]
+texture = ExtResource("3_muuql")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mby86"]
+texture = ExtResource("4_dt2y6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5trl"]
+texture = ExtResource("5_0o7r2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdyyd"]
+bg_color = Color(0.98039216, 0.9843137, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5477"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muuql"]
+bg_color = Color(0.9843137, 0.627451, 0.16470589, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt2y6"]
+bg_color = Color(0.81960785, 0.8156863, 0.80784315, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o7r2"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Template" type="Control" unique_id=636015501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rdyyd")
+
+[node name="Panel" type="Panel" parent="." unique_id=1646297441]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 2.0
+offset_right = 158.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_m5477")
+
+[node name="TitleBar" type="Panel" parent="Panel" unique_id=411007645]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009548611
+anchor_top = 0.0061728396
+anchor_right = 0.9878472
+anchor_bottom = 0.074074075
+theme_override_styles/panel = SubResource("StyleBoxFlat_2dggw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/TitleBar" unique_id=1875069160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Panel/TitleBar" unique_id=2056720311]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95600003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.4119873
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -2.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ixu16")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mby86")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009548611
+anchor_top = 0.09293827
+anchor_right = 0.9869792
+anchor_bottom = 0.97839504
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_jjq5u")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747001041]
+position = Vector2(731.00006, 350)
+scale = Vector2(0.877539, 0.79965264)
+texture = ExtResource("7_rdyyd")
+
+[node name="Panel" type="Panel" parent="Sprite2D" unique_id=523888202]
+offset_left = -616.4968
+offset_top = 103.79502
+offset_right = -415.22375
+offset_bottom = 158.81894
+theme_override_styles/panel = SubResource("StyleBoxFlat_rdyyd")
+
+[node name="Panel2" type="Panel" parent="Sprite2D" unique_id=264582139]
+offset_left = -583.4498
+offset_top = -56.274445
+offset_right = -160.67657
+offset_bottom = 103.77762
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5477")
+
+[node name="Panel3" type="Panel" parent="Sprite2D/Panel2" unique_id=779144155]
+layout_mode = 0
+offset_left = 583.4497
+offset_top = -192.58362
+offset_right = 1190.8301
+offset_bottom = 146.31354
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5477")
+
+[node name="Continue" type="Button" parent="Sprite2D" unique_id=504018040]
+offset_left = -574.3335
+offset_top = 158.81897
+offset_right = -450.1225
+offset_bottom = 199.4903
+theme_override_styles/normal = SubResource("StyleBoxFlat_muuql")
+text = "Continuar
+"
+
+[node name="Back" type="Button" parent="Sprite2D" unique_id=2040640323]
+offset_left = -438.727
+offset_top = 161.32005
+offset_right = -350.98163
+offset_bottom = 197.5858
+theme_override_styles/normal = SubResource("StyleBoxFlat_dt2y6")
+text = "Volver
+
+"
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=1038452168]
+offset_left = -573.194
+offset_top = -57.52498
+offset_right = -235.88702
+offset_bottom = 91.28966
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Calle Almirante Gravina 14, 2°A
+Casco Histórico
+Rota, Cádiz
+11520"
+
+[node name="Panel3" type="Panel" parent="Sprite2D" unique_id=1492536810]
+offset_left = -624.47375
+offset_top = -350.15204
+offset_right = 632.45056
+offset_bottom = -287.62488
+theme_override_styles/panel = SubResource("StyleBoxFlat_0o7r2")
+
+[connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]

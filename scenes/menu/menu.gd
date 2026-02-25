@@ -4,23 +4,101 @@ extends Control
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var title = $Title
 @onready var buttons = $Buttons
-@onready var desktop: Control = $Desktop
+@onready var xp_video: VideoStreamPlayer = $XPVideo
+@onready var music: AudioStreamPlayer = $Music
+@onready var click: AudioStreamPlayer2D = $Click
+
+@onready var settings_control = $SettingsControl
+@onready var fullscreen_btn = $SettingsControl/VBoxContainer/FullscreenButton
+@onready var volume_slider = $SettingsControl/VBoxContainer/VolumeSlider
+
 
 func _ready():
 	cam.make_current()
-	desktop.visible = false
+	xp_video.visible = false
+	settings_control.visible = false
+	
+	$AudioStreamPlayer2D.play()
+	
+	_update_fullscreen_btn_text()
+	volume_slider.value = AudioServer.get_bus_volume_db(0)
+
+
+func play_click():
+	if click:
+		click.play()
+
 
 func _on_play_button_pressed() -> void:
+	play_click()
 	$Buttons/PlayButton.disabled = true
-	anim.play("fade_out_ui") 
+	anim.play("fade_out_ui")
+
+
+func _on_fade_out_finished(anim_name: String) -> void:
+	if anim_name == "fade_out_ui":
+		anim.animation_finished.disconnect(_on_fade_out_finished)
+		start_zoom() 
+
 
 func _on_exit_button_pressed() -> void:
+	play_click()
 	get_tree().quit()
+
 
 func start_zoom() -> void:
 	title.visible = false
 	buttons.visible = false
-	anim.play("start_sequence") 
+	anim.play("start_sequence")
+	
+	anim.animation_finished.connect(_on_start_sequence_finished)
 
-func start_game() -> void:
-	desktop.visible = true
+
+func _on_start_sequence_finished(anim_name: String) -> void:
+	if anim_name == "start_sequence":
+		anim.animation_finished.disconnect(_on_start_sequence_finished)
+		xp_video.visible = true
+		xp_video.play()
+
+
+func _on_xp_video_finished() -> void:
+	get_tree().change_scene_to_file("res://scenes/Screen/Screen.tscn")
+
+
+func _on_settings_button_pressed() -> void:
+	play_click()
+	buttons.visible = false
+	title.visible = false
+	settings_control.visible = true
+
+
+func _on_back_button_pressed() -> void:
+	play_click()
+	settings_control.visible = false
+	buttons.visible = true
+	title.visible = true
+
+
+func _update_fullscreen_btn_text() -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		fullscreen_btn.text = "Fullscreen: ON"
+	else:
+		fullscreen_btn.text = "Fullscreen: OFF"
+
+
+func _on_fullscreen_button_pressed() -> void:
+	play_click()
+	var is_full = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	if is_full:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	_update_fullscreen_btn_text()
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, value)
+	if value == volume_slider.min_value:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)
