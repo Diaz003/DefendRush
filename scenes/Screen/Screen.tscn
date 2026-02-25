@@ -713,6 +713,25 @@ grow_vertical = 0
 color = Color(0, 0.3009147, 0.6936739, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="ScoreText" type="HBoxContainer" parent="Toolbar" unique_id=112344556]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.4582684
+anchor_top = 0.2
+anchor_right = -1.8882682
+anchor_bottom = 0.9
+offset_left = 3032.5928
+offset_right = 3032.5928
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="Toolbar/ScoreText" unique_id=112344557]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 22
+text = "Score: 0"
+
 [node name="utils" type="Panel" parent="Toolbar" unique_id=2062281677]
 texture_filter = 1
 clip_contents = true

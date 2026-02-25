@@ -5,6 +5,7 @@ extends Panel
 @onready var anti_ransomware_btn = $VBoxContainer2/Button4
 @onready var analyze_file_btn = $VBoxContainer/Button3
 @onready var analyze_pc_btn = $VBoxContainer/Button
+@onready var delete_file_btn = $VBoxContainer2/Button
 
 func _ready() -> void:
 	if scanner_btn:
@@ -15,6 +16,8 @@ func _ready() -> void:
 		anti_ransomware_btn.pressed.connect(_on_anti_ransomware_pressed)
 	if analyze_file_btn:
 		analyze_file_btn.pressed.connect(_on_analyze_file_pressed)
+	if delete_file_btn:
+		delete_file_btn.pressed.connect(_on_delete_file_pressed)
 	if analyze_pc_btn:
 		analyze_pc_btn.pressed.connect(func():
 			var temp_screen = get_tree().root.get_node_or_null("Desktop")
@@ -120,6 +123,34 @@ func _on_analyze_file_pressed() -> void:
 		file_manager.show()
 		screen_node.show_toast("Active Analysis Mode: You can now manually delete files from the Manager.")
 		screen_node.add_log("SCANNER: Analysis Mode temporarily enabled.", false)
+		_colorize_malicious_files(screen_node)
+
+func _on_delete_file_pressed() -> void:
+	var screen_node = get_tree().root.get_node_or_null("Desktop")
+	if not screen_node: return
+
+	if not screen_node.is_scanner_active:
+		screen_node.show_toast("Error: Scanner must be active to delete files.")
+		return
+
+	var file_manager = screen_node.get_node_or_null("CanvasLayer/FileManager")
+	if file_manager:
+		screen_node.can_delete_files = true
+		file_manager.show()
+		screen_node.show_toast("Deletion Mode: Select a file in the Manager to delete it.")
+		screen_node.add_log("SCANNER: Deletion Mode enabled. Select a threat to remove it.", false)
+		_colorize_malicious_files(screen_node)
+
+func _colorize_malicious_files(screen_node: Node) -> void:
+	var container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")
+	if not container:
+		return
+	for child in container.get_children():
+		if "is_exe" in child and child.is_exe:
+			if "exe_timer" in child and child.exe_timer > 0.0:
+				# Pending threat – highlight orange
+				child.modulate = Color(1.0, 0.45, 0.0)
+			# Already-executed files stay red (set by file_item.gd)
 
 func _visually_clean_viruses(screen_node: Node) -> void:
 	var container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")
