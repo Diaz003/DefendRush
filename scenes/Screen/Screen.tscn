@@ -35,9 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://scenes/Screen/systems/Guide.tscn" id="33_ncf5q"]
 [ext_resource type="PackedScene" uid="uid://2sxcxhl48fkv" path="res://scenes/Screen/apps/steam_window.tscn" id="34_517o4"]
 [ext_resource type="PackedScene" uid="uid://b4cyqcuhk8cpi" path="res://scenes/Screen/apps/EmailContainer.tscn" id="35_mail"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/apps/options_window.tscn" id="36_opts"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
+[ext_resource type="PackedScene" uid="uid://geks66mqepnc" path="res://scenes/Screen/apps/options_window.tscn" id="36_opts"]
+[ext_resource type="PackedScene" uid="uid://cs4qjegctx6jg" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
+[ext_resource type="PackedScene" uid="uid://b8tq2o7v3kw1p" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -56,14 +56,14 @@ border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jb8q6"]
-texture = ExtResource("4_sdfkv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_seyxe"]
+texture = ExtResource("6_v6e7v")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_11tcc"]
-texture = ExtResource("5_yp20f")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdfkv"]
+texture = ExtResource("7_otoru")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1e2kr"]
-texture = ExtResource("4_sdfkv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otoru"]
+texture = ExtResource("6_v6e7v")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yp20f"]
 texture = ExtResource("9_klp1k")
@@ -74,14 +74,14 @@ texture = ExtResource("6_seyxe")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xn632"]
 texture = ExtResource("9_klp1k")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_seyxe"]
-texture = ExtResource("6_v6e7v")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jb8q6"]
+texture = ExtResource("4_sdfkv")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdfkv"]
-texture = ExtResource("7_otoru")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_11tcc"]
+texture = ExtResource("5_yp20f")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otoru"]
-texture = ExtResource("6_v6e7v")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1e2kr"]
+texture = ExtResource("4_sdfkv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
 bg_color = Color(6.906763e-06, 0.57159615, 0.11259986, 1)
@@ -157,6 +157,14 @@ texture = ExtResource("27_ejk0n")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fptc"]
 texture = ExtResource("28_133ql")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_volbg"]
+bg_color = Color(0.835938, 0.8125, 0.777344, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [node name="Desktop" type="Control" unique_id=1214763542]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
@@ -207,80 +215,67 @@ texture_filter = 1
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.81000006
+anchor_left = 0.55
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.16009521
+offset_left = 295.2
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ee4bf")
-metadata/_edit_use_anchors_ = true
 
-[node name="Sound" type="Button" parent="Toolbar/utils" unique_id=1451737078]
+[node name="Guide" type="Button" parent="Toolbar/utils" unique_id=2116722022]
 texture_filter = 1
-clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5303149
-anchor_top = 0.07894747
-anchor_right = 0.6891937
-anchor_bottom = 0.86842114
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_jb8q6")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_11tcc")
-theme_override_styles/hover = SubResource("StyleBoxTexture_1e2kr")
+anchor_right = 0.15
+anchor_bottom = 0.9
+offset_left = 11.000004
+offset_top = 2.0
+offset_right = 15.600002
+offset_bottom = 1.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_seyxe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sdfkv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_otoru")
 expand_icon = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Logs" type="Button" parent="Toolbar/utils" unique_id=847481302]
 texture_filter = 1
-clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.30841136
-anchor_top = 0.10526316
-anchor_right = 0.44859827
-anchor_bottom = 0.8684211
-grow_horizontal = 0
-grow_vertical = 0
+anchor_left = 0.30092594
+anchor_top = 0.1
+anchor_right = 0.44190562
+anchor_bottom = 0.9
 theme_override_styles/normal = SubResource("StyleBoxTexture_yp20f")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yjcro")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xn632")
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Guide" type="Button" parent="Toolbar/utils" unique_id=2116722022]
+[node name="Sound" type="Button" parent="Toolbar/utils" unique_id=1451737078]
 texture_filter = 1
-clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0751433
-anchor_top = 0.10526316
-anchor_right = 0.22429895
-anchor_bottom = 0.84210527
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_seyxe")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_sdfkv")
-theme_override_styles/hover = SubResource("StyleBoxTexture_otoru")
+anchor_left = 0.5185185
+anchor_top = 0.1
+anchor_right = 0.7037037
+anchor_bottom = 0.9
+theme_override_styles/normal = SubResource("StyleBoxTexture_jb8q6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11tcc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1e2kr")
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="HourText" type="HBoxContainer" parent="Toolbar/utils" unique_id=926431614]
-clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7476637
-anchor_top = 0.23684211
-anchor_right = 0.9747898
-anchor_bottom = 0.84210527
-grow_horizontal = 0
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.75
+anchor_top = 0.2
+anchor_right = 0.98
+anchor_bottom = 0.8
+alignment = 2
 
 [node name="Text" type="Label" parent="Toolbar/utils/HourText" unique_id=2129611993]
-clip_contents = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_yp20f")
 theme_override_font_sizes/font_size = 22
@@ -325,7 +320,6 @@ label_settings = SubResource("LabelSettings_kbped")
 
 [node name="ExplorerButton" type="Button" parent="." unique_id=1222428349]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
 anchor_left = 0.027777778
@@ -337,9 +331,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ptl1h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_df36e")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="ExplorerButton" unique_id=821737290]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Internet"
+horizontal_alignment = 1
+
 [node name="MailButton" type="Button" parent="." unique_id=1294153666]
 texture_filter = 1
-clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.11111111
@@ -351,9 +364,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_tfe6t")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uunv1")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="MailButton" unique_id=230399464]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Mail"
+horizontal_alignment = 1
+
 [node name="PayPalButton" type="Button" parent="." unique_id=1940595039]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -366,9 +398,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_iqdbx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8vnxc")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="PayPalButton" unique_id=280913212]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Bank"
+horizontal_alignment = 1
+
 [node name="SteamButton" type="Button" parent="." unique_id=1339853727]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -381,9 +432,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_bgnie")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i3t2y")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="SteamButton" unique_id=2079869374]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Games"
+horizontal_alignment = 1
+
 [node name="BinButton" type="Button" parent="." unique_id=1099340518]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -396,9 +466,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ejk0n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_m8kcv")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="BinButton" unique_id=1103445657]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Trash"
+horizontal_alignment = 1
+
 [node name="ConfigButton" type="Button" parent="." unique_id=1993280944]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -411,10 +500,29 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_by6dc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_133ql")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="ConfigButton" unique_id=482158129]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Options"
+horizontal_alignment = 1
+
 [node name="DocButton" type="Button" parent="." unique_id=887601994]
 visible = false
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -427,9 +535,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vayd4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jk7pg")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="DocButton" unique_id=1026599241]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Docs"
+horizontal_alignment = 1
+
 [node name="FileButton" type="Button" parent="." unique_id=917130114]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -442,9 +569,28 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_4pmw0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lc602")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="FileButton" unique_id=164570426]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Files"
+horizontal_alignment = 1
+
 [node name="SecureButton" type="Button" parent="." unique_id=468614568]
 texture_filter = 1
-clip_contents = true
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -456,6 +602,51 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_62osu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1fptc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_62osu")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="SecureButton" unique_id=1368326357]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 18
+text = "Antivirus"
+horizontal_alignment = 1
+
+[node name="VolumePopup" type="Panel" parent="." unique_id=987654123]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9036458
+anchor_top = 0.7608025
+anchor_right = 0.9314236
+anchor_bottom = 0.9258025
+theme_override_styles/panel = SubResource("StyleBoxFlat_volbg")
+metadata/_edit_use_anchors_ = true
+
+[node name="VSlider" type="VSlider" parent="VolumePopup" unique_id=987654124]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -40.0
+max_value = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1270260262]
 
@@ -482,13 +673,13 @@ visible = false
 [node name="MailWindow" parent="CanvasLayer" unique_id=1893089450 instance=ExtResource("35_mail")]
 visible = false
 
-[node name="OptionsWindow" parent="CanvasLayer" instance=ExtResource("36_opts")]
+[node name="OptionsWindow" parent="CanvasLayer" unique_id=1822496301 instance=ExtResource("36_opts")]
 visible = false
 
-[node name="LogsWindow" parent="CanvasLayer" instance=ExtResource("37_logs")]
+[node name="LogsWindow" parent="CanvasLayer" unique_id=1191441204 instance=ExtResource("37_logs")]
 visible = false
 
-[node name="NotificationToast" parent="CanvasLayer" instance=ExtResource("38_toast")]
+[node name="NotificationToast" parent="CanvasLayer" unique_id=190917200 instance=ExtResource("38_toast")]
 
 [node name="Guide" parent="CanvasLayer" unique_id=1874069951 instance=ExtResource("33_ncf5q")]
 visible = false
