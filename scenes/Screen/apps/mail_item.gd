@@ -12,12 +12,18 @@ func _ready() -> void:
 		$Button2.pressed.connect(_on_delete)
 
 func setup(subject: String, body: String, malicious: bool, type: int) -> void:
-	if has_node("MarginContainer/Label"):
-		$MarginContainer/Label.text = subject
-	if has_node("MarginContainer2/Label2"):
-		$MarginContainer2/Label2.text = body
 	is_malicious = malicious
 	malicious_type = type
+
+	var display_subject = subject
+	if is_malicious:
+		display_subject = "[!] " + subject
+		modulate = Color(1.0, 0.55, 0.55)  # red tint for phishing
+
+	if has_node("MarginContainer/Label"):
+		$MarginContainer/Label.text = display_subject
+	if has_node("MarginContainer2/Label2"):
+		$MarginContainer2/Label2.text = body
 
 func _on_accept() -> void:
 	mail_handled.emit(is_malicious, true)

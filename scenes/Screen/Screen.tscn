@@ -34,13 +34,13 @@
 [ext_resource type="PackedScene" uid="uid://bt01lp8araqmw" path="res://scenes/Screen/systems/FileManager.tscn" id="32_i0lon"]
 [ext_resource type="PackedScene" uid="uid://b7twlwjajnm50" path="res://scenes/Screen/systems/Guide.tscn" id="33_ncf5q"]
 [ext_resource type="PackedScene" uid="uid://2sxcxhl48fkv" path="res://scenes/Screen/apps/steam_window.tscn" id="34_517o4"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/apps/mail_window.tscn" id="35_mail"]
+[ext_resource type="PackedScene" uid="uid://bersewxuvkuw5" path="res://scenes/Screen/apps/mail_window.tscn" id="35_mail"]
 [ext_resource type="PackedScene" uid="uid://geks66mqepnc" path="res://scenes/Screen/apps/options_window.tscn" id="36_opts"]
 [ext_resource type="PackedScene" uid="uid://cs4qjegctx6jg" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
 [ext_resource type="PackedScene" uid="uid://b8tq2o7v3kw1p" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/apps/bin_window.tscn" id="39_bin"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
-[ext_resource type="PackedScene" path="res://scenes/Screen/systems/win_screen.tscn" id="41_winscreen"]
+[ext_resource type="PackedScene" uid="uid://c5q3bccdc36i" path="res://scenes/Screen/apps/bin_window.tscn" id="39_bin"]
+[ext_resource type="PackedScene" uid="uid://cmpn8jdsnekdd" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
+[ext_resource type="PackedScene" uid="uid://dfp8vng2fkt0c" path="res://scenes/Screen/systems/win_screen.tscn" id="41_winscreen"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -212,6 +212,25 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0.3009147, 0.6936739, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="ScoreText" type="HBoxContainer" parent="Toolbar" unique_id=112344556]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.4582684
+anchor_top = 0.2
+anchor_right = -1.8882682
+anchor_bottom = 0.9
+offset_left = 3032.5928
+offset_right = 3032.5928
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="Toolbar/ScoreText" unique_id=112344557]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("9_yp20f")
+theme_override_font_sizes/font_size = 22
+text = "Score: 0"
 
 [node name="utils" type="Panel" parent="Toolbar" unique_id=2062281677]
 texture_filter = 1
@@ -679,12 +698,13 @@ visible = false
 [node name="OptionsWindow" parent="CanvasLayer" unique_id=1822496301 instance=ExtResource("36_opts")]
 visible = false
 
-[node name="BinWindow" parent="CanvasLayer" instance=ExtResource("39_bin")]
+[node name="BinWindow" parent="CanvasLayer" unique_id=1029687478 instance=ExtResource("39_bin")]
 visible = false
-anchor_left = 0.24521876
+anchors_preset = -1
+anchor_left = 0.24521875
 anchor_top = 0.1765309
-anchor_right = 0.77921876
-anchor_bottom = 0.67653097
+anchor_right = 0.77921873
+anchor_bottom = 0.67653096
 
 [node name="LogsWindow" parent="CanvasLayer" unique_id=1191441204 instance=ExtResource("37_logs")]
 visible = false
@@ -713,8 +733,8 @@ offset_top = 0.16799927
 offset_right = 0.076049805
 offset_bottom = 0.16796875
 
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource("40_gameover")]
+[node name="GameOver" parent="CanvasLayer" unique_id=336431671 instance=ExtResource("40_gameover")]
 visible = false
 
-[node name="WinScreen" parent="CanvasLayer" instance=ExtResource("41_winscreen")]
+[node name="WinScreen" parent="CanvasLayer" unique_id=556801038 instance=ExtResource("41_winscreen")]
 visible = false

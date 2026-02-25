@@ -227,4 +227,65 @@ flat = true
 virtual_keyboard_enabled = false
 metadata/_edit_use_anchors_ = true
 
+[node name="AppContent" type="VBoxContainer" parent="Panel/WindowContent" unique_id=997711001]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Panel/WindowContent/AppContent" unique_id=997711002]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 24
+text = "- GAME LIBRARY -"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/WindowContent/AppContent" unique_id=997711003]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Game1Button" type="Button" parent="Panel/WindowContent/AppContent" unique_id=997711004]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 20
+text = "Play CyberDefender (+300 pts)"
+
+[node name="Game2Button" type="Button" parent="Panel/WindowContent/AppContent" unique_id=997711005]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 20
+text = "Play HackSimulator (+500 pts)"
+
+[node name="Game3Button" type="Button" parent="Panel/WindowContent/AppContent" unique_id=997711006]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 20
+text = "Play DataMiner (+200 pts)"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/WindowContent/AppContent" unique_id=997711007]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="StatusLabel" type="Label" parent="Panel/WindowContent/AppContent" unique_id=997711008]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_uyibq")
+theme_override_font_sizes/font_size = 18
+text = "Select a game to play!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]
+
