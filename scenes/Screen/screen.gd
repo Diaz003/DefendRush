@@ -138,6 +138,17 @@ func _process(delta: float) -> void:
 		if game_over_timer <= 0.0:
 			_on_game_end()
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var vol_popup = get_node_or_null("VolumePopup")
+		if vol_popup and vol_popup.visible:
+			var popup_rect = vol_popup.get_global_rect()
+			var sound_btn = $Toolbar/utils/Sound
+			var btn_rect = sound_btn.get_global_rect()
+			
+			if not popup_rect.has_point(event.global_position) and not btn_rect.has_point(event.global_position):
+				vol_popup.hide()
+
 func show_toast(message: String) -> void:
 	if $CanvasLayer.has_node("NotificationToast"):
 		$CanvasLayer/NotificationToast.show_toast(message)
