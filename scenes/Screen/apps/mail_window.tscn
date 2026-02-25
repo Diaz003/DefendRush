@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="4_fa741"]
 [ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="5_ybvgx"]
 [ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="6_dgvi3"]
-[ext_resource type="Texture2D" uid="uid://dgwqsjlddhh6i" path="res://Photos_Used/google_gmail_new_01.webp" id="7_jywyj"]
+[ext_resource type="Texture2D" uid="uid://dgwqsjlddhh6i" path="res://assets/Photos_Used/google_gmail_new_01.webp" id="7_jywyj"]
 [ext_resource type="PackedScene" uid="uid://b20ydo7d4ihc6" path="res://scenes/Screen/apps/mails.tscn" id="8_mbs6g"]
 [ext_resource type="Script" uid="uid://d2bqw8txs721k" path="res://scenes/Screen/apps/mail_window.gd" id="9_mailg"]
 

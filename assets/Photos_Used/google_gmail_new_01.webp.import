@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqpnuu1o4sov"
-path="res://.godot/imported/actualizacion-paypal-ios-7.jpg-2cfefb8206a60a6558cb97d90d94f8f1.ctex"
+uid="uid://dgwqsjlddhh6i"
+path="res://.godot/imported/google_gmail_new_01.webp-45b0e1a7359fbae7513b070461a452e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Photos_Used/actualizacion-paypal-ios-7.jpg"
-dest_files=["res://.godot/imported/actualizacion-paypal-ios-7.jpg-2cfefb8206a60a6558cb97d90d94f8f1.ctex"]
+source_file="res://assets/Photos_Used/google_gmail_new_01.webp"
+dest_files=["res://.godot/imported/google_gmail_new_01.webp-45b0e1a7359fbae7513b070461a452e3.ctex"]
 
 [params]
 
