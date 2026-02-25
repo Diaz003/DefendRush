@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://power_on_seq"]
+
+[ext_resource type="Script" path="res://scenes/Screen/systems/power_on_sequence.gd" id="1_script"]
+
+[sub_resource type="Animation" id="Animation_poweron"]
+resource_name = "power_on"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CRTEffect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 2.0),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_main"]
+_data = {
+"power_on": SubResource("Animation_poweron")
+}
+
+[node name="PowerOnSequence" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_script")
+
+[node name="CRTEffect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_main")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

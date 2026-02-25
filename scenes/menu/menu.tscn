@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bce2hhs8xc3ts" path="res://assets/UI/Buttons/btn_idle.png" id="4_r8yej"]
 [ext_resource type="Texture2D" uid="uid://bfvxiernd26df" path="res://assets/UI/Buttons/btn_pressed.png" id="5_r8yej"]
 [ext_resource type="Texture2D" uid="uid://cutjcc6arkm5w" path="res://assets/UI/Buttons/btn_hover.png" id="6_3y2rt"]
-[ext_resource type="PackedScene" uid="uid://cal3b06v714u" path="res://scenes/Screen/Screen.tscn" id="8_t0a87"]
+[ext_resource type="VideoStream" uid="uid://co3evjcybioh1" path="res://assets/video/powerON.ogv" id="8_t0a87"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3y2rt"]
 texture = ExtResource("4_r8yej")
@@ -149,20 +149,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(7.3, 7.3)]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_game"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnvy"]
 _data = {
@@ -243,14 +229,95 @@ position = Vector2(578, 322)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=879940982]
 libraries/ = SubResource("AnimationLibrary_mhnvy")
 
-[node name="Desktop" parent="." unique_id=1214763542 instance=ExtResource("8_t0a87")]
+[node name="XPVideo" type="VideoStreamPlayer" parent="." unique_id=313860900]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43229166
+anchor_top = 0.31944442
+anchor_right = 1.6822916
+anchor_bottom = 1.9861112
+scale = Vector2(0.11022903, 0.08944183)
+stream = ExtResource("8_t0a87")
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsControl" type="Control" parent="." unique_id=744158296]
 visible = false
 layout_mode = 1
-offset_left = -9.0
-offset_top = -70.0
-offset_right = 13.105469
-offset_bottom = -63.0
-scale = Vector2(0.13774487, 0.14131741)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Label" parent="SettingsControl" unique_id=5347246]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 100.0
+offset_right = 170.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 80
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsControl" unique_id=9456241]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="VolumeLabel" type="Label" parent="SettingsControl/VBoxContainer" unique_id=735163]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+text = "Master  Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsControl/VBoxContainer" unique_id=835614]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+
+[node name="FullscreenButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=462341]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Fullscreen: OFF"
+
+[node name="BackButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=452425]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Back"
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="finished" from="XPVideo" to="." method="_on_xp_video_finished"]
+[connection signal="value_changed" from="SettingsControl/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsControl/VBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="SettingsControl/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
