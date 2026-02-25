@@ -11,6 +11,12 @@ var is_talking: bool = false
 
 func _ready() -> void:
 	label.text = ""
+	sprite.play("idle")
+	sprite.animation_finished.connect(_on_animation_finished)
+
+func _on_animation_finished() -> void:
+	if sprite.animation == "talking":
+		sprite.play("idle")
 
 func _input(event: InputEvent) -> void:
 	if is_talking and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

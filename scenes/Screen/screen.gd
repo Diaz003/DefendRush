@@ -82,18 +82,6 @@ func _ready() -> void:
 		if logs_window: logs_window.show()
 	)
 	guide_button.pressed.connect(func(): guide_window.show())
-	
-	$Toolbar/utils/Sound.pressed.connect(func():
-		var vol_popup = get_node_or_null("VolumePopup")
-		if vol_popup:
-			vol_popup.visible = !vol_popup.visible
-	)
-	var vol_slider = get_node_or_null("VolumePopup/VSlider")
-	if vol_slider:
-		vol_slider.value_changed.connect(func(value: float):
-			AudioServer.set_bus_volume_db(0, value)
-			AudioServer.set_bus_mute(0, value == vol_slider.min_value)
-		)
 
 	$Toolbar/utils/Sound.pressed.connect(func():
 		var vol_popup = get_node_or_null("VolumePopup")
@@ -108,10 +96,6 @@ func _ready() -> void:
 		)
 
 	_update_time_label()
-	_init_clip_npc()
-
-func _init_clip_npc() -> void:
-	pass
 
 func _init_clip_npc() -> void:
 	clip_npc = $Clip
@@ -254,15 +238,6 @@ func _spawn_file(force_exe: bool = false) -> void:
 
 	container.add_child(new_file)
 
-	if is_exe:
-		if new_file.consequence_type == 3 and is_anti_ransomware_active:
-			new_file.queue_free()
-			show_toast("Anti-Ransomware auto-deleted a Ransomware file before execution.")
-			add_log("ACTIVE PROTECTION: Ransomware downloaded and instantly deleted.", false)
-			return
-			
-	container.add_child(new_file)
-	
 	if is_exe:
 		new_file.file_executed.connect(_on_file_executed)
 		if is_scanner_active:
