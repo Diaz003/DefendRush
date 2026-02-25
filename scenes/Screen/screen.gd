@@ -121,7 +121,7 @@ func _process(delta: float) -> void:
 		if time_left_seconds <= 0.0:
 			time_left_seconds = 0.0
 			_update_time_label()
-			_on_game_end()
+			_on_game_end(true)
 			
 		if score <= 0 and active_malware > 0:
 			score = 0
@@ -292,11 +292,13 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 				$CanvasLayer/SteamWindow/Panel/WindowContent/PasswordAsk.show()
 				
 			$CanvasLayer/MailWindow.show()
-			if $CanvasLayer/MailWindow/Panel/WindowContent.has_node("PasswordAdd"):
-				if $CanvasLayer/MailWindow.has_node("InboxPanel"):
-					$CanvasLayer/MailWindow/InboxPanel.hide()
-				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAdd.hide()
-				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAsk.show()
+			if $CanvasLayer/MailWindow.has_node("InboxPanel/PasswordAdd"):
+				var inbox = $CanvasLayer/MailWindow.get_node("InboxPanel")
+				if inbox.has_node("ScrollContainer"):
+					inbox.get_node("ScrollContainer").hide()
+				inbox.get_node("PasswordAdd").hide()
+				inbox.get_node("PasswordAsk").show()
+				inbox.show()
 		else:
 			score += 500
 			current_file_spawn_interval = 45.0
@@ -316,9 +318,18 @@ func _update_time_label() -> void:
 	var seconds: int = int(total % 60)
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
-func _on_game_end() -> void:
+func _on_game_end(win: bool = false) -> void:
 	set_process(false)
-	var game_over = $CanvasLayer.get_node_or_null("GameOver")
-	if game_over:
-		game_over.show()
-		game_over.move_to_front()
+	
+	if win:
+		var win_screen = $CanvasLayer.get_node_or_null("WinScreen")
+		if win_screen:
+			if win_screen.has_method("set_score"):
+				win_screen.set_score(score)
+			win_screen.show()
+			win_screen.move_to_front()
+	else:
+		var game_over = $CanvasLayer.get_node_or_null("GameOver")
+		if game_over:
+			game_over.show()
+			game_over.move_to_front()

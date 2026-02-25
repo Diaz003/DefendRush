@@ -39,7 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://cs4qjegctx6jg" path="res://scenes/Screen/apps/logs_window.tscn" id="37_logs"]
 [ext_resource type="PackedScene" uid="uid://b8tq2o7v3kw1p" path="res://scenes/Screen/systems/NotificationToast.tscn" id="38_toast"]
 [ext_resource type="PackedScene" path="res://scenes/Screen/apps/bin_window.tscn" id="39_bin"]
-[ext_resource type="PackedScene" uid="uid://game0v3ryy5ys" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
+[ext_resource type="PackedScene" path="res://scenes/Screen/systems/win_screen.tscn" id="41_winscreen"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -713,4 +714,7 @@ offset_right = 0.076049805
 offset_bottom = 0.16796875
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("40_gameover")]
+visible = false
+
+[node name="WinScreen" parent="CanvasLayer" instance=ExtResource("41_winscreen")]
 visible = false
