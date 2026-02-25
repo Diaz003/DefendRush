@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://1bgj86mc3ml4"]
+
+[ext_resource type="Script" uid="uid://dpk8eonly7n5l" path="res://scenes/menu/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://g0c5rv03kl0k" path="res://assets/Background/background.png" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://du32nqcljsr2" path="res://assets/Letter/ARCADECLASSIC.TTF" id="3_y1o0p"]
+[ext_resource type="Texture2D" uid="uid://1sv1awgkfif1" path="res://scenes/menu/title.png" id="4_037ec"]
+[ext_resource type="Texture2D" uid="uid://bce2hhs8xc3ts" path="res://assets/UI/Buttons/btn_idle.png" id="4_r8yej"]
+[ext_resource type="Texture2D" uid="uid://bfvxiernd26df" path="res://assets/UI/Buttons/btn_pressed.png" id="5_r8yej"]
+[ext_resource type="Texture2D" uid="uid://cutjcc6arkm5w" path="res://assets/UI/Buttons/btn_hover.png" id="6_3y2rt"]
+[ext_resource type="VideoStream" uid="uid://co3evjcybioh1" path="res://assets/video/powerON.ogv" id="8_t0a87"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3y2rt"]
+texture = ExtResource("4_r8yej")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0a87"]
+texture = ExtResource("5_r8yej")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qo0fc"]
+texture = ExtResource("6_3y2rt")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="Animation_vjb58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t0a87"]
+resource_name = "fade_out_ui"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_zoom"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_con2f"]
+resource_name = "start_sequence"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-0.5, -65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(7.3, 7.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnvy"]
+_data = {
+&"RESET": SubResource("Animation_vjb58"),
+&"fade_out_ui": SubResource("Animation_t0a87"),
+&"start_sequence": SubResource("Animation_con2f")
+}
+
+[node name="Menu" type="Control" unique_id=1784085653]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="RoomBackground" type="TextureRect" parent="." unique_id=773540218]
+texture_filter = 1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 1835.9446
+offset_bottom = 1026.3179
+scale = Vector2(0.6332258, 0.63311934)
+texture = ExtResource("1_yqeox")
+stretch_mode = 5
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1142781767]
+position = Vector2(592, 149)
+scale = Vector2(0.723393, 0.7893617)
+texture = ExtResource("4_037ec")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1855794977]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 330.0
+offset_right = 782.0
+offset_bottom = 590.0
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=2013772538]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "PLAY"
+
+[node name="SettingsButton" type="Button" parent="Buttons" unique_id=1242297505]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="Buttons" unique_id=578243068]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "EXIT"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1243202901]
+position = Vector2(578, 322)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=879940982]
+libraries/ = SubResource("AnimationLibrary_mhnvy")
+
+[node name="XPVideo" type="VideoStreamPlayer" parent="." unique_id=313860900]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43229166
+anchor_top = 0.31944442
+anchor_right = 1.6822916
+anchor_bottom = 1.9861112
+scale = Vector2(0.11022903, 0.08944183)
+stream = ExtResource("8_t0a87")
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsControl" type="Control" parent="." unique_id=744158296]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Label" parent="SettingsControl" unique_id=5347246]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 100.0
+offset_right = 170.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 80
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsControl" unique_id=9456241]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="VolumeLabel" type="Label" parent="SettingsControl/VBoxContainer" unique_id=735163]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+text = "Master  Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsControl/VBoxContainer" unique_id=835614]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+
+[node name="FullscreenButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=462341]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Fullscreen: OFF"
+
+[node name="BackButton" type="Button" parent="SettingsControl/VBoxContainer" unique_id=452425]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y1o0p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
+text = "Back"
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="finished" from="XPVideo" to="." method="_on_xp_video_finished"]
+[connection signal="value_changed" from="SettingsControl/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsControl/VBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="SettingsControl/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
