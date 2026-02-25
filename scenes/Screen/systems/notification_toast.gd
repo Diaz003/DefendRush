@@ -10,3 +10,4 @@ func show_toast(message: String) -> void:
 	label.text = message
 	anim.stop()
 	anim.play("show")
+	$AudioStreamPlayer2D.play()

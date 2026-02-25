@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bfvxiernd26df" path="res://assets/UI/Buttons/btn_pressed.png" id="5_r8yej"]
 [ext_resource type="Texture2D" uid="uid://cutjcc6arkm5w" path="res://assets/UI/Buttons/btn_hover.png" id="6_3y2rt"]
 [ext_resource type="VideoStream" uid="uid://co3evjcybioh1" path="res://assets/video/powerON.ogv" id="8_t0a87"]
+[ext_resource type="AudioStream" uid="uid://dndhf2dsp28e5" path="res://assets/Sound and Music/MenuMusic.ogg" id="9_qo0fc"]
+[ext_resource type="AudioStream" uid="uid://cn42sew8js1tg" path="res://assets/Sound and Music/ClikOptions.mp3" id="10_k48pe"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3y2rt"]
 texture = ExtResource("4_r8yej")
@@ -313,6 +315,15 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_3y2rt")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t0a87")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qo0fc")
 text = "Back"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1128481584]
+stream = ExtResource("9_qo0fc")
+volume_db = -14.857
+max_distance = 10000.0
+attenuation = 0.0
+
+[node name="ClikOptions" type="AudioStreamPlayer2D" parent="." unique_id=1611389534]
+stream = ExtResource("10_k48pe")
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]

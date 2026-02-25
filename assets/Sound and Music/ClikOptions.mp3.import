@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn42sew8js1tg"
+path="res://.godot/imported/ClikOptions.mp3-e61da1b4d0f3c67b95869b27274f05a3.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound and Music/ClikOptions.mp3"
+dest_files=["res://.godot/imported/ClikOptions.mp3-e61da1b4d0f3c67b95869b27274f05a3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

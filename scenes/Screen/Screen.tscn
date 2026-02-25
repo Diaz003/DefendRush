@@ -42,9 +42,12 @@
 [ext_resource type="PackedScene" uid="uid://cmpn8jdsnekdd" path="res://scenes/Screen/systems/game_over.tscn" id="40_gameover"]
 [ext_resource type="PackedScene" uid="uid://dfp8vng2fkt0c" path="res://scenes/Screen/systems/win_screen.tscn" id="41_winscreen"]
 [ext_resource type="Texture2D" uid="uid://drcbxvpxm38ip" path="res://assets/Clip/sheets/clip (idle)_sheet.png" id="42_fqy5a"]
-[ext_resource type="Script" path="res://scenes/Screen/clip.gd" id="42_ihrvr"]
+[ext_resource type="Script" uid="uid://bubke1ou66ohm" path="res://scenes/Screen/clip.gd" id="42_ihrvr"]
 [ext_resource type="Texture2D" uid="uid://s8a5cykjwofc" path="res://assets/UI/TextBubble.png" id="43_ihrvr"]
 [ext_resource type="Texture2D" uid="uid://ciu6gbpkd7xhm" path="res://assets/Clip/sheets/clip (watch front)_sheet.png" id="44_w1v2d"]
+[ext_resource type="AudioStream" uid="uid://c3lxw5pv8580v" path="res://assets/Sound and Music/Clippy.mp3" id="46_bfdcb"]
+[ext_resource type="AudioStream" uid="uid://clqi0w0wrw1lq" path="res://assets/Sound and Music/GameMusic.ogg" id="46_qu4jt"]
+[ext_resource type="AudioStream" uid="uid://bhjjylgqj2lr3" path="res://assets/Sound and Music/NormalClik.mp3" id="47_klrq2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -1289,3 +1292,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "¡Hello, im Clip!
 Your personal assistant"
 autowrap_mode = 2
+
+[node name="Clippy" type="AudioStreamPlayer2D" parent="Clip" unique_id=1881174774]
+stream = ExtResource("46_bfdcb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1162265195]
+stream = ExtResource("46_qu4jt")
+volume_db = -20.429
+max_distance = 1000000.0
+attenuation = 0.0
+
+[node name="Clik" type="AudioStreamPlayer2D" parent="." unique_id=2047140393]
+stream = ExtResource("47_klrq2")

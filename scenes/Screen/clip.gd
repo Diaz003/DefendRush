@@ -19,7 +19,12 @@ func _on_animation_finished() -> void:
 		sprite.play("idle")
 
 func _input(event: InputEvent) -> void:
+	
 	if is_talking and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		
+		if has_node("Clippy"):
+			$Clippy.play()
+	
 		dismiss()
 
 func start_intro() -> void:
@@ -43,9 +48,14 @@ func _show_next_message() -> void:
 	if message_queue.is_empty():
 		_end_dialogue()
 		return
+	
+	
 	if not is_talking:
 		is_talking = true
 		emit_signal("dialogue_started")
+		if has_node("Clippy"):
+			$Clippy.play()
+			
 	label.text = message_queue.pop_front()
 	sprite.play("talking")
 
