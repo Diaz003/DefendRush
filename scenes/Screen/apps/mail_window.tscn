@@ -1,34 +1,41 @@
-[gd_scene format=3 uid="uid://bdhysdomfo37f"]
+[gd_scene format=3 uid="uid://bersewxuvkuw5"]
 
-[ext_resource type="Script" uid="uid://d2bqw8txs721k" path="res://scenes/Screen/apps/mail_window.gd" id="1_mailg"]
-[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_yv1jg"]
-[ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_3cgco"]
-[ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_prxae"]
-[ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="4_oklu6"]
-[ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="5_5jnyf"]
-[ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="6_kr1e6"]
-[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="7_numml"]
+[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_kwxy7"]
+[ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_jywyj"]
+[ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="3_mbs6g"]
+[ext_resource type="Texture2D" uid="uid://c5q3bccdc35i" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnPressed.png" id="4_fa741"]
+[ext_resource type="Texture2D" uid="uid://bm5f8jqi8i8hb" path="res://assets/Themes/Classic95/Styles/Window/CloseBtnH.png" id="5_ybvgx"]
+[ext_resource type="StyleBox" uid="uid://cnhbmqahqu8as" path="res://assets/Themes/Classic95/Styles/General/Box.tres" id="6_dgvi3"]
+[ext_resource type="Texture2D" uid="uid://dgwqsjlddhh6i" path="res://Photos_Used/google_gmail_new_01.webp" id="7_jywyj"]
+[ext_resource type="PackedScene" uid="uid://b20ydo7d4ihc6" path="res://scenes/Screen/apps/mails.tscn" id="8_mbs6g"]
+[ext_resource type="Script" uid="uid://d2bqw8txs721k" path="res://scenes/Screen/apps/mail_window.gd" id="9_mailg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dggw"]
 bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixu16"]
-texture = ExtResource("4_oklu6")
+texture = ExtResource("3_mbs6g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mby86"]
-texture = ExtResource("5_5jnyf")
+texture = ExtResource("4_fa741")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5trl"]
-texture = ExtResource("6_kr1e6")
+texture = ExtResource("5_ybvgx")
 
-[node name="FileManager" type="Control" unique_id=636015501]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbs6g"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa741"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Template" type="Control" unique_id=636015501]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yv1jg")
+script = ExtResource("1_kwxy7")
 
 [node name="Panel" type="Panel" parent="." unique_id=1646297441]
 layout_mode = 1
@@ -37,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_3cgco")
+theme_override_styles/panel = ExtResource("2_jywyj")
 
 [node name="TitleBar" type="Panel" parent="Panel" unique_id=411007645]
 layout_mode = 1
@@ -56,9 +63,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_prxae")
-theme_override_font_sizes/font_size = 34
-text = "Incoming Mail"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,29 +85,15 @@ metadata/_edit_use_anchors_ = true
 [node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.014756944
-anchor_top = 0.20524691
+anchor_left = 0.009548611
+anchor_top = 0.09293827
 anchor_right = 0.9869792
 anchor_bottom = 0.97839504
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("7_numml")
-script = ExtResource("1_mailg")
+theme_override_styles/panel = ExtResource("6_dgvi3")
+script = ExtResource("9_mailg")
 metadata/_edit_use_anchors_ = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/WindowContent" unique_id=1264750510]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/WindowContent/ScrollContainer" unique_id=932092207]
-custom_minimum_size = Vector2(0, 35.035)
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="PasswordAsk" type="VBoxContainer" parent="Panel/WindowContent" unique_id=4532131]
 layout_mode = 1
@@ -121,7 +111,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="Panel/WindowContent/PasswordAsk" unique_id=5324545]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_prxae")
 theme_override_font_sizes/font_size = 27
 text = "Do you want to change your password?"
 horizontal_alignment = 1
@@ -129,11 +118,11 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Panel/WindowContent/PasswordAsk" unique_id=23423]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_prxae")
 theme_override_font_sizes/font_size = 59
 text = "Yes"
 
 [node name="PasswordAdd" type="VBoxContainer" parent="Panel/WindowContent" unique_id=545465]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.199
@@ -148,7 +137,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="Panel/WindowContent/PasswordAdd" unique_id=53453]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_prxae")
 theme_override_font_sizes/font_size = 38
 text = "Insert your new password"
 horizontal_alignment = 1
@@ -157,7 +145,7 @@ vertical_alignment = 1
 [node name="Panel" type="Panel" parent="Panel/WindowContent/PasswordAdd" unique_id=2343]
 custom_minimum_size = Vector2(16.835, 41.6)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("7_numml")
+theme_override_styles/panel = ExtResource("6_dgvi3")
 
 [node name="LineEdit" type="LineEdit" parent="Panel/WindowContent/PasswordAdd/Panel" unique_id=44463]
 layout_mode = 1
@@ -167,10 +155,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_prxae")
 theme_override_font_sizes/font_size = 25
 alignment = 1
 max_length = 16
 flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747001041]
+position = Vector2(573.25, 346.5)
+scale = Vector2(1.054724, 0.8460411)
+texture = ExtResource("7_jywyj")
+
+[node name="Panel" type="Panel" parent="Sprite2D" unique_id=1616215269]
+offset_left = -337.7661
+offset_top = -169.61353
+offset_right = 494.67926
+offset_bottom = 341.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mbs6g")
+
+[node name="Panel2" type="Panel" parent="Sprite2D" unique_id=614041436]
+offset_left = -534.026
+offset_top = 84.51126
+offset_right = 288.93823
+offset_bottom = 342.18198
+theme_override_styles/panel = SubResource("StyleBoxFlat_mbs6g")
+
+[node name="InboxPanel" type="Panel" parent="." unique_id=1218158519]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 204.0
+offset_right = 1113.0
+offset_bottom = 617.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fa741")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InboxPanel" unique_id=1067564176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InboxPanel/ScrollContainer" unique_id=1627890304]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Mails" parent="InboxPanel/ScrollContainer/VBoxContainer" unique_id=676829406 instance=ExtResource("8_mbs6g")]
+layout_mode = 2
 
 [connection signal="pressed" from="Panel/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]

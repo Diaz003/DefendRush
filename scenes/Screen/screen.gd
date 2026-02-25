@@ -59,6 +59,12 @@ func _ready() -> void:
 	$MailButton.pressed.connect(func(): $CanvasLayer/MailWindow.show())
 	$PayPalButton.pressed.connect(func(): $CanvasLayer/BankWindow.show())
 	$SteamButton.pressed.connect(func(): $CanvasLayer/SteamWindow.show())
+	$BinButton.pressed.connect(func():
+		var bin = $CanvasLayer.get_node_or_null("BinWindow")
+		if bin: 
+			bin.show()
+			bin.move_to_front()
+	)
 	$FileButton.pressed.connect(func(): 
 		if has_active_ransomware:
 			show_toast("Error: Ransomware blocks access to system files.")
@@ -221,7 +227,9 @@ func _on_file_executed(consequence: int) -> void:
 			add_log("CRITICAL ALERT: Ransomware executed. Limits access and files.", true)
 
 func _spawn_mail() -> void:
-	var container = $CanvasLayer/MailWindow/Panel2/ScrollContainer/VBoxContainer
+	var container = $CanvasLayer/MailWindow/InboxPanel/ScrollContainer/VBoxContainer
+	if not container:
+		return
 	if container.get_child_count() >= 3:
 		score -= 2000
 		show_toast("You have ignored too many emails! Massive infection detected.")
@@ -285,8 +293,8 @@ func _on_mail_handled(is_malicious: bool, accept: bool) -> void:
 				
 			$CanvasLayer/MailWindow.show()
 			if $CanvasLayer/MailWindow/Panel/WindowContent.has_node("PasswordAdd"):
-				if $CanvasLayer/MailWindow.has_node("Panel2"):
-					$CanvasLayer/MailWindow/Panel2.hide()
+				if $CanvasLayer/MailWindow.has_node("InboxPanel"):
+					$CanvasLayer/MailWindow/InboxPanel.hide()
 				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAdd.hide()
 				$CanvasLayer/MailWindow/Panel/WindowContent/PasswordAsk.show()
 		else:
@@ -310,3 +318,7 @@ func _update_time_label() -> void:
 
 func _on_game_end() -> void:
 	set_process(false)
+	var game_over = $CanvasLayer.get_node_or_null("GameOver")
+	if game_over:
+		game_over.show()
+		game_over.move_to_front()

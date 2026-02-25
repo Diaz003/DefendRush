@@ -60,12 +60,14 @@ func _on_clean_malware_pressed() -> void:
 		var cleaned_something = false
 		if screen_node.active_malware > 0:
 			screen_node.active_malware = 0
+			_visually_clean_viruses(screen_node)
 			screen_node.show_toast("Malware units cleaned from the system.")
 			screen_node.add_log("THREAT NEUTRALIZED: Malware deleted by the Antivirus.", false)
 			cleaned_something = true
 			
 		if "has_active_trojan" in screen_node and screen_node.has_active_trojan:
 			screen_node.has_active_trojan = false
+			_visually_clean_viruses(screen_node)
 			if not screen_node.has_active_ransomware:
 				screen_node.game_over_timer = 0.0
 			screen_node.show_toast("Trojan successfully removed from the system!")
@@ -86,6 +88,7 @@ func _on_anti_ransomware_pressed() -> void:
 		if screen_node.has_active_ransomware:
 			screen_node.has_active_ransomware = false
 			screen_node.system_permissions_revoked = false
+			_visually_clean_viruses(screen_node)
 			if screen_node.game_over_timer > 0.0:
 				screen_node.game_over_timer = 0.0
 			screen_node.show_toast("Ransomware successfully removed from the system!")
@@ -117,3 +120,10 @@ func _on_analyze_file_pressed() -> void:
 		file_manager.show()
 		screen_node.show_toast("Active Analysis Mode: You can now manually delete files from the Manager.")
 		screen_node.add_log("SCANNER: Analysis Mode temporarily enabled.", false)
+
+func _visually_clean_viruses(screen_node: Node) -> void:
+	var container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")
+	if container:
+		for child in container.get_children():
+			if "is_exe" in child and child.is_exe and "exe_timer" in child and child.exe_timer <= 0.0:
+				child.queue_free()
