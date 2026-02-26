@@ -30,17 +30,15 @@ func _process(delta: float) -> void:
 			exe_timer = 0.0
 			_execute_payload()
 		else:
-			# Update label with countdown
 			$MarginContainer2/Label.text = base_name + "  [" + str(int(exe_timer)) + "s]"
-			# Progressive colour: white -> yellow -> orange -> red
 			if exe_timer > 20.0:
-				modulate = Color(1, 1, 1)          # white – safe window
+				modulate = Color(1, 1, 1)  
 			elif exe_timer > 10.0:
-				modulate = Color(1, 1, 0)           # yellow – caution
+				modulate = Color(1, 1, 0)      
 			elif exe_timer > 5.0:
-				modulate = Color(1, 0.5, 0)         # orange – urgent
+				modulate = Color(1, 0.5, 0)     
 			else:
-				modulate = Color(1, 0, 0)           # red – critical
+				modulate = Color(1, 0, 0)        
 
 func _execute_payload() -> void:
 	file_executed.emit(consequence_type)
@@ -60,16 +58,14 @@ func _on_delete_pressed() -> void:
 			screen_node.show_toast("Permission Denied: Use the Antivirus ('Analyze an file?') to enable manual deletion.")
 			return
 		
-		# Bonus for deleting threats before they execute
 		if is_exe and exe_timer > 0.0:
 			var bonus = 200
 			if exe_timer > 20.0:
-				bonus = 400  # Extra reward for catching early
+				bonus = 400  
 			screen_node.score += bonus
 			screen_node.show_toast("Threat neutralized! +" + str(bonus) + " pts!")
 			screen_node.add_log("SECURITY: Deleted threat '" + base_name + "' before execution. +" + str(bonus) + " pts.", false)
 		elif is_exe:
-			# Already executed, still let them delete but smaller bonus
 			screen_node.score += 50
 			screen_node.show_toast("Cleaned executed malware. +50 pts")
 			screen_node.add_log("CLEANUP: Removed executed malware '" + base_name + "'. +50 pts.", false)

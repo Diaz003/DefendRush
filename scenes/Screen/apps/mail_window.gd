@@ -25,11 +25,9 @@ func _ready():
 		)
 
 func _process(delta: float) -> void:
-	# Check if the MailWindow parent is visible
 	var mail_window = get_parent()
 	if not mail_window or not mail_window.visible:
 		return
-	# Don't earn points while password reset is showing
 	if has_node("PasswordAdd") and $PasswordAdd.visible:
 		return
 	point_timer += delta

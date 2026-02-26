@@ -189,7 +189,6 @@ func _increase_difficulty() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		
-		# Reproducir sonido Clik si el nodo existe
 		if has_node("Clik"):
 			$Clik.play()
 			

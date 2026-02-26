@@ -18,7 +18,7 @@ func setup(subject: String, body: String, malicious: bool, type: int) -> void:
 	var display_subject = subject
 	if is_malicious:
 		display_subject = "[!] " + subject
-		modulate = Color(1.0, 0.55, 0.55)  # red tint for phishing
+		modulate = Color(1.0, 0.55, 0.55) 
 
 	if has_node("MarginContainer/Label"):
 		$MarginContainer/Label.text = display_subject

@@ -77,7 +77,6 @@ func _on_window_visibility_changed() -> void:
 			$BrowserAsk.show()
 			$Separator.show()
 	else:
-		# Window closed – deactivate VPN effect if it was running
 		if vpn_active:
 			vpn_active = false
 			var desktop = get_tree().root.get_node_or_null("Desktop")
