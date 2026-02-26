@@ -248,6 +248,8 @@ grow_vertical = 2
 script = ExtResource("1_gg1dg")
 
 [node name="Panel" type="Panel" parent="." unique_id=1646297441]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -299,6 +301,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
 metadata/_edit_use_anchors_ = true
 
 [node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
+texture_filter = 1
+texture_repeat = 2
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -313,6 +317,8 @@ script = ExtResource("8_nhifd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Panel/WindowContent" unique_id=904217866]
+texture_filter = 1
+texture_repeat = 2
 custom_minimum_size = Vector2(542, 31.94)
 layout_mode = 1
 anchors_preset = -1
@@ -436,6 +442,8 @@ text = "No"
 autowrap_mode = 1
 
 [node name="Panel3" type="Panel" parent="Panel/WindowContent" unique_id=979563131]
+texture_filter = 1
+texture_repeat = 2
 custom_minimum_size = Vector2(523, 31.94)
 layout_mode = 1
 anchors_preset = -1
@@ -556,6 +564,8 @@ text = "No"
 autowrap_mode = 1
 
 [node name="Panel2" type="Panel" parent="Panel/WindowContent" unique_id=1835969207]
+texture_filter = 1
+texture_repeat = 2
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1

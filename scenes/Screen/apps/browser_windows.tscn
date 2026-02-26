@@ -345,6 +345,8 @@ grow_vertical = 2
 script = ExtResource("1_sedph")
 
 [node name="Panel" type="Panel" parent="." unique_id=1646297441]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -397,6 +399,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
 metadata/_edit_use_anchors_ = true
 
 [node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.012173913
@@ -451,6 +455,8 @@ autowrap_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Separator" type="Panel" parent="Panel/WindowContent" unique_id=1035855843]
+texture_filter = 1
+texture_repeat = 2
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -535,6 +541,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Panel/WindowContent/PasswordAdd" unique_id=1879903984]
+texture_filter = 1
+texture_repeat = 2
 custom_minimum_size = Vector2(18.305, 75.29)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("9_b2lcl")

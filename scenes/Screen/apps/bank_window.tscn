@@ -69,6 +69,8 @@ script = ExtResource("1_ko6d1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1646297441]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,6 +124,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
 metadata/_edit_use_anchors_ = true
 
 [node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.01615074
