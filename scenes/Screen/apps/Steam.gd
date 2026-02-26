@@ -1,6 +1,5 @@
 extends Panel
 
-# Game cooldowns (seconds remaining, 0 = ready)
 var game_cooldowns: Array[float] = [0.0, 0.0, 0.0]
 var game_rewards: Array[int] = [300, 500, 200]
 var game_cooldown_times: Array[float] = [30.0, 60.0, 20.0]
@@ -29,8 +28,7 @@ func _ready():
 				if desktop and desktop.has_method("on_app_password_reset"):
 					desktop.on_app_password_reset("Steam")
 		)
-	
-	# Connect game buttons
+		
 	if has_node("AppContent/Game1Button"):
 		$AppContent/Game1Button.pressed.connect(func(): _play_game(0))
 	if has_node("AppContent/Game2Button"):
@@ -50,7 +48,6 @@ func _process(delta: float) -> void:
 	if not win.visible:
 		return
 	
-	# Passive income while Steam is open and in app mode
 	if has_node("AppContent") and $AppContent.visible:
 		point_timer += delta
 		if point_timer >= 1.0:
@@ -59,7 +56,6 @@ func _process(delta: float) -> void:
 			if desktop:
 				desktop.score += 2
 	
-	# Tick down cooldowns
 	var any_changed = false
 	for i in range(game_cooldowns.size()):
 		if game_cooldowns[i] > 0.0:
@@ -79,7 +75,6 @@ func _play_game(index: int) -> void:
 		desktop.show_toast(game_names[index] + " is on cooldown! Wait " + str(int(game_cooldowns[index])) + "s.")
 		return
 	
-	# Award points and start cooldown
 	var reward = game_rewards[index]
 	desktop.score += reward
 	game_cooldowns[index] = game_cooldown_times[index]

@@ -44,17 +44,14 @@ func _ready() -> void:
 		_check_password()
 	)
 	
-	# Password prompt: Enter key in LineEdit
 	password_edit.text_submitted.connect(func(_t):
 		_check_password()
 	)
 
-	# Password prompt: Cancel
 	$Panel/WindowContent/PasswordPrompt/ButtonRow/CancelButton.pressed.connect(func():
 		_close_password_prompt()
 	)
 
-	# Permissions back button
 	$Panel/WindowContent/PermissionsContainer/TitleBox/BackButton.pressed.connect(func():
 		permissions_container.hide()
 		v_box_container.show()
@@ -95,7 +92,6 @@ func _process(delta: float) -> void:
 		update_timer = 0.3
 		_evaluate_system_status()
 		
-	# Smoothly animate the bars frame-by-frame
 	cpu_bar.value = lerp(cpu_bar.value, target_cpu, delta * 8.0)
 	ram_bar.value = lerp(ram_bar.value, target_ram, delta * 8.0)
 
@@ -116,11 +112,11 @@ func _evaluate_system_status() -> void:
 	if has_malware or is_high_load:
 		target_cpu = randf_range(85.0, 100.0)
 		target_ram = randf_range(80.0, 98.0)
-		bar_style.bg_color = Color(1.0, 0.0, 0.0) # Bright Red
+		bar_style.bg_color = Color(1.0, 0.0, 0.0) 
 	else:
 		target_cpu = randf_range(5.0, 25.0)
 		target_ram = randf_range(30.0, 45.0)
-		bar_style.bg_color = Color(0.2, 0.8, 0.2) # Green
+		bar_style.bg_color = Color(0.2, 0.8, 0.2) 
 
 func _on_antivirus_toggled(toggled_on: bool) -> void:
 	var screen_node = get_tree().root.get_node_or_null("Desktop")

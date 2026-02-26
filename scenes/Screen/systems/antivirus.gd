@@ -87,7 +87,6 @@ func _on_anti_ransomware_pressed() -> void:
 			screen_node.show_toast("Error: Anti-Ransomware is blocked because Administrator Permissions are active.")
 			return
 			
-		# Purpose 1: Remove Ransomware if already infected
 		if screen_node.has_active_ransomware:
 			screen_node.has_active_ransomware = false
 			screen_node.system_permissions_revoked = false
@@ -98,7 +97,6 @@ func _on_anti_ransomware_pressed() -> void:
 			screen_node.add_log("THREAT NEUTRALIZED: Ransomware deleted. Permissions restored.", false)
 			return
 
-		# Purpose 2: Activate/Deactivate preventive protection
 		if screen_node.is_scanner_active:
 			screen_node.show_toast("You cannot have Anti-Ransomware and Scanner active at the same time.")
 			return
@@ -148,9 +146,7 @@ func _colorize_malicious_files(screen_node: Node) -> void:
 	for child in container.get_children():
 		if "is_exe" in child and child.is_exe:
 			if "exe_timer" in child and child.exe_timer > 0.0:
-				# Pending threat – highlight orange
 				child.modulate = Color(1.0, 0.45, 0.0)
-			# Already-executed files stay red (set by file_item.gd)
 
 func _visually_clean_viruses(screen_node: Node) -> void:
 	var container = screen_node.get_node_or_null("CanvasLayer/FileManager/Panel/WindowContent/ScrollContainer/VBoxContainer")

@@ -1,6 +1,5 @@
 extends Panel
 
-# Bank balance (separate from score, used for investing)
 var balance: int = 0
 var invested: int = 0
 var invest_timer: float = 0.0
@@ -31,7 +30,6 @@ func _ready():
 					desktop.on_app_password_reset("Bank")
 		)
 	
-	# Connect bank action buttons
 	if has_node("AppContent/DepositButton"):
 		$AppContent/DepositButton.pressed.connect(_on_deposit)
 	if has_node("AppContent/InvestButton"):
@@ -52,7 +50,6 @@ func _process(delta: float) -> void:
 	if not owner.visible:
 		return
 	
-	# Passive income while Bank is open and in app mode
 	if has_node("AppContent") and $AppContent.visible:
 		point_timer += delta
 		if point_timer >= 1.0:
@@ -61,12 +58,11 @@ func _process(delta: float) -> void:
 			if desktop:
 				desktop.score += 3
 	
-	# Investment timer
 	if has_active_investment:
 		invest_timer -= delta
 		if invest_timer <= 0.0:
 			has_active_investment = false
-			invest_returns = int(invested * 1.6)  # 60% return
+			invest_returns = int(invested * 1.6) 
 			invested = 0
 			var desktop = get_tree().root.get_node_or_null("Desktop")
 			if desktop:

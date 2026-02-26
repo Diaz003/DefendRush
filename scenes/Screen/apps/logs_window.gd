@@ -31,7 +31,6 @@ func add_log(message: String, is_warning: bool = false, timestamp: String = "") 
 	if children.size() > max_logs:
 		children[0].queue_free()
 	
-	# Auto-scroll to bottom on the next frame so the child is laid out first
 	await get_tree().process_frame
 	scroll.scroll_vertical = scroll.get_v_scroll_bar().max_value
 
