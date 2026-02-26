@@ -52,7 +52,7 @@ func _ready() -> void:
 	$CanvasLayer/MailWindow.hide()
 	$CanvasLayer/OptionsWindow.hide()
 	$CanvasLayer/Guide.hide()
-
+	$AudioStreamPlayer2D.play()
 	set_process(false)
 	var power_on = power_on_scene.instantiate()
 	add_child(power_on)
@@ -185,8 +185,14 @@ func _increase_difficulty() -> void:
 	show_toast("System stress increased! Threats are escalating. (Level " + str(difficulty_level) + ")")
 	add_log("SYSTEM: Threat level escalated to Level " + str(difficulty_level) + ".", true)
 
+# --- FUNCIÓN MODIFICADA PARA INCLUIR EL SONIDO "Clik" ---
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		
+		# Reproducir sonido Clik si el nodo existe
+		if has_node("Clik"):
+			$Clik.play()
+			
 		var vol_popup = get_node_or_null("VolumePopup")
 		if vol_popup and vol_popup.visible:
 			var popup_rect = vol_popup.get_global_rect()
