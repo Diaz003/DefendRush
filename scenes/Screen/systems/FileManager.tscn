@@ -32,6 +32,8 @@ grow_vertical = 2
 script = ExtResource("1_yv1jg")
 
 [node name="Panel" type="Panel" parent="." unique_id=1646297441]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,6 +82,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
 metadata/_edit_use_anchors_ = true
 
 [node name="WindowContent" type="Panel" parent="Panel" unique_id=794613704]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014756944
@@ -110,6 +114,8 @@ visible = false
 layout_mode = 2
 
 [node name="DiskUbication" type="Panel" parent="Panel" unique_id=1731738424]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.293

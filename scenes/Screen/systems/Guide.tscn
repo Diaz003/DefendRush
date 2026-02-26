@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7twlwjajnm50"]
 
-[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/template.gd" id="1_htccr"]
+[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_htccr"]
 [ext_resource type="StyleBox" uid="uid://c2kx8wmbbmrk7" path="res://assets/Themes/Classic95/Styles/Bars/VGrabber.tres" id="1_vst1w"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="2_tvamm"]
 [ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="3_f0utt"]
@@ -32,6 +32,8 @@ script = ExtResource("1_htccr")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="." unique_id=441518348]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,6 +84,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_aitd4")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Panel" unique_id=269120946]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.030000001
