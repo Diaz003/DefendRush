@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5q3bccdc36i"]
 
-[ext_resource type="Script" uid="uid://xbaxkfb3i732" path="res://scenes/Screen/templates/template.gd" id="1_yv1jg"]
+[ext_resource type="Script" path="res://scenes/Screen/templates/template.gd" id="1_yv1jg"]
 [ext_resource type="StyleBox" uid="uid://cvf3dsmakwphd" path="res://assets/Themes/Classic95/Styles/Panel/Panel.tres" id="2_3cgco"]
 [ext_resource type="FontFile" uid="uid://gnix61q7gsog" path="res://assets/Letter/W95FA.otf" id="3_prxae"]
 [ext_resource type="Texture2D" uid="uid://dk0pa34w8su3u" path="res://assets/Themes/Classic95/Styles/Window/CloseBtn.png" id="4_oklu6"]
@@ -21,7 +21,7 @@ texture = ExtResource("5_5jnyf")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5trl"]
 texture = ExtResource("6_kr1e6")
 
-[node name="BinWindow" type="Control" unique_id=1362248819]
+[node name="BinWindow" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yv1jg")
 
-[node name="Panel" type="Panel" parent="." unique_id=427333825]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,23 +39,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_3cgco")
 
-[node name="TitleBar" type="Panel" parent="Panel" unique_id=511609145]
-clip_contents = true
+[node name="TitleBar" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.009548611
-anchor_top = 0.018518519
+anchor_top = 0.0061728396
 anchor_right = 0.9878472
-anchor_bottom = 0.1404321
+anchor_bottom = 0.074074075
 theme_override_styles/panel = SubResource("StyleBoxFlat_2dggw")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Panel/TitleBar" unique_id=240257660]
+[node name="Label" type="Label" parent="Panel/TitleBar"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.704956
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_prxae")
@@ -64,11 +62,11 @@ text = "Recycle Bin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="Button" parent="Panel/TitleBar" unique_id=894893952]
+[node name="CloseButton" type="Button" parent="Panel/TitleBar"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.94002837
+anchor_left = 0.95600003
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.4119873
@@ -80,11 +78,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_mby86")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l5trl")
 metadata/_edit_use_anchors_ = true
 
-[node name="WindowContent" type="Panel" parent="Panel" unique_id=1159344828]
+[node name="WindowContent" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014756944
-anchor_top = 0.16666667
+anchor_top = 0.20524691
 anchor_right = 0.9869792
 anchor_bottom = 0.97839504
 grow_horizontal = 2
@@ -92,7 +90,7 @@ grow_vertical = 2
 theme_override_styles/panel = ExtResource("7_numml")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/WindowContent" unique_id=587195960]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/WindowContent"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,14 +99,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/WindowContent/VBoxContainer" unique_id=1371747248]
+[node name="TextureRect" type="TextureRect" parent="Panel/WindowContent/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("8_icon")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Panel/WindowContent/VBoxContainer" unique_id=948029163]
+[node name="Label" type="Label" parent="Panel/WindowContent/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_prxae")

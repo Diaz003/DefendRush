@@ -185,6 +185,7 @@ func _increase_difficulty() -> void:
 	show_toast("System stress increased! Threats are escalating. (Level " + str(difficulty_level) + ")")
 	add_log("SYSTEM: Threat level escalated to Level " + str(difficulty_level) + ".", true)
 
+# --- FUNCIÓN MODIFICADA PARA INCLUIR EL SONIDO "Clik" ---
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		
