@@ -1,146 +1,108 @@
-## Development Team
+<div align="center">
 
-* https://github.com/Dracolardex
-* https://github.com/Diaz003
-* https://github.com/Racara07
+<img src="assets/banner.svg" alt="DefendRush" width="100%">
 
----
+![Godot](https://img.shields.io/badge/godot-4-ff8fd0?style=for-the-badge&logo=godotengine&logoColor=white&labelColor=1e0940)
+![GDScript](https://img.shields.io/badge/gdscript-100%25-e8c9ff?style=for-the-badge&labelColor=1e0940)
+![Género](https://img.shields.io/badge/serious%20game-ciberseguridad-bd93f9?style=for-the-badge&labelColor=1e0940)
+![Licencia](https://img.shields.io/badge/licencia-todos%20los%20derechos%20reservados-ff3d7f?style=for-the-badge&labelColor=1e0940)
 
-# DefendRush
+**Un juego 2D en pixel art donde aprendes a defender tu PC de ataques de verdad.**
 
-**DefendRush** is a 2D pixel-art serious game that teaches basic cybersecurity awareness for everyday users.
-You play inside a simulated desktop operating system and must react correctly to digital threats to keep your system safe.
-
----
-
-## Concept
-
-* Educational game focused on learning security best practices — not offensive ethical hacking.
-* Players face threats such as:
-
-  * Phishing
-  * Spoofing
-  * Malware
-  * Trojans
-  * Password theft
-  * Ransomware
-* All gameplay happens inside a desktop simulation built using Godot Control nodes.
+</div>
 
 ---
 
-## Gameplay Overview
+## 🌸 ¿Qué es?
 
-During a short “PC session”:
+DefendRush es un juego educativo de **ciberseguridad para gente normal**. No va de hackear: va de saber reaccionar cuando te llega un correo raro, salta un aviso de inicio de sesión o te aparece un ransomware en pantalla.
 
-* You receive random security events such as suspicious emails, login alerts, CPU spikes, or ransomware pop-ups.
-* You must respond using desktop applications:
-
-  * Email
-  * Browser
-  * Antivirus
-  * Backups
-  * Settings
-  * Privileges Manager
-  * Logs
-* Good decisions increase your score and maintain your Security bar.
-* Bad decisions reduce your score and system security.
-
-### End of Session Results
-
-* Final score
-* Blocked vs successful attacks
-* Personalized tips based on your mistakes
+Todo pasa dentro de un **escritorio falso** estilo Windows retro. Tienes una sesión de PC cortita y te van llegando amenazas que tienes que parar usando las apps del sistema.
 
 ---
 
-## Core Features
+## 🎮 Cómo se juega
 
-* Simulated Desktop
-
-  * Pixel-art wallpaper, icons, and taskbar resembling a real OS.
-* Threat Mini-Games
-
-  * Small gameplay challenges tied to each attack type (email inspection, scans, password creation, backups, etc.).
-* HUD
-
-  * Security bar
-  * Session timer
-  * Score
-* Ready-to-Run Project
-
-  * Scenes prepared to be opened directly in Godot.
+1. Empiezas en tu habitación y la cámara hace zoom al PC.
+2. Durante la sesión te saltan **eventos al azar**: correos sospechosos, alertas de login, la CPU al 100 %, ventanas de rescate…
+3. Respondes con las apps del escritorio. Si aciertas, sube tu puntuación y tu barra de **seguridad**. Si fallas, te la bajan.
+4. Al final ves tu **resultado**: puntos, ataques bloqueados contra ataques que se te colaron, y **consejos personalizados** según tus fallos.
 
 ---
 
-## Tech
+## ⚔️ Amenazas
 
-* Engine: Godot 4 (2D)
-* UI: Built entirely using Control nodes:
+| Amenaza | De qué va |
+|---|---|
+| 🎣 **Phishing** | Correos que se hacen pasar por quien no son para robarte datos |
+| 🎭 **Spoofing** | Remitentes y webs falsificados |
+| 🦠 **Malware** | Programas maliciosos que se cuelan en el sistema |
+| 🐴 **Troyanos** | Cosas que parecen legítimas pero no lo son |
+| 🔑 **Robo de contraseñas** | Contraseñas débiles o reutilizadas |
+| 💀 **Ransomware** | Te cifran los archivos y te piden dinero |
 
-  * Panel
-  * Button
-  * Label
-  * TextureButton
-  * Containers
+## 🖥️ Apps del escritorio
 
-### Main Scenes
+**Email** · **Navegador** · **Antivirus** · **Copias de seguridad** · **Ajustes** · **Gestor de privilegios** · **Logs**
 
-* `menu.tscn` — Intro scene with room + PC camera zoom.
-* `Screen.tscn` — Desktop simulation where gameplay happens.
-
----
-
-## Assets (Main Packs Used)
-
-* App icons — reffpixels: Pixel Art App Icons
-* Retro GUI — NullTale: Windows XP Asset Pack
-* Retro GUI — Comp3Interactive: Retro Windows GUI
-* Cyberpunk UI — Free GUI for Cyberpunk Pixel Art
-* Monospace font — NotJam Mono Clean 13
-
-(See each asset page for licenses. Only free or copyright-friendly assets are used.)
+Cada amenaza tiene su minijuego: revisar un correo, pasar un escaneo, crear una contraseña segura, hacer una copia de seguridad…
 
 ---
 
-## Repository Structure
+## 🏮 Cómo está hecho
 
-```
-assets/
-scenes/
- ├── menu.tscn
- ├── Screen.tscn
-.gitignore
-.editorconfig
-project.godot
-icon.png
-README.md
-```
+- **Motor:** Godot 4 (2D).
+- **Interfaz:** toda hecha con nodos *Control* (`Panel`, `Button`, `Label`, `TextureButton` y contenedores).
+- **Lógica:** escenas de Godot con scripts en GDScript que gestionan los eventos y la interfaz.
+- **HUD:** barra de seguridad, temporizador de sesión y puntuación.
 
-Main logic is implemented through Godot scenes and GDScript scripts handling events and UI behavior.
+| Escena | Qué es |
+|---|---|
+| `scenes/menu.tscn` | Intro: la habitación y el zoom al PC |
+| `scenes/Screen.tscn` | El escritorio simulado donde se juega |
 
 ---
 
-## About
+## ⚡ Cómo jugarlo
 
-DefendRush is an open-source serious game designed to teach users how to recognize and respond to common digital threats through an interactive desktop simulation.
-The project is written entirely in GDScript within the Godot engine structure.
-
----
-
-## Getting Started
-
-1. Clone the repository:
-
+1. Descarga el proyecto:
    ```bash
    git clone https://github.com/Diaz003/DefendRush.git
    ```
-2. Open the project in Godot 4.
-3. Run the main scene and start playing.
+2. Ábrelo con **Godot 4** (*Import* → elige el `project.godot`).
+3. Dale a ▶ y a jugar.
 
 ---
 
-## Purpose
+## 👾 Equipo
 
-The goal of DefendRush is to make cybersecurity awareness accessible, interactive, and engaging, helping players build real-world digital safety skills while playing.
+<div align="center">
+
+| [<img src="https://github.com/Diaz003.png" width="70"><br>**Diaz003**](https://github.com/Diaz003) | [<img src="https://github.com/Dracolardex.png" width="70"><br>**Dracolardex**](https://github.com/Dracolardex) | [<img src="https://github.com/Racara07.png" width="70"><br>**Racara07**](https://github.com/Racara07) |
+|:---:|:---:|:---:|
+
+</div>
 
 ---
+
+## 🎨 Créditos de assets
+
+Los gráficos y fuentes de terceros son de sus autores, cada uno con su licencia:
+
+- **Iconos de apps:** reffpixels — *Pixel Art App Icons*
+- **GUI retro:** NullTale — *Windows XP Asset Pack*
+- **GUI retro:** Comp3Interactive — *Retro Windows GUI*
+- **UI cyberpunk:** *Free GUI for Cyberpunk Pixel Art*
+- **Fuente:** NotJam — *Mono Clean 13*
+
+---
+
+## 🔒 Licencia
+
+**Todos los derechos reservados.** El código se puede ver y el juego se puede probar, pero no copiarlo, reutilizarlo ni venderlo sin permiso del equipo. Todo el detalle está en [LICENSE](LICENSE).
+
+<div align="center">
+
+<sub>Hecho con 🌸 por el equipo de DefendRush</sub>
+
+</div>
