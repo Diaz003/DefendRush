@@ -21,9 +21,25 @@ Todo pasa dentro de un **escritorio falso** estilo Windows retro. Tienes una ses
 
 ---
 
+## 🌙 Así se ve
+
+<div align="center">
+
+<img src="docs/gameplay.gif" alt="Partida de DefendRush" width="80%">
+
+| | |
+|:---:|:---:|
+| <img src="docs/menu.png" width="420"><br><sub>Menú principal</sub> | <img src="docs/clip.png" width="420"><br><sub>Clip, tu asistente, te explica todo</sub> |
+| <img src="docs/correo.png" width="420"><br><sub>Correo: ¿legítimo o phishing?</sub> | <img src="docs/antivirus.png" width="420"><br><sub>Antivirus: escanear, limpiar y anti-ransomware</sub> |
+| <img src="docs/archivos.png" width="420"><br><sub>Archivos: cuidado con los <code>.exe</code> disfrazados</sub> | <img src="docs/victoria.png" width="420"><br><sub>¡Turno superado!</sub> |
+
+</div>
+
+---
+
 ## 🎮 Cómo se juega
 
-1. Empiezas en tu habitación y la cámara hace zoom al PC.
+1. Empiezas en tu habitación, la cámara hace zoom al PC y **Clip**, tu asistente, te explica cómo va todo. Tienes **10 minutos**.
 2. Durante la sesión te saltan **eventos al azar**: correos sospechosos, alertas de login, la CPU al 100 %, ventanas de rescate…
 3. Respondes con las apps del escritorio. Si aciertas, sube tu puntuación y tu barra de **seguridad**. Si fallas, te la bajan.
 4. Al final ves tu **resultado**: puntos, ataques bloqueados contra ataques que se te colaron, y **consejos personalizados** según tus fallos.
@@ -43,7 +59,7 @@ Todo pasa dentro de un **escritorio falso** estilo Windows retro. Tienes una ses
 
 ## 🖥️ Apps del escritorio
 
-**Email** · **Navegador** · **Antivirus** · **Copias de seguridad** · **Ajustes** · **Gestor de privilegios** · **Logs**
+**Correo** · **Navegador** · **Banco** · **Juegos** · **Antivirus** · **Archivos** · **Papelera** · **Opciones** · **Logs**
 
 Cada amenaza tiene su minijuego: revisar un correo, pasar un escaneo, crear una contraseña segura, hacer una copia de seguridad…
 
